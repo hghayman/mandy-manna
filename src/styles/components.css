@@ -190,3 +190,24 @@
   object-fit: contain;
   background-color: transparent;
 }
+
+/* form input styles - override transparency */
+.form-input {
+  @apply bg-white dark:bg-slate-800;
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+.form-input:focus {
+  @apply bg-white dark:bg-slate-800;
+  background-color: white !important;
+  opacity: 1 !important;
+}
+
+.dark .form-input {
+  background-color: rgb(30 41 59) !important; /* slate-800 */
+}
+
+.dark .form-input:focus {
+  background-color: rgb(30 41 59) !important; /* slate-800 */
+}

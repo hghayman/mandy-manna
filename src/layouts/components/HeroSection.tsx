@@ -111,9 +111,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="w-full h-auto max-h-[450px] object-contain object-center"
+                  className="w-full h-auto max-h-[450px] object-contain object-center rounded-2xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-5xl"></div>
               </div>
 
               {/* Floating achievement card */}
