@@ -12,7 +12,7 @@ banner:
 # Features
 features:
   - title: "Educational Leadership & Innovation"
-    image: "/images/service-1.png"
+    image: "/images/education-leadership-innovation.jpeg"
     content: "Leading transformational change in urban education through agricultural innovation, serving over 200,000 students across Philadelphia's 8th largest school district in the United States."
     bulletpoints:
       - "**50,000+ student visits** to Fox Chase Farm"
@@ -27,7 +27,7 @@ features:
       link: "/about"
 
   - title: "Innovation & Program Development"
-    image: "/images/service-2.png"
+    image: "/images/innovation-and-program-development.gif"
     content: "Pioneering programs that bridge traditional agriculture with modern technology, creating career pathways for urban youth while addressing food insecurity in Philadelphia communities."
     bulletpoints:
       - "**Pennsylvania's first CEA apprenticeship program** development"
@@ -42,7 +42,7 @@ features:
       link: "/blog"
 
   - title: "Academic Excellence & Recognition"
-    image: "/images/service-3.png"
+    image: "/images/academic-excelence-2.jpeg"
     content: "Comprehensive educational background combining agricultural expertise with educational leadership, positioning uniquely to transform urban agricultural education."
     bulletpoints:
       - "**Doctor of Education (Ed.D.)** in Educational Leadership"

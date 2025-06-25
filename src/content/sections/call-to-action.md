@@ -1,10 +1,10 @@
 ---
-enable: true
-title: "Ready to build your next project with Astro?"
-image: "/images/call-to-action.png"
-description: "Experience the future of web development with Astroplate and Astro. Build lightning-fast static sites with ease and flexibility."
+enable: false
+title: "Ready to collaborate on educational innovation?"
+image: "/images/fox-chase-farm.jpeg"
+description: "Connect with Dr. Mandy Manna to explore partnerships in agricultural education, workforce development, and transformational learning experiences."
 button:
   enable: true
-  label: "Get Started Now"
-  link: "https://github.com/zeon-studio/astroplate"
+  label: "Get in Touch"
+  link: "/contact"
 ---

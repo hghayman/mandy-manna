@@ -357,10 +357,10 @@ const navigationSections = [
               <img src={edu.logo} alt={edu.institution} class="w-12 h-12 rounded-lg object-cover shadow-md" />
               <div class="flex-1">
                 <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">{edu.degree}</h3>
-                <p class={`${edu.color.replace('bg-', 'text-')} font-medium text-sm`}>{edu.field}</p>
+                <p class="text-blue-700 dark:text-blue-300 font-medium text-sm">{edu.field}</p>
               </div>
             </div>
-            <p class="text-gray-600 dark:text-gray-300 text-sm font-medium mb-2">{edu.institution}</p>
+            <p class="text-gray-700 dark:text-gray-200 text-sm font-medium mb-2">{edu.institution}</p>
             <div class="flex items-center justify-between">
               <span class="text-gray-500 dark:text-gray-400 text-xs">{edu.period}</span>
               <span class={`px-2 py-1 rounded-full text-xs font-medium ${edu.status === 'In Progress' ? 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400' : 'bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400'}`}>
