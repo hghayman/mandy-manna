@@ -29,7 +29,7 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 p-4 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-700"
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 p-4 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-700 flex flex-col h-full"
             >
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-bl-3xl"></div>
@@ -59,7 +59,7 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
               </h3>
               
               {/* Description */}
-              <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed flex-grow">
                 {achievement.description}
               </p>
               
