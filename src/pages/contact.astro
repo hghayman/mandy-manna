@@ -4,6 +4,7 @@ import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
 import { getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { FaLinkedin, FaTwitter, FaInstagram, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const contact = (await getEntry(
   "contact",
@@ -20,48 +21,145 @@ const { title, description, meta_title, image } = contact.data;
   image={image}
 >
   <PageHeader title={title} />
-  <section class="section-sm">
+  
+  <section class="section-sm bg-gray-50 dark:bg-slate-900">
     <div class="container">
-      <div class="row">
-        <div class="mx-auto md:col-10 lg:col-6">
-          <form action={contact_form_action} method="POST">
-            <div class="mb-6">
-              <label for="name" class="form-label">
-                Full Name <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="name"
-                name="name"
-                class="form-input"
-                placeholder="John Doe"
-                type="text"
-              />
+      <div class="row gx-5">
+        <!-- Contact Form Card -->
+        <div class="lg:col-7">
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-gray-200 dark:border-slate-700">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h3>
+            <form action={contact_form_action} method="POST" class="contact-form">
+              <div class="mb-4">
+                <label for="name" class="form-label">
+                  Full Name <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Your Name"
+                  type="text"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <label for="email" class="form-label">
+                  Email Address <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="Your Email"
+                  type="email"
+                  required
+                />
+              </div>
+              <div class="mb-4">
+                <label for="subject" class="form-label">
+                  Subject
+                </label>
+                <input
+                  id="subject"
+                  name="subject"
+                  class="form-input"
+                  placeholder="Subject"
+                  type="text"
+                />
+              </div>
+              <div class="mb-4">
+                <label for="message" class="form-label">
+                  Message <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-input"
+                  placeholder="Your message..."
+                  rows="6"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-full">Send Message</button>
+            </form>
+          </div>
+        </div>
+        
+        <!-- Contact Info & Social Card -->
+        <div class="lg:col-5">
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-gray-200 dark:border-slate-700 mb-6">
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Get in Touch</h3>
+            
+            <div class="space-y-4">
+              <div class="flex items-start space-x-3">
+                <FaMapMarkerAlt className="text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Location</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Fox Chase Farm<br />
+                    School District of Philadelphia<br />
+                    Philadelphia, PA
+                  </p>
+                </div>
+              </div>
+              
+              <div class="flex items-start space-x-3">
+                <FaEnvelope className="text-primary mt-1 flex-shrink-0" />
+                <div>
+                  <h4 class="font-semibold text-gray-900 dark:text-white">Email</h4>
+                  <p class="text-gray-600 dark:text-gray-300 text-sm">
+                    Use the contact form to reach out
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="mb-6">
-              <label for="email" class="form-label">
-                Working Mail <span class="text-red-500">*</span>
-              </label>
-              <input
-                id="email"
-                name="email"
-                class="form-input"
-                placeholder="john.doe@email.com"
-                type="email"
-              />
+          </div>
+          
+          <!-- Social Media Card -->
+          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-gray-200 dark:border-slate-700">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Connect on Social Media</h3>
+            
+            <div class="grid grid-cols-2 gap-3">
+              <a
+                href="https://www.linkedin.com/in/drmandy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                <FaLinkedin className="inline mr-2" />
+                LinkedIn
+              </a>
+              
+              <a
+                href="https://twitter.com/drmandy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                <FaTwitter className="inline mr-2" />
+                Twitter
+              </a>
+              
+              <a
+                href="https://instagram.com/drmandy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                <FaInstagram className="inline mr-2" />
+                Instagram
+              </a>
+              
+              <a
+                href="mailto:contact@drmandy.com"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                <FaEnvelope className="inline mr-2" />
+                Email
+              </a>
             </div>
-            <div class="mb-6">
-              <label for="message" class="form-label">
-                Anything else? <span class="text-red-500">*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                class="form-input"
-                placeholder="Message goes here..."
-                rows="8"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>

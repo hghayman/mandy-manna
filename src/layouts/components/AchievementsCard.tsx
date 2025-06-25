@@ -42,8 +42,10 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
               </div>
               
               {/* Category badge */}
-              <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300 mb-2 md:mb-3">
-                {achievement.category}
+              <div className="inline-block w-fit max-w-full">
+                <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300 mb-2 md:mb-3 whitespace-nowrap overflow-hidden text-ellipsis">
+                  {achievement.category}
+                </span>
               </div>
               
               {/* Value (if present) */}

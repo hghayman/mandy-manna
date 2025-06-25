@@ -20,7 +20,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 lg:-mt-16">
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
-      
+
       <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:pt-20 lg:pb-4">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
 
@@ -31,11 +31,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               Educational Innovation Leader
             </div>
 
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
+            {/* Mobile: Title, subtitle and circular image */}
+            <div className="lg:hidden flex items-center gap-6 mb-6">
+              <div className="flex-shrink-0">
+                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <img
+                    src={imageUrl}
+                    alt={title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="flex-1">
+                <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                  <span className="block font-serif">{title}</span>
+                </h1>
+                <p className="mt-2 text-lg font-medium text-blue-600 dark:text-blue-400">
+                  {subtitle}
+                </p>
+              </div>
+            </div>
+
+            {/* Desktop: Title only */}
+            <h1 className="hidden lg:block text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
               <span className="block font-serif">{title}</span>
             </h1>
 
-            <p className="mt-4 text-xl font-medium text-blue-600 dark:text-blue-400">
+            <p className="mt-4 text-xl font-medium text-blue-600 dark:text-blue-400 hidden lg:block">
               {subtitle}
             </p>
 
@@ -57,10 +79,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               )}
 
               <a
-                href="/about"
+                href="/contact"
                 className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-700 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors"
               >
-                Learn More
+                Contact
               </a>
             </div>
 
@@ -81,15 +103,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             </div>
           </div>
 
-          {/* Image */}
-          <div className="order-1 lg:order-2 relative -mt-8">
+          {/* Image - Desktop only */}
+          <div className="order-1 lg:order-2 hidden lg:block mt-[-90px]" >
             <div className="relative">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-400 blur-3xl opacity-20"></div>
               <div className="relative overflow-hidden rounded-2xl shadow-2xl">
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[450px] object-cover object-center"
+                  className="w-full h-auto max-h-[450px] object-contain object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
