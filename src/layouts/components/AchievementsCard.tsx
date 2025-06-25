@@ -25,41 +25,41 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-700"
+              className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 p-4 md:p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-200 dark:border-slate-700"
             >
               {/* Background decoration */}
               <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-blue-400/10 to-cyan-400/10 rounded-bl-3xl"></div>
               
               {/* Icon */}
-              <div className="relative z-10 mb-4">
-                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-2xl">{achievement.icon}</span>
+              <div className="relative z-10 mb-3">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-xl md:text-2xl">{achievement.icon}</span>
                 </div>
               </div>
               
               {/* Category badge */}
-              <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300 mb-3">
+              <div className="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300 mb-2 md:mb-3">
                 {achievement.category}
               </div>
               
               {/* Value (if present) */}
               {achievement.value && (
-                <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                <div className="text-xl md:text-2xl font-bold text-blue-600 dark:text-blue-400 mb-1 md:mb-2">
                   {achievement.value}
                 </div>
               )}
               
               {/* Title */}
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-base md:text-lg font-semibold text-gray-900 dark:text-white mb-1 md:mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
                 {achievement.title}
               </h3>
               
               {/* Description */}
-              <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed">
                 {achievement.description}
               </p>
               

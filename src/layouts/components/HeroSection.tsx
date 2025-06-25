@@ -89,7 +89,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="w-full h-[500px] object-cover object-center"
+                  className="w-full h-[200px] sm:h-[300px] md:h-[400px] lg:h-[500px] object-cover object-center"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
               </div>
