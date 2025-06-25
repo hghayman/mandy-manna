@@ -1,9 +1,7 @@
 ---
-title: "Hey, I am John Doe!"
-meta_title: "About"
-description: "this is meta description"
-image: "/images/avatar.png"
+title: "About Dr. Mandy Manna"
+meta_title: "About Dr. Mandy Manna - Educational Leader & Agricultural Innovation Expert"
+description: "Learn about Dr. Mandy Manna's journey as an educational leader, her work at Fox Chase Farm, and her innovative approaches to urban agricultural education in Philadelphia."
+image: "/images/dr-mandy-manna.jpg"
 draft: false
 ---
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis illum nesciunt commodi vel nisi ut alias excepturi ipsum, totam, labore tempora, odit ex iste tempore sed. Fugit voluptatibus perspiciatis assumenda nulla ad nihil, omnis vel, doloremque sit quam autem optio maiores, illum eius facilis et quo consectetur provident dolor similique! Enim voluptatem dicta expedita veritatis repellat dolorum impedit, provident quasi at.

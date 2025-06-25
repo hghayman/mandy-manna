@@ -1,9 +1,11 @@
 ---
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
+import HeroSection from "@/components/HeroSection";
+import AchievementsCard from "@/components/AchievementsCard";
+import Aurora from "@/components/Aurora";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
-import Testimonial from "@/partials/Testimonial.astro";
 import type { Button, Feature } from "@/types";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
@@ -24,94 +26,139 @@ const homepage = (await getEntry(
   "-index"
 )) as CollectionEntry<"homepage">;
 
-const testimonial = (await getEntry(
-  "testimonialSection",
-  "testimonial"
-)) as CollectionEntry<"testimonialSection">;
-
 const call_to_action = (await getEntry(
   "ctaSection",
   "call-to-action"
 )) as CollectionEntry<"ctaSection">;
 
 const { banner, features } = homepage.data as Homepage;
+
+// Define achievements data
+const achievements = [
+  {
+    icon: "🏆",
+    title: "2024 Neubauer Fellowship",
+    description: "Selected as a prestigious fellow recognizing exceptional educational leadership in Philadelphia schools.",
+    category: "Recognition",
+    value: "2024"
+  },
+  {
+    icon: "💰",
+    title: "Grant Funding Secured",
+    description: "Successfully obtained significant funding for educational programs and agricultural innovation initiatives.",
+    category: "Funding",
+    value: "$350K+"
+  },
+  {
+    icon: "🎓",
+    title: "Student Visits",
+    description: "Educational experiences provided to students across Philadelphia's 8th largest school district.",
+    category: "Impact",
+    value: "50K+"
+  },
+  {
+    icon: "🌱",
+    title: "Farm Management",
+    description: "Overseeing the largest public school district-run educational farm in the United States.",
+    category: "Leadership",
+    value: "112 Acres"
+  },
+  {
+    icon: "👥",
+    title: "Teacher Training",
+    description: "Agriculture Empowerment Program providing professional development for educators.",
+    category: "Education",
+    value: "85+ Teachers"
+  },
+  {
+    icon: "🔬",
+    title: "CEA Program Pioneer",
+    description: "Developed Pennsylvania's first apprenticeship program in Controlled Environment Agriculture.",
+    category: "Innovation",
+    value: "First in PA"
+  }
+];
 ---
 
-<Base>
-  <!-- Banner -->
-  <section class="section pt-14">
-    <div class="container">
-      <div class="row justify-center">
-        <div class="lg:col-7 md:col-9 mb-8 text-center">
-          <h1
-            set:html={markdownify(banner.title)}
-            class="mb-4 text-h3 lg:text-h1"
-          />
-          <p set:html={markdownify(banner.content)} class="mb-8" />
-          {
-            banner.button.enable && (
-              <a
-                class="btn btn-primary"
-                href={banner.button.link}
-                target={
-                  banner.button.link.startsWith("http") ? "_blank" : "_self"
-                }
-                rel="noopener"
-              >
-                {banner.button.label}
-              </a>
-            )
-          }
-        </div>
-        {
-          banner.image && (
-            <div class="col-12">
-              <ImageMod
-                src={banner.image}
-                height={380}
-                width={1200}
-                alt="banner"
-                format="webp"
-              />
-            </div>
-          )
-        }
-      </div>
-    </div>
-  </section>
-  <!-- /Banner -->
+<Base
+  title="Dr. Mandy Manna - Educational Leader & Agricultural Innovation Expert"
+  meta_title="Dr. Mandy Manna - Portfolio"
+  description="Educational leader transforming urban agriculture through innovative experiential learning. Farm Administrator at Fox Chase Farm, managing the largest public school district-run educational farm in the United States."
+  image="/images/dr-mandy-manna.jpg"
+>
+  <!-- Aurora Background -->
+  <Aurora
+    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+    blend={0.1}
+    amplitude={0.8}
+    speed={0.3}
+    client:load
+  />
+
+  <!-- Hero Section -->
+  <HeroSection
+    title={banner.title}
+    subtitle="Farm Administrator | Educational Leader | Agricultural Innovation Expert"
+    description={banner.content}
+    imageUrl={banner.image}
+    ctaText={banner.button.enable ? banner.button.label : undefined}
+    ctaUrl={banner.button.enable ? banner.button.link : undefined}
+    client:load
+  />
+
+  <!-- Achievements Section -->
+  <AchievementsCard achievements={achievements} client:load />
 
   <!-- Features -->
   {
     features.map((feature, index: number) => (
-      <section class={`section-sm ${index % 2 === 0 && "bg-gradient"}`}>
-        <div class="container">
-          <div class="row items-center justify-between">
-            <div
-              class={`mb:md-0 mb-6 md:col-5 ${index % 2 !== 0 && "md:order-2"}`}
-            >
-              <ImageMod
-                src={feature.image}
-                height={480}
-                width={520}
-                alt={feature.title}
-                format="webp"
-              />
+      <section class={`py-16 ${index % 2 === 0 ? "bg-gray-50 dark:bg-slate-800" : "bg-white dark:bg-slate-900"}`}>
+        <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class={index % 2 !== 0 ? "lg:order-2" : ""}>
+              <div class="relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-2xl blur-3xl"></div>
+                <ImageMod
+                  src={feature.image}
+                  height={480}
+                  width={520}
+                  alt={feature.title}
+                  format="webp"
+                  class="relative rounded-2xl shadow-lg"
+                />
+              </div>
             </div>
-            <div class={`md:col-7 lg:col-6 ${index % 2 !== 0 && "md:order-1"}`}>
-              <h2 set:html={markdownify(feature.title)} class="mb-4" />
-              <p set:html={markdownify(feature.content)} class="mb-8 text-lg" />
-              <ul>
+            <div class={index % 2 !== 0 ? "lg:order-1" : ""}>
+              <h2
+                set:html={markdownify(feature.title)}
+                class="text-3xl font-bold text-gray-900 dark:text-white mb-6"
+              />
+              <p
+                set:html={markdownify(feature.content)}
+                class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
+              />
+              <div class="space-y-4">
                 {feature.bulletpoints.map((bullet: string) => (
-                  <li class="relative mb-4 pl-6">
-                    <FaCheck className={"absolute left-0 top-1.5"} />
-                    <span set:html={markdownify(bullet)} />
-                  </li>
+                  <div class="flex items-start space-x-3">
+                    <div class="flex-shrink-0 w-6 h-6 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mt-0.5">
+                      <FaCheck className="w-3 h-3 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <span
+                      set:html={markdownify(bullet)}
+                      class="text-gray-700 dark:text-gray-300"
+                    />
+                  </div>
                 ))}
-              </ul>
+              </div>
               {feature.button.enable && (
-                <a class="btn btn-primary mt-5" href={feature.button.link}>
+                <a
+                  class="inline-flex items-center mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors duration-200"
+                  href={feature.button.link}
+                >
                   {feature.button.label}
+                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
                 </a>
               )}
             </div>
@@ -122,6 +169,5 @@ const { banner, features } = homepage.data as Homepage;
   }
   <!-- /Features -->
 
-  <Testimonial testimonial={testimonial} />
   <CallToAction call_to_action={call_to_action} />
 </Base>

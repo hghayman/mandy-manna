@@ -1,15 +1,15 @@
 {
   "site": {
-    "title": "Astroplate",
-    "base_url": "https://astroplate.netlify.app",
+    "title": "Dr. Mandy Manna",
+    "base_url": "https://drmandy-manna.netlify.app",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
     "logo": "/images/logo.png",
     "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "30",
-    "logo_text": "Astroplate"
+    "logo_width": "200",
+    "logo_height": "40",
+    "logo_text": "Dr. Mandy Manna"
   },
 
   "settings": {
@@ -24,13 +24,13 @@
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "© 2025 Dr. Mandy Manna. All rights reserved."
   },
 
   "navigation_button": {
     "enable": true,
-    "label": "Get Started",
-    "link": "https://github.com/zeon-studio/astroplate"
+    "label": "Contact Me",
+    "link": "/contact"
   },
 
   "google_tag_manager": {
@@ -45,8 +45,8 @@
   },
 
   "metadata": {
-    "meta_author": "zeon.studio",
+    "meta_author": "Dr. Mandy Manna",
     "meta_image": "/images/og-image.png",
-    "meta_description": "astro and tailwind boilerplate"
+    "meta_description": "Dr. Mandy Manna - Educational Leader, Farm Administrator, and Agricultural Innovation Expert. Transforming urban education through experiential learning at Fox Chase Farm, Philadelphia."
   }
 }
