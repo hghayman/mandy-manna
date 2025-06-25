@@ -2,9 +2,9 @@
 import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import PageHeader from "@/partials/PageHeader.astro";
+import Aurora from "@/components/Aurora";
 import { getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-import { FaLinkedin, FaTwitter, FaInstagram, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 const contact = (await getEntry(
   "contact",
@@ -20,17 +20,28 @@ const { title, description, meta_title, image } = contact.data;
   description={description}
   image={image}
 >
+  <!-- Aurora Background -->
+  <Aurora
+    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+    blend={0.05}
+    amplitude={0.5}
+    speed={0.2}
+    client:load
+  />
+
   <PageHeader title={title} />
   
-  <section class="section-sm bg-gray-50 dark:bg-slate-900">
-    <div class="container">
-      <div class="row gx-5">
-        <!-- Contact Form Card -->
-        <div class="lg:col-7">
-          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-gray-200 dark:border-slate-700">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Send a Message</h3>
-            <form action={contact_form_action} method="POST" class="contact-form">
-              <div class="mb-4">
+  <!-- Contact Section -->
+  <section class="py-16 bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Contact Form -->
+        <div class="lg:col-span-2">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-slate-700">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 font-serif">Send a Message</h2>
+            <form action={contact_form_action} method="POST">
+              <div class="mb-6">
                 <label for="name" class="form-label">
                   Full Name <span class="text-red-500">*</span>
                 </label>
@@ -43,7 +54,7 @@ const { title, description, meta_title, image } = contact.data;
                   required
                 />
               </div>
-              <div class="mb-4">
+              <div class="mb-6">
                 <label for="email" class="form-label">
                   Email Address <span class="text-red-500">*</span>
                 </label>
@@ -51,12 +62,12 @@ const { title, description, meta_title, image } = contact.data;
                   id="email"
                   name="email"
                   class="form-input"
-                  placeholder="Your Email"
+                  placeholder="your.email@example.com"
                   type="email"
                   required
                 />
               </div>
-              <div class="mb-4">
+              <div class="mb-6">
                 <label for="subject" class="form-label">
                   Subject
                 </label>
@@ -68,7 +79,7 @@ const { title, description, meta_title, image } = contact.data;
                   type="text"
                 />
               </div>
-              <div class="mb-4">
+              <div class="mb-6">
                 <label for="message" class="form-label">
                   Message <span class="text-red-500">*</span>
                 </label>
@@ -77,7 +88,7 @@ const { title, description, meta_title, image } = contact.data;
                   name="message"
                   class="form-input"
                   placeholder="Your message..."
-                  rows="6"
+                  rows="8"
                   required
                 ></textarea>
               </div>
@@ -86,39 +97,34 @@ const { title, description, meta_title, image } = contact.data;
           </div>
         </div>
         
-        <!-- Contact Info & Social Card -->
-        <div class="lg:col-5">
-          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-gray-200 dark:border-slate-700 mb-6">
-            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">Get in Touch</h3>
+        <!-- Contact Info & Social -->
+        <div class="space-y-6">
+          <!-- Contact Information -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-slate-700">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 font-serif">Get in Touch</h3>
             
             <div class="space-y-4">
-              <div class="flex items-start space-x-3">
-                <FaMapMarkerAlt className="text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <h4 class="font-semibold text-gray-900 dark:text-white">Location</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm">
-                    Fox Chase Farm<br />
-                    School District of Philadelphia<br />
-                    Philadelphia, PA
-                  </p>
-                </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Location</h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  Fox Chase Farm<br>
+                  School District of Philadelphia<br>
+                  Philadelphia, PA
+                </p>
               </div>
               
-              <div class="flex items-start space-x-3">
-                <FaEnvelope className="text-primary mt-1 flex-shrink-0" />
-                <div>
-                  <h4 class="font-semibold text-gray-900 dark:text-white">Email</h4>
-                  <p class="text-gray-600 dark:text-gray-300 text-sm">
-                    Use the contact form to reach out
-                  </p>
-                </div>
+              <div>
+                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Email</h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  Please use the contact form to reach out
+                </p>
               </div>
             </div>
           </div>
           
-          <!-- Social Media Card -->
-          <div class="bg-white dark:bg-slate-800 rounded-lg shadow-lg p-8 border border-gray-200 dark:border-slate-700">
-            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6">Connect on Social Media</h3>
+          <!-- Social Media -->
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-slate-700">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-6 font-serif">Connect on Social Media</h3>
             
             <div class="grid grid-cols-2 gap-3">
               <a
@@ -127,7 +133,6 @@ const { title, description, meta_title, image } = contact.data;
                 rel="noopener noreferrer"
                 class="btn btn-outline-primary btn-sm text-center"
               >
-                <FaLinkedin className="inline mr-2" />
                 LinkedIn
               </a>
               
@@ -137,7 +142,6 @@ const { title, description, meta_title, image } = contact.data;
                 rel="noopener noreferrer"
                 class="btn btn-outline-primary btn-sm text-center"
               >
-                <FaTwitter className="inline mr-2" />
                 Twitter
               </a>
               
@@ -147,7 +151,6 @@ const { title, description, meta_title, image } = contact.data;
                 rel="noopener noreferrer"
                 class="btn btn-outline-primary btn-sm text-center"
               >
-                <FaInstagram className="inline mr-2" />
                 Instagram
               </a>
               
@@ -155,10 +158,17 @@ const { title, description, meta_title, image } = contact.data;
                 href="mailto:contact@drmandy.com"
                 class="btn btn-outline-primary btn-sm text-center"
               >
-                <FaEnvelope className="inline mr-2" />
                 Email
               </a>
             </div>
+          </div>
+
+          <!-- Response Time Info -->
+          <div class="bg-gradient-to-br from-green-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 border border-green-200 dark:border-slate-600">
+            <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Response Time</h4>
+            <p class="text-gray-700 dark:text-gray-300 text-sm">
+              I strive to respond to all professional inquiries within 48 hours during the school year.
+            </p>
           </div>
         </div>
       </div>
