@@ -23,12 +23,12 @@ interface Homepage {
 
 const homepage = (await getEntry(
   "homepage",
-  "-index"
+  "-index",
 )) as CollectionEntry<"homepage">;
 
 const call_to_action = (await getEntry(
   "ctaSection",
-  "call-to-action"
+  "call-to-action",
 )) as CollectionEntry<"ctaSection">;
 
 const { banner, features } = homepage.data as Homepage;
@@ -38,45 +38,51 @@ const achievements = [
   {
     icon: "🏆",
     title: "2024 Neubauer Fellowship",
-    description: "Selected as a prestigious fellow recognizing exceptional educational leadership in Philadelphia schools.",
+    description:
+      "Selected as a prestigious fellow recognizing exceptional educational leadership in Philadelphia schools.",
     category: "Recognition",
-    value: "2024"
+    value: "2024",
   },
   {
     icon: "💰",
-    title: "Grant Funding Secured",
-    description: "Successfully obtained significant funding for educational programs and agricultural innovation initiatives.",
+    title: "Grant Leadership",
+    description:
+      "Secured and managing $2.2M+ in competitive grants powering sustainable agricultural innovation.",
     category: "Funding",
-    value: "$350K+"
+    value: "$2.2M+",
   },
   {
     icon: "🎓",
-    title: "Student Visits",
-    description: "Educational experiences provided to students across Philadelphia's 8th largest school district.",
+    title: "Student Engagement",
+    description:
+      "Hub-and-spoke model serving 50,000+ student visits across 60+ schools each year.",
     category: "Impact",
-    value: "50K+"
+    value: "50K+",
   },
   {
     icon: "🌱",
-    title: "Farm Management",
-    description: "Overseeing the largest public school district-run educational farm in the United States.",
+    title: "Farm Stewardship",
+    description:
+      "Managing the largest urban public school district-operated educational farm in the United States.",
     category: "Leadership",
-    value: "112 Acres"
+    value: "112 Acres",
   },
   {
     icon: "👥",
-    title: "Teacher Training",
-    description: "Agriculture Empowerment Program providing professional development for educators.",
+    title: "Educator Development",
+    description:
+      "Launching Agriculture Innovations Academy to certify 100+ teachers in agricultural literacy.",
     category: "Education",
-    value: "85+ Teachers"
+    value: "100+ Teachers",
   },
   {
     icon: "🔬",
-    title: "CEA Program Pioneer",
-    description: "Developed Pennsylvania's first apprenticeship program in Controlled Environment Agriculture.",
+    title: "CEA Pipeline",
+    description:
+      "Leading Philadelphia's first district-wide Controlled Environment Agriculture pre-apprenticeship programs.",
     category: "Innovation",
-    value: "First in PA"
-  }
+    value: "First in PA",
+  },
 ];
 ---
 
@@ -84,7 +90,7 @@ const achievements = [
   title="Dr. Mandy Manna - Educational Leader & Agricultural Innovation Expert"
   meta_title="Dr. Mandy Manna - Portfolio"
   description="Educational leader transforming urban agriculture through innovative experiential learning. Farm Administrator at Fox Chase Farm, managing the largest public school district-run educational farm in the United States."
-  image="/images/dr-mandy-manna.jpg"
+  image="/images/manna.webp"
 >
   <!-- Aurora Background -->
   <Aurora
@@ -112,12 +118,14 @@ const achievements = [
   <!-- Features -->
   {
     features.map((feature, index: number) => (
-      <section class={`py-16 ${index % 2 === 0 ? "bg-gray-50 dark:bg-slate-800" : "bg-white dark:bg-slate-900"}`}>
+      <section
+        class={`py-16 ${index % 2 === 0 ? "bg-gray-50 dark:bg-slate-800" : "bg-white dark:bg-slate-900"}`}
+      >
         <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div class={index % 2 !== 0 ? "lg:order-2" : ""}>
               <div class="relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-2xl blur-3xl"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-2xl blur-3xl" />
                 <ImageMod
                   src={feature.image}
                   height={480}
@@ -156,8 +164,18 @@ const achievements = [
                   href={feature.button.link}
                 >
                   {feature.button.label}
-                  <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    class="ml-2 w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </a>
               )}

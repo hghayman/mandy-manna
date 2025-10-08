@@ -27,8 +27,8 @@ This new website represents more than just an online presence—it's a testament
 
 **Innovation & Recognition**
 - 2024 Neubauer Fellowship recipient
-- $350,000+ in grants secured for educational programs
-- Pioneer of Pennsylvania's first Controlled Environment Agriculture apprenticeship program
+- $2.2M+ in competitive grants secured to expand agricultural innovation
+- Pioneer of Philadelphia's first district-wide Controlled Environment Agriculture pre-apprenticeship programs
 
 **Community Impact**
 - Agriculture Empowerment Network founder

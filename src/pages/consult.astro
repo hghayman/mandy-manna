@@ -1,0 +1,263 @@
+---
+import config from "@/config/config.json";
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/partials/PageHeader.astro";
+import Aurora from "@/components/Aurora";
+import { getEntry } from "astro:content";
+
+const contactEntry = await getEntry("contact", "-index");
+
+if (!contactEntry) {
+  throw new Error("Consulting page content could not be loaded.");
+}
+
+const { contact_form_action }: { contact_form_action: string } = config.params;
+const { title, description, meta_title, image } = contactEntry.data;
+---
+
+<Base
+  title={title}
+  meta_title={meta_title}
+  description={description}
+  image={image}
+>
+  <!-- Aurora Background -->
+  <Aurora
+    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
+    blend={0.05}
+    amplitude={0.5}
+    speed={0.2}
+    client:load
+  />
+
+  <PageHeader title={title} />
+
+  <!-- Contact Section -->
+  <section
+    class="py-16 bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+  >
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Consulting Services -->
+        <div class="lg:col-span-1">
+          <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 border border-blue-200/60 dark:border-blue-900/40 space-y-6">
+            <div class="space-y-3">
+              <span class="inline-flex items-center gap-2 px-3 py-1 text-sm font-semibold uppercase tracking-wide text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-900/30 rounded-full w-max">
+                <span class="text-lg">🤝</span>
+                Consulting Services
+              </span>
+              <h2 class="text-2xl font-serif font-bold text-gray-900 dark:text-white">
+                Strategic Agricultural Innovation
+              </h2>
+              <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+                Dr. Manna partners with districts, agencies, and organizations to build sustainable, student-centered agriculture ecosystems.
+              </p>
+            </div>
+            <div class="space-y-4">
+              <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/60 dark:bg-slate-900/60 p-4">
+                <h3 class="text-base font-semibold text-blue-700 dark:text-blue-300 mb-1">Program Design</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  Align agricultural innovation programs with district priorities and strategic plans.
+                </p>
+              </div>
+              <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/60 dark:bg-slate-900/60 p-4">
+                <h3 class="text-base font-semibold text-blue-700 dark:text-blue-300 mb-1">Workforce Pipelines</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  Develop CEA, trades, and ag-tech pathways connecting students from elementary through high school.
+                </p>
+              </div>
+              <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/60 dark:bg-slate-900/60 p-4">
+                <h3 class="text-base font-semibold text-blue-700 dark:text-blue-300 mb-1">Funding & Sustainability</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  Secure competitive grants and build multi-year roadmaps that sustain growth and impact.
+                </p>
+              </div>
+              <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/60 dark:bg-slate-900/60 p-4">
+                <h3 class="text-base font-semibold text-blue-700 dark:text-blue-300 mb-1">Educator Development</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  Train and certify teachers in agricultural literacy with hands-on, standards-aligned learning.
+                </p>
+              </div>
+              <div class="rounded-xl border border-blue-100 dark:border-blue-900/40 bg-blue-50/60 dark:bg-slate-900/60 p-4">
+                <h3 class="text-base font-semibold text-blue-700 dark:text-blue-300 mb-1">Community Engagement</h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  Engage communities through events, partnerships, and student-run enterprises advancing food justice and entrepreneurship.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:col-span-2">
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-8 border border-gray-200 dark:border-slate-700"
+          >
+            <div class="space-y-3">
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white font-serif">
+                Send a Message
+              </h2>
+              <p class="text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                Share your goals and the team will connect to design a consulting partnership tailored to your district or organization.
+              </p>
+            </div>
+            <form action={contact_form_action} method="POST" class="mt-6 space-y-6">
+              <div class="mb-6">
+                <label for="name" class="form-label">
+                  Full Name <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="name"
+                  name="name"
+                  class="form-input border border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200/70 focus:outline-none"
+                  placeholder="Your Name"
+                  type="text"
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label for="email" class="form-label">
+                  Email Address <span class="text-red-500">*</span>
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  class="form-input border border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200/70 focus:outline-none"
+                  placeholder="your.email@example.com"
+                  type="email"
+                  required
+                />
+              </div>
+              <div class="mb-6">
+                <label for="subject" class="form-label"> Subject </label>
+                <input
+                  id="subject"
+                  name="subject"
+                  class="form-input border border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200/70 focus:outline-none"
+                  placeholder="Subject"
+                  type="text"
+                />
+              </div>
+              <div class="mb-6">
+                <label for="message" class="form-label">
+                  Message <span class="text-red-500">*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-input border border-blue-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-200/70 focus:outline-none"
+                  placeholder="Your message..."
+                  rows="8"
+                  required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-full"
+                >Send Message</button
+              >
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Info & Social -->
+      <div class="mt-12 space-y-6">
+          <!-- Contact Information -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-slate-700"
+          >
+            <h3
+              class="text-xl font-bold text-gray-900 dark:text-white mb-6 font-serif"
+            >
+              Get in Touch
+            </h3>
+
+            <div class="space-y-4">
+              <div>
+                <h4
+                  class="text-lg font-semibold text-gray-900 dark:text-white mb-2"
+                >
+                  Location
+                </h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  Fox Chase Farm<br />
+                  School District of Philadelphia<br />
+                  Philadelphia, PA
+                </p>
+              </div>
+
+              <div>
+                <h4
+                  class="text-lg font-semibold text-gray-900 dark:text-white mb-2"
+                >
+                  Email
+                </h4>
+                <p class="text-gray-600 dark:text-gray-300">
+                  Please use the contact form to reach out
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div
+            class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg p-6 border border-gray-200 dark:border-slate-700"
+          >
+            <h3
+              class="text-xl font-bold text-gray-900 dark:text-white mb-6 font-serif"
+            >
+              Connect on Social Media
+            </h3>
+
+            <div class="grid grid-cols-2 gap-3">
+              <a
+                href="https://www.linkedin.com/in/drmandy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="https://twitter.com/drmandy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                Twitter
+              </a>
+
+              <a
+                href="https://instagram.com/drmandy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                Instagram
+              </a>
+
+              <a
+                href="mailto:contact@drmandy.com"
+                class="btn btn-outline-primary btn-sm text-center"
+              >
+                Email
+              </a>
+            </div>
+          </div>
+
+          <!-- Response Time Info -->
+          <div
+            class="bg-gradient-to-br from-green-50 to-blue-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 border border-green-200 dark:border-slate-600"
+          >
+            <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3">
+              Response Time
+            </h4>
+            <p class="text-gray-700 dark:text-gray-300 text-sm">
+              I strive to respond to all professional inquiries within 48 hours
+              during the school year.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

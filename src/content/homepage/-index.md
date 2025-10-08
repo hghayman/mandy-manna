@@ -2,8 +2,8 @@
 # Banner
 banner:
   title: "Dr. Mandy Manna"
-  content: "Educational leader transforming urban agriculture through innovative experiential learning. Farm Administrator at Fox Chase Farm, managing the largest public school district-run educational farm in the United States."
-  image: "/images/dr-mandy-manna.jpg"
+  content: "Educational leader transforming urban agriculture through innovative experiential learning. Farm Administrator at Fox Chase Farm, managing the largest urban public school district-operated educational farm in the United States."
+  image: "/images/manna.jpg"
   button:
     enable: true
     label: "Learn About My Work"
@@ -11,48 +11,48 @@ banner:
 
 # Features
 features:
-  - title: "Educational Leadership & Innovation"
+  - title: "Accomplishments at Fox Chase Farm"
     image: "/images/education-leadership-innovation.jpeg"
-    content: "Leading transformational change in urban education through agricultural innovation, serving over 200,000 students across Philadelphia's 8th largest school district in the United States."
+    content: "Transforming Fox Chase Farm into a premier agricultural hub for the School District of Philadelphia with on-farm experiences, traveling outreach, classroom integration, and community engagement."
     bulletpoints:
-      - "**50,000+ student visits** to Fox Chase Farm"
-      - "**$350,000+ in grants secured** for educational programs"
-      - "**112-acre demonstration farm** management"
-      - "**2024 Neubauer Fellowship** recipient"
-      - "**Agriculture Empowerment Network** founder"
-      - "**Controlled Environment Agriculture** program pioneer"
+      - "**Repositioned Fox Chase Farm** as a model for agriculture education, innovation, and sustainability across SDP."
+      - "**Hub-and-spoke model** serving 50,000+ annual student visits and 60+ schools in alignment with Accelerate Philly Goals & Guardrails."
+      - "**Grant leadership** securing and managing $2.2M+ in competitive funding to expand programming, equipment, and staffing."
+      - "**Workforce development** through pre-apprenticeships in CEA, plumbing, and electrical trades plus student-run enterprises like farm stores and Maple Leaf Café."
+      - "**Inclusive learning** via Ag Empowerment programs, Jr. MANRRS leadership, ESY horticulture, and weekend family experiences."
+      - "**Strategic partnerships** with Merck Animal Health, Whitsons Food Service, Delaware Valley University, Feed Philly Coalition, and civic organizations."
     button:
       enable: true
       label: "View Achievements"
       link: "/about"
 
-  - title: "Innovation & Program Development"
+  - title: "Advancing Controlled Environment Agriculture (CEA) in Schools"
     image: "/images/innovation-and-program-development.gif"
-    content: "Pioneering programs that bridge traditional agriculture with modern technology, creating career pathways for urban youth while addressing food insecurity in Philadelphia communities."
+    content: "Building Philadelphia's first district-wide CEA pipeline with integrated workforce certifications, industry partnerships, and innovation-driven demonstration sites."
     bulletpoints:
-      - "**Pennsylvania's first CEA apprenticeship program** development"
-      - "**Student entrepreneurship initiatives** through farm-to-market programs"
-      - "**Food security solutions** for underserved communities"
-      - "**Teacher training programs** reaching 85+ educators"
-      - "**Technology integration** in agricultural education"
-      - "**Community partnership building** across Philadelphia"
+      - "**CEA pre-apprenticeships** launched at Mastbaum HS, Overbrook HS, and Martin Luther King HS."
+      - "**Career-connected credentials** preparing students to become CEA technicians, growers, and trades specialists."
+      - "**Industry partnerships** with Skout Consulting and Merck Animal Health integrating ag-tech like SenseHub into classrooms."
+      - "**Demonstration sites and policy innovation** positioning CEA to address food security, workforce shortages, and economic development."
+      - "**Teacher certification plan** to engage 100+ Philadelphia educators through the Agriculture Innovations Academy with the University of Utah."
+      - "**GAIN media network** delivering global agriculture innovation content to teachers and students."
     button:
       enable: true
-      label: "Read Blog"
+      label: "Explore Programs"
       link: "/blog"
 
-  - title: "Academic Excellence & Recognition"
+  - title: "Broader Vision & Impact"
     image: "/images/academic-excelence-2.jpeg"
-    content: "Comprehensive educational background combining agricultural expertise with educational leadership, positioning uniquely to transform urban agricultural education."
+    content: "Championing agriculture as the intersection of education, economy, environment, and equity while expanding consulting services to districts across the U.S. and abroad."
     bulletpoints:
-      - "**Doctor of Education (Ed.D.)** in Educational Leadership"
-      - "**Environmental Education Professor** at Delaware Valley University"
-      - "**Innovation leader** in agricultural education technology"
-      - "**Media recognition** across multiple publications"
-      - "**Professional networking** with 500+ connections"
-      - "**Transformational impact** in Philadelphia education"
+      - "**Agriculture as economic development** driving workforce readiness and food justice for urban communities."
+      - "**Replicable models** helping districts merge sustainability, innovation, and hands-on student engagement."
+      - "**Consulting services** designing agricultural innovation programs, securing funding, and building sustainable roadmaps."
+      - "**Community engagement** through signature events like Ad Discovery Day, Rooster Run, Cow Plop Bingo, Baby Goat Naming, and Bird Walks."
+      - "**Staff development systems** with clear role pathways, Danielson-aligned evaluations, WIGs, onboarding, and coaching."
+      - "**Global reach** supporting domestic and international adoption of agricultural innovation programs."
     button:
       enable: true
-      label: "Contact Me"
-      link: "/contact"
+      label: "Consulting"
+      link: "/consult"
 ---

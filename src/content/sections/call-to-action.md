@@ -6,5 +6,5 @@ description: "Connect with Dr. Mandy Manna to explore partnerships in agricultur
 button:
   enable: true
   label: "Get in Touch"
-  link: "/contact"
+  link: "/consult"
 ---

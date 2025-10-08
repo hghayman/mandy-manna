@@ -79,7 +79,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               )}
 
               <a
-                href="/contact"
+                href="/consult"
                 className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-700 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors"
               >
                 Contact
@@ -93,12 +93,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="text-sm text-gray-600 dark:text-gray-400">Student Visits</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">112</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Acre Farm</div>
+                <div className="text-2xl font-bold text-gray-900 dark:text-white">60+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Schools Served</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">$350K+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Grants Secured</div>
+                <div className="text-2xl font-bold text-gray-900 dark:text-white">$2.2M+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Competitive Grants</div>
               </div>
             </div>
           </div>

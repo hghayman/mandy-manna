@@ -10,7 +10,7 @@ social:
 
 ---
 
-Dr. Mandy Manna is an accomplished and results-oriented educational leader with a proven track record in fostering experiential learning through innovative agricultural and environmental experiences for urban youth. As the Farm Administrator of Fox Chase Farm since 2019, she manages the largest public school district-run educational farm in the United States, overseeing operations that have resulted in over 50,000 student visits.
+Dr. Mandy Manna is an accomplished and results-oriented educational leader with a proven track record in fostering experiential learning through innovative agricultural and environmental experiences for urban youth. As the Farm Administrator of Fox Chase Farm since 2019, she manages the largest urban public school district-operated educational farm in the United States, overseeing operations that now engage over 50,000 student visits from more than 60 schools each year.
 
 ## Professional Highlights
 
@@ -27,10 +27,10 @@ Dr. Mandy Manna is an accomplished and results-oriented educational leader with 
 
 ## Key Achievements
 - **2024 Neubauer Fellowship** recipient
-- **$350,000+ in grants secured** for educational programs
-- **50,000+ student visits** facilitated at Fox Chase Farm
-- **Agriculture Empowerment Network** founder
-- **Pennsylvania's first CEA apprenticeship program** developer
+- **$2.2M+ in competitive grants secured and managed** for agricultural innovation
+- **50,000+ annual student visits across 60+ schools** facilitated at Fox Chase Farm
+- **CEA pre-apprenticeship and workforce pathways** spanning CEA, plumbing, and electrical trades
+- **Student-run enterprises and Agriculture Empowerment Network** driving inclusive, experiential learning
 
 ## Areas of Expertise
 - Urban Agricultural Education
