@@ -4,15 +4,17 @@ import { defineCollection, z } from "astro:content";
 // Post collection schema
 const blogCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/blog" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
+    postSlug: z.string().optional(),
     title: z.string(),
-    meta_title: z.string().optional(),
     description: z.string().optional(),
-    date: z.date().optional(),
-    image: z.string().optional(),
-    author: z.string().default("Admin"),
-    categories: z.array(z.string()).default(["others"]),
-    tags: z.array(z.string()).default(["others"]),
+    pubDate: z.coerce.date().optional(),
+    updatedDate: z.coerce.date().optional(),
+    image: image().optional(),
+    heroAlt: z.string().optional(),
+    author: z.string().optional().default("Dr. Mandy Manna"),
+    category: z.string().optional(),
+    tags: z.string().optional(),
     draft: z.boolean().optional(),
   }),
 });

@@ -8,9 +8,18 @@ export const getTaxonomy = async (collection: any, name: string) => {
   const taxonomyPages = singlePages.map((page: any) => page.data[name]);
   let taxonomies: string[] = [];
   for (let i = 0; i < taxonomyPages.length; i++) {
-    const categoryArray = taxonomyPages[i];
-    for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(slugify(categoryArray[j]));
+    const taxonomyData = taxonomyPages[i];
+    if (!taxonomyData) continue;
+    
+    // Handle both array format (old) and string format (new Keystatic)
+    if (Array.isArray(taxonomyData)) {
+      for (let j = 0; j < taxonomyData.length; j++) {
+        taxonomies.push(slugify(taxonomyData[j]));
+      }
+    } else if (typeof taxonomyData === 'string') {
+      // Handle CSV format for tags or single category
+      const items = taxonomyData.split(',').map(item => item.trim()).filter(item => item);
+      items.forEach(item => taxonomies.push(slugify(item)));
     }
   }
   const taxonomy = [...new Set(taxonomies)];
@@ -23,9 +32,18 @@ export const getAllTaxonomy = async (collection: any, name: string) => {
   const taxonomyPages = singlePages.map((page: any) => page.data[name]);
   let taxonomies: string[] = [];
   for (let i = 0; i < taxonomyPages.length; i++) {
-    const categoryArray = taxonomyPages[i];
-    for (let j = 0; j < categoryArray.length; j++) {
-      taxonomies.push(slugify(categoryArray[j]));
+    const taxonomyData = taxonomyPages[i];
+    if (!taxonomyData) continue;
+    
+    // Handle both array format (old) and string format (new Keystatic)
+    if (Array.isArray(taxonomyData)) {
+      for (let j = 0; j < taxonomyData.length; j++) {
+        taxonomies.push(slugify(taxonomyData[j]));
+      }
+    } else if (typeof taxonomyData === 'string') {
+      // Handle CSV format for tags or single category
+      const items = taxonomyData.split(',').map(item => item.trim()).filter(item => item);
+      items.forEach(item => taxonomies.push(slugify(item)));
     }
   }
   return taxonomies;

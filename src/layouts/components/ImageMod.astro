@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 
 // Props interface for the component
 interface Props {
-  src: string;
+  src: string | ImageMetadata;
   alt: string;
   width: number;
   height: number;
@@ -28,25 +28,34 @@ let {
   style,
 } = Astro.props;
 
-src = `/public${src}`;
+// Check if src is already an image object (from content collections with image() helper)
+const isImageObject = typeof src === 'object' && src !== null && 'src' in src;
 
-// Glob pattern to load images from the /public/images folder
-const images = import.meta.glob("/public/images/**/*.{jpeg,jpg,png,gif}");
+let imageSrc = src;
+let isValidPath = true;
 
-// Check if the source path is valid
-const isValidPath = images[src] ? true : false;
-
-// Log a warning message in red if the image is not found
-!isValidPath &&
-  console.error(
-    `\x1b[31mImage not found - ${src}.\x1b[0m Make sure the image is in the /public/images folder.`,
-  );
+if (!isImageObject && typeof src === 'string') {
+  // Handle string paths - look in public folder
+  imageSrc = `/public${src}`;
+  
+  // Glob pattern to load images from the /public/images folder
+  const images = import.meta.glob("/public/images/**/*.{jpeg,jpg,png,gif}");
+  
+  // Check if the source path is valid
+  isValidPath = images[imageSrc as string] ? true : false;
+  
+  // Log a warning message in red if the image is not found
+  !isValidPath &&
+    console.error(
+      `\x1b[31mImage not found - ${imageSrc}.\x1b[0m Make sure the image is in the /public/images folder.`,
+    );
+}
 ---
 
 {
-  isValidPath && (
+  isImageObject ? (
     <Image
-      src={images[src]() as Promise<{ default: ImageMetadata }>}
+      src={src as ImageMetadata}
       alt={alt}
       width={width}
       height={height}
@@ -56,5 +65,17 @@ const isValidPath = images[src] ? true : false;
       format={format}
       style={style}
     />
-  )
+  ) : isValidPath && typeof imageSrc === 'string' ? (
+    <Image
+      src={(import.meta.glob("/public/images/**/*.{jpeg,jpg,png,gif}"))[imageSrc]() as Promise<{ default: ImageMetadata }>}
+      alt={alt}
+      width={width}
+      height={height}
+      loading={loading}
+      decoding={decoding}
+      class={className}
+      format={format}
+      style={style}
+    />
+  ) : null
 }

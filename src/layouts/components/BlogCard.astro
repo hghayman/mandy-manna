@@ -10,7 +10,7 @@ const {
   blog_folder,
 }: { summary_length: number; blog_folder: string } = config.settings;
 const { data } = Astro.props;
-const { title, image, date, author, categories } = data.data;
+const { title, image, pubDate, author, category } = data.data;
 ---
 
 <div class="bg-body dark:bg-darkmode-body">
@@ -32,24 +32,25 @@ const { title, image, date, author, categories } = data.data;
     </a>
   </h4>
   <ul class="mb-4">
-    <li class="mr-4 inline-block">
-      <a href={`/authors/${slugify(author)}`}>
-        <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
-        {humanize(author)}
-      </a>
-    </li>
-    <li class="mr-4 inline-block">
-      <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
-      {
-        categories.map((category: string, index: number) => (
-          <a href={`/categories/${slugify(category)}`}>
-            {humanize(category)}
-            {index !== categories.length - 1 && ","}
+    {
+      author && (
+        <li class="mr-4 inline-block">
+          <a href={`/authors/${slugify(author)}`}>
+            <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+            {humanize(author)}
           </a>
-        ))
-      }
-    </li>
-    {date && <li class="inline-block">{dateFormat(date)}</li>}
+        </li>
+      )
+    }
+    {
+      category && (
+        <li class="mr-4 inline-block">
+          <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
+          <a href={`/categories/${slugify(category)}`}>{humanize(category)}</a>
+        </li>
+      )
+    }
+    {pubDate && <li class="inline-block">{dateFormat(pubDate)}</li>}
   </ul>
   <p class="mb-6">{plainify(data.body?.slice(0, Number(summary_length)))}</p>
   <a class="btn btn-outline-primary btn-sm" href={`/${blog_folder}/${data.id}`}>

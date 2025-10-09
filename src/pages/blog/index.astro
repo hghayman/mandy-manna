@@ -15,11 +15,11 @@ const BLOG_FOLDER = "blog";
 
 const postIndex = (await getEntry(
   BLOG_FOLDER,
-  "-index"
+  "-index",
 )) as CollectionEntry<"blog">;
 const posts = await getSinglePage(BLOG_FOLDER);
-const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories");
-const categories = await getTaxonomy(BLOG_FOLDER, "categories");
+const allCategories = await getAllTaxonomy(BLOG_FOLDER, "category");
+const categories = await getTaxonomy(BLOG_FOLDER, "category");
 const tags = await getTaxonomy(BLOG_FOLDER, "tags");
 const sortedPosts = sortByDate(posts);
 const totalPages: number = Math.ceil(posts.length / config.settings.pagination);
@@ -28,7 +28,7 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 
 <Base
   title={postIndex.data.title}
-  meta_title={postIndex.data.meta_title}
+  meta_title={postIndex.data.title}
   image={postIndex.data.image}
   description={postIndex.data.description}
 >

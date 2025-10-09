@@ -8,8 +8,9 @@ export interface ISearchItem {
     title: string;
     image?: string;
     description?: string;
+    category?: string;
     categories?: string[];
-    tags?: string[];
+    tags?: string[] | string;
   };
   content: string;
 }
@@ -22,8 +23,9 @@ export interface ISearchGroup {
       title: string;
       image?: string;
       description?: string;
+      category?: string;
       categories?: string[];
-      tags?: string[];
+      tags?: string[] | string;
     };
     content: string;
   }[];
@@ -172,7 +174,7 @@ const SearchResult = ({
                         </p>
                       )}
                       <div className="search-result-item-taxonomies">
-                        {item.frontmatter.categories && (
+                        {(item.frontmatter.category || item.frontmatter.categories) && (
                           <div className="mr-2">
                             <svg
                               width="14"
@@ -182,17 +184,17 @@ const SearchResult = ({
                             >
                               <path d="M11 0H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2 2 2 0 0 0 2-2V4a2 2 0 0 0-2-2 2 2 0 0 0-2-2zm2 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1V3zM2 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V2z"></path>
                             </svg>
-                            {item.frontmatter.categories.map(
-                              (category, index) => (
+                            {(() => {
+                              const categories = Array.isArray(item.frontmatter.categories)
+                                ? item.frontmatter.categories
+                                : item.frontmatter.category ? [item.frontmatter.category] : [];
+                              return categories.map((category, index) => (
                                 <span key={category}>
                                   {matchUnderline(category, searchString)}
-                                  {item.frontmatter.categories &&
-                                    index !==
-                                      item.frontmatter.categories.length -
-                                        1 && <>, </>}
+                                  {index !== categories.length - 1 && <>, </>}
                                 </span>
-                              ),
-                            )}
+                              ));
+                            })()}
                           </div>
                         )}
                         {item.frontmatter.tags && (
@@ -206,14 +208,17 @@ const SearchResult = ({
                               <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"></path>
                               <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"></path>
                             </svg>
-                            {item.frontmatter.tags.map((tag, index) => (
-                              <span key={tag}>
-                                {matchUnderline(tag, searchString)}
-                                {item.frontmatter.tags &&
-                                  index !==
-                                    item.frontmatter.tags.length - 1 && <>, </>}
-                              </span>
-                            ))}
+                            {(() => {
+                              const tags = typeof item.frontmatter.tags === 'string'
+                                ? item.frontmatter.tags.split(',').map((t: string) => t.trim()).filter((t: string) => t)
+                                : Array.isArray(item.frontmatter.tags) ? item.frontmatter.tags : [];
+                              return tags.map((tag: string, index: number) => (
+                                <span key={tag}>
+                                  {matchUnderline(tag, searchString)}
+                                  {index !== tags.length - 1 && <>, </>}
+                                </span>
+                              ));
+                            })()}
                           </div>
                         )}
                       </div>

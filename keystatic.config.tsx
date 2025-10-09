@@ -13,7 +13,7 @@ export default config({
             label: 'Blog',
             slugField: 'postSlug',
             path: 'src/content/blog/*',
-            format: { contentField: 'content' },
+            format: { contentField: 'content', data: 'yaml' },
             schema: {
                 postSlug: fields.slug({
                     name: {
@@ -42,18 +42,23 @@ export default config({
                 image: fields.image({
                     label: 'Hero Image',
                     description: 'The main image for the blog post',
-                    directory: 'src/assets/blogs',
-                    publicPath: '../../assets/blogs/',
+                    directory: 'src/assets/Blogs',
+                    publicPath: '../../assets/Blogs/',
                     transformFilename: (originalFilename) =>
                         originalFilename
                             .normalize("NFKD")
-                            .replace(/[’'"]/g, '')
+                            .replace(/[''"]/g, '')
                             .replace(/[^a-zA-Z0-9.-]/g, '-')
                             .toLowerCase(),
                 }),
                 heroAlt: fields.text({
                     label: 'Hero Image Alt Text',
                     description: 'Alt text for the hero image',
+                }),
+                author: fields.text({
+                    label: 'Author',
+                    description: 'The author of the blog post',
+                    defaultValue: 'Dr. Mandy Manna',
                 }),
                 category: fields.select({
                     label: 'Category',
@@ -85,12 +90,12 @@ export default config({
                     label: 'Content',
                     options: {
                         image: {
-                            directory: 'src/assets/blogs',
-                            publicPath: '../../assets/blogs/',
+                            directory: 'src/assets/Blogs',
+                            publicPath: '../../assets/Blogs/',
                             transformFilename: (originalFilename) =>
                                 originalFilename
                                     .normalize("NFKD")
-                                    .replace(/[’'"]/g, '')
+                                    .replace(/[''"]/g, '')
                                     .replace(/[^a-zA-Z0-9.-]/g, '-')
                                     .toLowerCase(),
                         },
