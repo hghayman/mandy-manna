@@ -8,7 +8,7 @@ import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
 import sharp from "sharp";
 import config from "./src/config/config.json";
-
+import netlify from '@astrojs/netlify';
 import keystatic from '@keystatic/astro'
 import node from '@astrojs/node'
 
@@ -18,7 +18,7 @@ export default defineConfig({
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   output: 'server',
-  adapter: node({ mode: 'standalone' }),
+  adapter: netlify(),
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
   integrations: [
