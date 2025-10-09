@@ -28,8 +28,8 @@ const currentPosts = sortedPosts.slice(0, config.settings.pagination);
 
 <Base
   title={postIndex.data.title}
-  meta_title={postIndex.data.title}
-  image={postIndex.data.image}
+  meta_title={postIndex.data.meta_title}
+  image={postIndex.data.image?.src}
   description={postIndex.data.description}
 >
   <PageHeader title={postIndex?.data.title} />

@@ -2,29 +2,22 @@
 import Base from "@/layouts/Base.astro";
 import PostSingle from "@/layouts/PostSingle.astro";
 import { getSinglePage } from "@/lib/contentParser.astro";
+import { getEntry } from "astro:content";
 
-export async function getStaticPaths() {
-  const BLOG_FOLDER = "blog";
-  const posts = await getSinglePage(BLOG_FOLDER);
+const { single } = Astro.params;
+const BLOG_FOLDER = "blog";
 
-  const paths = posts.map((post) => ({
-    params: {
-      single: post.id,
-    },
-    props: { post },
-  }));
-  return paths;
+// Fetch the post by ID for SSR
+const post = await getEntry(BLOG_FOLDER, single!);
+
+// Handle 404 if post not found
+if (!post) {
+  return Astro.redirect('/404');
 }
 
-const { post } = Astro.props;
 const { title, meta_title, description, image } = post.data;
 ---
 
-<Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
-  image={image}
->
+<Base title={title} meta_title={meta_title || title} description={description} image={image?.src}>
   <PostSingle post={post} />
 </Base>
