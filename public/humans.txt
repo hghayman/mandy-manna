@@ -1,0 +1,67 @@
+/* TEAM */
+
+Owner & Content Creator: Dr. Mandy Manna
+Role: Educational Leader & Farm Administrator
+Location: Philadelphia, Pennsylvania
+Contact: https://drmandy-manna.netlify.app/contact
+
+/* SITE */
+
+Standards: HTML5, CSS3, JavaScript, Astro
+Components: React, TypeScript
+Design: Responsive, Accessible, Modern
+Software: Astro, Keystatic CMS
+Hosting: Netlify
+Last Update: 2025-10-09
+Languages: English
+Doctype: HTML5
+IDE: Visual Studio Code
+
+/* THANKS */
+
+To the educational community for inspiration
+To the students and educators who make this work meaningful
+To the Fox Chase Farm community for their support
+To the open-source community for amazing tools
+
+/* SITE DETAILS */
+
+Primary Language: English (en)
+Character Set: UTF-8
+Viewport: Responsive
+Accessibility: WCAG 2.1 compliant
+Performance: Optimized
+SEO: Enhanced
+Security: HTTPS, Security Headers
+Privacy: GDPR considerations
+
+/* CONTENT FOCUS */
+
+Educational Leadership
+Urban Agriculture
+Farm-Based Learning
+Experiential Education
+STEM Innovation
+Community Engagement
+Professional Development
+
+/* CERTIFICATIONS & AFFILIATIONS */
+
+School District of Philadelphia
+Delaware Valley University
+Drexel University
+Grand Canyon University
+Northcentral University
+Farm Journal
+Fox Chase Farm
+
+                   .     .
+                  |\     /|
+                  | \   / |
+                  |  \ /  |
+                  |   v   |
+                 /         \
+                /    EDU    \
+               |  LEADERSHIP |
+                \           /
+                 -----------

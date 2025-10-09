@@ -9,6 +9,8 @@ import remarkToc from "remark-toc";
 import sharp from "sharp";
 import config from "./src/config/config.json";
 
+import keystatic from '@keystatic/astro'
+
 // https://astro.build/config
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
@@ -31,6 +33,7 @@ export default defineConfig({
       ],
     }),
     mdx(),
+    keystatic(),
   ],
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],

@@ -1,0 +1,58 @@
+# Security.txt for Dr. Mandy Manna Portfolio
+# https://drmandy-manna.netlify.app
+# Specification: RFC 9116 - https://securitytxt.org/
+
+Contact: https://drmandy-manna.netlify.app/contact
+Expires: 2026-10-09T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://drmandy-manna.netlify.app/.well-known/security.txt
+
+# Policy
+Policy: https://drmandy-manna.netlify.app/privacy-policy
+
+# Acknowledgments
+Acknowledgments: https://drmandy-manna.netlify.app/contact
+
+# Hiring
+Hiring: https://drmandy-manna.netlify.app/consult
+
+# Additional Information
+# This is a professional portfolio website.
+# For general inquiries, please use the contact form.
+# For security vulnerabilities, please provide detailed information
+# including steps to reproduce, potential impact, and any relevant screenshots.
+
+# Response Time
+# We aim to acknowledge security reports within 48 hours
+# and provide updates on resolution progress.
+
+# Scope
+# In Scope:
+# - Cross-Site Scripting (XSS)
+# - SQL Injection
+# - Authentication/Authorization issues
+# - Data exposure vulnerabilities
+# - Server-side security issues
+# 
+# Out of Scope:
+# - Social engineering attacks
+# - Physical security issues
+# - Denial of Service (DoS) attacks
+# - Issues in third-party services (report to them directly)
+
+# Disclosure Policy
+# We follow responsible disclosure practices:
+# 1. Report the vulnerability through our contact form
+# 2. Allow reasonable time for investigation and fix
+# 3. Do not publicly disclose without coordination
+# 4. We will credit reporters (unless anonymity requested)
+
+# Safe Harbor
+# We consider security research conducted in good faith as:
+# - Authorized security testing
+# - Exempt from anti-circumvention provisions
+# - Protected from legal action for good-faith security research
+
+# Thank You
+# We appreciate the security community's efforts in helping
+# maintain the security and privacy of our users and content.

@@ -23,6 +23,8 @@
     "@astrojs/sitemap": "3.3.1",
     "@digi4care/astro-google-tagmanager": "^1.4.0",
     "@justinribeiro/lite-youtube": "^1.8.0",
+    "@keystatic/astro": "^5.0.6",
+    "@keystatic/core": "^0.5.48",
     "@radix-ui/react-accordion": "^1.2.11",
     "@radix-ui/react-dialog": "^1.1.14",
     "@radix-ui/react-dropdown-menu": "^2.1.15",
