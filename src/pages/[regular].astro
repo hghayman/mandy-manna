@@ -20,8 +20,9 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, meta_title, description, image } = page.data;
-const { Content } = await render(page);
+const pageData = page?.data || {};
+const { title, meta_title, description, image } = pageData;
+const { Content } = page ? await render(page) : { Content: () => null };
 ---
 
 <Base
