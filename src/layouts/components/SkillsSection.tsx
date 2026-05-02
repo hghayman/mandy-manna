@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 interface Skill {
   name: string;
@@ -10,42 +10,85 @@ interface SkillsSectionProps {
   skills: Skill[];
 }
 
+const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
+  Leadership:  { bg: '#e8f0eb', text: '#1a3325', border: '#b8d4be' },
+  Education:   { bg: '#eaf4ef', text: '#1f4d38', border: '#b0d8c0' },
+  Agriculture: { bg: '#f0f7ec', text: '#2d5a1a', border: '#bcd9a8' },
+  Technology:  { bg: '#edf0f5', text: '#1a2e4a', border: '#b8c8dc' },
+  Marketing:   { bg: '#f5f0ea', text: '#4a3010', border: '#d4c0a0' },
+  Science:     { bg: '#eaf3f0', text: '#1a3d38', border: '#a8d4cc' },
+};
+
+const defaultColor = { bg: '#f0f4f1', text: '#1a3325', border: '#c8dcc8' };
+
 const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
-  const categories = [...new Set(skills.map(skill => skill.category))];
+  const categories = [...new Set(skills.map(s => s.category))];
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const getSkillsByCategory = (category: string) => {
-    return skills.filter(skill => skill.category === category);
-  };
-
-  const getCategoryColor = (category: string) => {
-    const colors = {
-      'Leadership': 'bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400 border-blue-200 dark:border-blue-700',
-      'Education': 'bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-400 border-green-200 dark:border-green-700',
-      'Agriculture': 'bg-yellow-100 dark:bg-yellow-900/20 text-yellow-800 dark:text-yellow-400 border-yellow-200 dark:border-yellow-700',
-      'Technology': 'bg-purple-100 dark:bg-purple-900/20 text-purple-800 dark:text-purple-400 border-purple-200 dark:border-purple-700',
-      'Marketing': 'bg-pink-100 dark:bg-pink-900/20 text-pink-800 dark:text-pink-400 border-pink-200 dark:border-pink-700',
-      'Science': 'bg-indigo-100 dark:bg-indigo-900/20 text-indigo-800 dark:text-indigo-400 border-indigo-200 dark:border-indigo-700'
-    };
-    return colors[category as keyof typeof colors] || 'bg-gray-100 dark:bg-gray-900/20 text-gray-800 dark:text-gray-400 border-gray-200 dark:border-gray-700';
-  };
+  const displayed = activeCategory
+    ? skills.filter(s => s.category === activeCategory)
+    : skills;
 
   return (
-    <div className="space-y-6">
-      {categories.map((category, index) => (
-        <div key={index}>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{category}</h3>
-          <div className="flex flex-wrap gap-2">
-            {getSkillsByCategory(category).map((skill, skillIndex) => (
-              <span
-                key={skillIndex}
-                className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(category)} hover:shadow-sm transition-shadow duration-200`}
-              >
-                {skill.name}
-              </span>
-            ))}
-          </div>
-        </div>
-      ))}
+    <div>
+      {/* Category filter pills */}
+      <div className="flex flex-wrap gap-2 mb-6">
+        <button
+          onClick={() => setActiveCategory(null)}
+          className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-150"
+          style={
+            activeCategory === null
+              ? { backgroundColor: '#1a3325', color: 'white' }
+              : { backgroundColor: '#f0f4f1', color: '#5a7060', border: '1px solid #dde8de' }
+          }
+        >
+          All
+        </button>
+        {categories.map(cat => {
+          const c = categoryColors[cat] ?? defaultColor;
+          const isActive = activeCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(isActive ? null : cat)}
+              className="px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-150"
+              style={
+                isActive
+                  ? { backgroundColor: '#1a3325', color: 'white' }
+                  : { backgroundColor: c.bg, color: c.text, border: `1px solid ${c.border}` }
+              }
+            >
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Skills tag cloud */}
+      <div className="flex flex-wrap gap-2">
+        {displayed.map((skill, i) => {
+          const c = categoryColors[skill.category] ?? defaultColor;
+          return (
+            <span
+              key={i}
+              className="px-3 py-1.5 rounded-full text-xs font-medium"
+              style={{
+                backgroundColor: c.bg,
+                color: c.text,
+                border: `1px solid ${c.border}`,
+              }}
+            >
+              {skill.name}
+            </span>
+          );
+        })}
+      </div>
+
+      {/* Count */}
+      <p className="mt-5 text-xs" style={{ color: '#8a9e8e' }}>
+        {displayed.length} skill{displayed.length !== 1 ? 's' : ''}
+        {activeCategory ? ` in ${activeCategory}` : ' across all categories'}
+      </p>
     </div>
   );
 };

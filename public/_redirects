@@ -1,0 +1,2 @@
+/blog /media 301
+/blog/* /media/:splat 301

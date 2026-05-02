@@ -9,12 +9,12 @@
       "url": "/about"
     },
     {
-      "name": "Blog",
-      "url": "/blog"
+      "name": "Programs",
+      "url": "/programs"
     },
     {
-      "name": "Consulting",
-      "url": "/consult"
+      "name": "Media",
+      "url": "/media"
     }
   ],
   "footer": [
@@ -23,12 +23,12 @@
       "url": "/about"
     },
     {
-      "name": "Blog",
-      "url": "/blog"
+      "name": "Programs",
+      "url": "/programs"
     },
     {
-      "name": "Consulting",
-      "url": "/consult"
+      "name": "Media",
+      "url": "/media"
     },
     {
       "name": "Privacy Policy",

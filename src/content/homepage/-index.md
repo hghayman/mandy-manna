@@ -16,9 +16,11 @@ features:
     content: "Transforming Fox Chase Farm into a premier agricultural hub for the School District of Philadelphia with on-farm experiences, traveling outreach, classroom integration, and community engagement."
     bulletpoints:
       - "**Repositioned Fox Chase Farm** as a model for agriculture education, innovation, and sustainability across SDP."
-      - "**Hub-and-spoke model** serving 50,000+ annual student visits and 60+ schools in alignment with Accelerate Philly Goals & Guardrails."
+      - "**Hub-and-spoke model** serving 62K+ annual student visits and 60 schools in alignment with Accelerate Philly Goals & Guardrails."
       - "**Grant leadership** securing and managing $2.2M+ in competitive funding to expand programming, equipment, and staffing."
+      # TEMP: NEEDS CONTENT UPDATE
       - "**Workforce development** through pre-apprenticeships in CEA, plumbing, and electrical trades plus student-run enterprises like farm stores and Maple Leaf Café."
+      # TEMP: NEEDS CONTENT UPDATE
       - "**Inclusive learning** via Ag Empowerment programs, Jr. MANRRS leadership, ESY horticulture, and weekend family experiences."
       - "**Strategic partnerships** with Merck Animal Health, Whitsons Food Service, Delaware Valley University, Feed Philly Coalition, and civic organizations."
     button:
@@ -28,18 +30,18 @@ features:
 
   - title: "Advancing Controlled Environment Agriculture (CEA) in Schools"
     image: "/images/innovation-and-program-development.gif"
-    content: "Building Philadelphia's first district-wide CEA pipeline with integrated workforce certifications, industry partnerships, and innovation-driven demonstration sites."
+    content: "Building Philadelphia's first district-wide Controlled Environment Agriculture (CEA) pipeline with integrated workforce certifications, industry partnerships, and innovation-driven demonstration sites. First in PA for Controlled Environment Agriculture (CEA)."
     bulletpoints:
       - "**CEA pre-apprenticeships** launched at Mastbaum HS, Overbrook HS, and Martin Luther King HS."
       - "**Career-connected credentials** preparing students to become CEA technicians, growers, and trades specialists."
       - "**Industry partnerships** with Skout Consulting and Merck Animal Health integrating ag-tech like SenseHub into classrooms."
       - "**Demonstration sites and policy innovation** positioning CEA to address food security, workforce shortages, and economic development."
-      - "**Teacher certification plan** to engage 100+ Philadelphia educators through the Agriculture Innovations Academy with the University of Utah."
+      - "**Teacher certification plan** to engage 180+ Philadelphia educators through the Agriculture Innovations Academy with the University of Utah."
       - "**GAIN media network** delivering global agriculture innovation content to teachers and students."
     button:
       enable: true
       label: "Explore Programs"
-      link: "/blog"
+      link: "/programs"
 
   - title: "Broader Vision & Impact"
     image: "/images/academic-excelence-2.jpeg"
@@ -52,7 +54,7 @@ features:
       - "**Staff development systems** with clear role pathways, Danielson-aligned evaluations, WIGs, onboarding, and coaching."
       - "**Global reach** supporting domestic and international adoption of agricultural innovation programs."
     button:
-      enable: true
+      enable: false
       label: "Consulting"
       link: "/consult"
 ---

@@ -6,21 +6,20 @@ import ProfessionalStats from "@/components/ProfessionalStats";
 import RecognitionSection from "@/components/RecognitionSection";
 import SkillsSection from "@/components/SkillsSection";
 import SectionNavigation from "@/components/SectionNavigation";
-import Aurora from "@/components/Aurora";
+import profileImg from "@/assets/images/NEW/mandy-with-goat-in-hand.avif";
 
-// Timeline data - Complete professional journey
 const timelineData = [
   {
     id: 1,
     title: "Founder & Director",
     subtitle: "Agriculture Innovations and Strategic Development, K-12",
     organization: "Philadelphia School District",
-    period: "Aug 2011 - Present (13+ years)",
+    period: "Aug 2011 to Present · 13+ years",
     status: "current",
     description: [
       "Founded K-12 Agriculture Empowerment and Innovation initiative for the 8th largest school district in the US",
       "Repositioned Fox Chase Farm as a district-wide hub connecting classrooms, outreach programming, and community engagement",
-      "Scaled a hub-and-spoke model supporting 50,000+ student visits across 60+ schools each year",
+      "Scaled a hub-and-spoke model supporting 62K+ student visits across 60 schools each year",
       "Designed career-connected pipelines spanning CEA, skilled trades, and student-run enterprises",
       "Secured $2.2M+ in competitive grants to build sustainable budgets, staffing, and program roadmaps",
     ],
@@ -31,7 +30,7 @@ const timelineData = [
     title: "Farm Administrator",
     subtitle: "Fox Chase Farm",
     organization: "School District of Philadelphia",
-    period: "Aug 2018 - Present (6+ years)",
+    period: "Aug 2018 to Present · 6+ years",
     status: "current",
     description: [
       "Managing agricultural and environmental programming on a 112-acre demonstration farm",
@@ -47,7 +46,7 @@ const timelineData = [
     title: "Environmental Education Professor",
     subtitle: "Delaware Valley University",
     organization: "Doylestown, Pennsylvania",
-    period: "Sep 2007 - Present (17+ years)",
+    period: "Sep 2007 to Present · 17+ years",
     status: "ongoing",
     description: [
       "Designing three new conservation-driven and educator-oriented courses",
@@ -63,7 +62,7 @@ const timelineData = [
     title: "Agriculture Education Instructor",
     subtitle: "Fox Chase Farm",
     organization: "School District of Philadelphia",
-    period: "Sep 2006 - Aug 2018 (12 years)",
+    period: "Sep 2006 to Aug 2018 · 12 years",
     status: "completed",
     description: [
       "Delivered comprehensive agriculture education programming",
@@ -79,7 +78,7 @@ const timelineData = [
     title: "Physical Science Teacher",
     subtitle: "A. Lincoln High School",
     organization: "Philadelphia School District",
-    period: "Sep 2005 - Sep 2006 (1 year)",
+    period: "Sep 2005 to Sep 2006 · 1 year",
     status: "completed",
     description: [
       "Taught comprehensive physical science curriculum",
@@ -95,7 +94,7 @@ const timelineData = [
     title: "Agriculture Database Marketing Manager",
     subtitle: "Farm Journal",
     organization: "Philadelphia, Pennsylvania",
-    period: "1996 - 1998 (2 years)",
+    period: "1996 to 1998 · 2 years",
     status: "completed",
     description: [
       "Database and Direct Mail Client Manager for Farm Machinery, Chemical, and Row Crop",
@@ -111,7 +110,7 @@ const timelineData = [
     title: "Client Support, Dairy Specialist",
     subtitle: "Marketing Technologies Incorporated (MTI)",
     organization: "Trevose, Pennsylvania",
-    period: "Sep 1994 - Aug 1996 (2 years)",
+    period: "Sep 1994 to Aug 1996 · 2 years",
     status: "completed",
     description: [
       "Provided client support for innovative dairy products",
@@ -127,7 +126,7 @@ const timelineData = [
     title: "Client Support Representative",
     subtitle: "Sacchi & Sacchi, Rymill-Hoyt Advertising",
     organization: "Wilmington, Delaware",
-    period: "May 1994 - Sep 1994 (5 months)",
+    period: "May 1994 to Sep 1994 · 5 months",
     status: "completed",
     description: [
       "Agric-business and marketing client services for DuPont",
@@ -140,96 +139,118 @@ const timelineData = [
   },
 ];
 
-// Complete Education data with logos
 const educationData = [
   {
     degree: "Superintendent Certification",
     field: "Superintendency and Educational System Administration",
     institution: "Drexel University",
-    period: "Sep 2023 - Sep 2034",
-    status: "In Progress",
+    period: "Sep 2023 to Sep 2024",
+    status: "Completed",
     icon: "🎯",
     logo: "/logos-small/drexel-logo.jpeg",
-    color: "bg-blue-600",
+    color: "bg-green-700",
     bgColor:
-      "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-700",
-    borderColor: "border-blue-200 dark:border-slate-600",
+      "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-slate-800 dark:to-slate-700",
+    borderColor: "border-green-200 dark:border-slate-600",
+  },
+  {
+    degree: "National Board Certified",
+    field: "Career Technical Education",
+    institution: "National Board for Professional Teaching Standards",
+    period: "Completed",
+    status: "Completed",
+    icon: "🏅",
+    logo: "/logos-small/drexel-logo.jpeg",
+    color: "bg-green-700",
+    bgColor:
+      "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-slate-800 dark:to-slate-700",
+    borderColor: "border-green-200 dark:border-slate-600",
+  },
+  {
+    degree: "National Board Certified",
+    field: "Early Adolescence through Young Adulthood",
+    institution: "National Board for Professional Teaching Standards",
+    period: "Completed",
+    status: "Completed",
+    icon: "🏅",
+    logo: "/logos-small/drexel-logo.jpeg",
+    color: "bg-green-700",
+    bgColor:
+      "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-slate-800 dark:to-slate-700",
+    borderColor: "border-green-200 dark:border-slate-600",
   },
   {
     degree: "Doctor of Education (Ed.D.)",
     field: "Educational Leadership and Administration",
     institution: "Northcentral University",
-    period: "2018 - 2021",
+    period: "2018 to 2021",
     status: "Completed",
     icon: "🎓",
     logo: "/logos-small/northcentral-university-logo.jpeg",
-    color: "bg-blue-600",
+    color: "bg-green-700",
     bgColor:
-      "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-700",
-    borderColor: "border-blue-200 dark:border-slate-600",
+      "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-slate-800 dark:to-slate-700",
+    borderColor: "border-green-200 dark:border-slate-600",
   },
   {
     degree: "Education Specialist (Ed.S.)",
     field: "Educational Leadership",
     institution: "Northcentral University",
-    period: "2018 - 2019",
+    period: "2018 to 2019",
     status: "Completed",
     icon: "📚",
     logo: "/logos-small/northcentral-university-logo.jpeg",
-    color: "bg-blue-600",
+    color: "bg-green-700",
     bgColor:
-      "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-700",
-    borderColor: "border-blue-200 dark:border-slate-600",
+      "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-slate-800 dark:to-slate-700",
+    borderColor: "border-green-200 dark:border-slate-600",
   },
   {
     degree: "Master's Degree",
     field: "Educational Leadership and Administration",
     institution: "Grand Canyon University",
-    period: "2006 - 2008",
+    period: "2006 to 2008",
     status: "Completed",
     icon: "🎯",
     logo: "/logos-small/grand-canyon-logo.jpeg",
-    color: "bg-blue-600",
+    color: "bg-green-700",
     bgColor:
-      "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-700",
-    borderColor: "border-blue-200 dark:border-slate-600",
+      "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-slate-800 dark:to-slate-700",
+    borderColor: "border-green-200 dark:border-slate-600",
   },
   {
     degree: "Bachelor of Science",
     field: "Agriculture Education",
     institution: "Delaware Valley University",
-    period: "Sep 1993 - May 1997",
+    period: "Sep 1993 to May 1997",
     status: "Completed",
     icon: "🌾",
     logo: "/logos-small/dellaware-valley-university-logo.jpeg",
-    color: "bg-blue-600",
+    color: "bg-green-700",
     bgColor:
-      "bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-700",
-    borderColor: "border-blue-200 dark:border-slate-600",
+      "bg-gradient-to-br from-green-50 to-emerald-100 dark:from-slate-800 dark:to-slate-700",
+    borderColor: "border-green-200 dark:border-slate-600",
   },
 ];
 
-// Professional stats data
 const statsData = [
-  { value: "50K+", label: "Student Visits", icon: "👥", color: "bg-blue-500" },
-  { value: "60+", label: "Schools Served", icon: "🏫", color: "bg-green-500" },
+  { value: "62K+", label: "Student Visits", icon: "👥", color: "bg-green-600" },
+  { value: "60", label: "Schools Served", icon: "🏫", color: "bg-emerald-600" },
   {
     value: "$2.2M+",
     label: "Competitive Grants",
     icon: "💰",
-    color: "bg-yellow-500",
+    color: "bg-amber-500",
   },
   {
-    value: "100+",
+    value: "180+",
     label: "Teachers Engaged",
     icon: "🎓",
-    color: "bg-purple-500",
+    color: "bg-teal-600",
   },
 ];
 
-// Skills data organized by category
 const skillsData = [
-  // Leadership Skills
   { name: "Educational Leadership", endorsements: 3, category: "Leadership" },
   { name: "Stakeholder Engagement", endorsements: 3, category: "Leadership" },
   { name: "Career Pathway Creation", endorsements: 2, category: "Leadership" },
@@ -237,8 +258,6 @@ const skillsData = [
   { name: "Strategic Planning", endorsements: 2, category: "Leadership" },
   { name: "Workforce Development", endorsements: 2, category: "Leadership" },
   { name: "Public Speaking", endorsements: 3, category: "Leadership" },
-
-  // Education Skills
   { name: "Curriculum Development", endorsements: 3, category: "Education" },
   {
     name: "Curriculum Development in Agriculture",
@@ -250,28 +269,19 @@ const skillsData = [
   { name: "Agriculture Education", endorsements: 1, category: "Education" },
   { name: "Special Education", endorsements: 1, category: "Education" },
   { name: "Community Outreach", endorsements: 3, category: "Education" },
-
-  // Agriculture & Technology
   {
     name: "Controlled-Environment Agriculture (CEA)",
     endorsements: 1,
     category: "Agriculture",
   },
   { name: "Collaboration Solutions", endorsements: 2, category: "Technology" },
-
-  // Marketing & Analysis
   { name: "Database Marketing", endorsements: 1, category: "Marketing" },
   { name: "Marketing Data Analysis", endorsements: 1, category: "Marketing" },
   { name: "Analytical Skills", endorsements: 2, category: "Marketing" },
-
-  // Science
   { name: "Physical Sciences", endorsements: 1, category: "Science" },
-
-  // Other
   { name: "Nonprofits", endorsements: 3, category: "Leadership" },
 ];
 
-// Recognition data
 const awardsData = [
   {
     title: "2024 Neubauer Fellow",
@@ -291,6 +301,13 @@ const grantsData = [
     description:
       "Leadership across USDA, PA Farm to School, PA DEP Environmental Education, PAsmart, Schools-to-Work, and more to fund sustainable programming.",
     icon: "💰",
+    details: [
+      { name: "USDA Farm to School Grant", description: "Expanding farm-to-cafeteria programming and student agricultural experiences." },
+      { name: "PA Farm to School", description: "Supporting local food sourcing and farm education partnerships." },
+      { name: "PA DEP Environmental Education", description: "Funding environmental literacy and stewardship programs." },
+      { name: "PAsmart Apprenticeship Grant", description: "Building CEA pre-apprenticeship pathways for high school students." },
+      { name: "Schools-to-Work Initiative", description: "Connecting students to career-connected learning in agriculture and trades." },
+    ],
   },
   {
     amount: "State-of-the-art",
@@ -298,19 +315,21 @@ const grantsData = [
     description:
       "Leveraged funding to add CEA labs, innovative ag-tech, and expanded staffing capacity for long-term growth.",
     icon: "🏗️",
+    details: [],
   },
   {
     amount: "Multi-year",
     title: "Strategic Roadmaps",
     description:
-      "Created recurring budgets and implementation plans that align with Accelerate Philly Goals & Guardrails.",
+      "Created recurring budgets and implementation plans that align with Accelerate Philly Goals and Guardrails.",
     icon: "📈",
+    details: [],
   },
 ];
 
-// Navigation sections
 const navigationSections = [
   { id: "hero", label: "Overview", icon: "👤" },
+  { id: "bio", label: "Bio", icon: "📝" },
   { id: "journey", label: "Journey", icon: "🛤️" },
   { id: "education", label: "Education", icon: "🎓" },
   { id: "skills", label: "Skills", icon: "💡" },
@@ -325,70 +344,103 @@ const navigationSections = [
   description="Learn about Dr. Mandy Manna's journey as an educational leader, her work at Fox Chase Farm, and her innovative approaches to urban agricultural education in Philadelphia."
   image="/images/dr-mandy-manna.jpg"
 >
-  <!-- Aurora Background -->
-  <Aurora
-    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
-    blend={0.05}
-    amplitude={0.5}
-    speed={0.2}
-    client:load
-  />
-
   <!-- Section Navigation -->
   <SectionNavigation sections={navigationSections} client:load />
 
   <!-- Hero Section -->
   <section
     id="hero"
-    class="relative pt-16 pb-12 bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900"
+    class="relative pt-16 pb-12"
+    style="background: linear-gradient(135deg, #f0f4f1 0%, #fafaf8 50%, #f0f4f1 100%);"
   >
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <!-- Profile Header -->
       <div class="text-center mb-16">
         <div class="relative inline-block mb-6">
           <img
-            src="/images/dr-mandy-manna.jpg"
+            src={profileImg.src}
             alt="Dr. Mandy Manna"
-            class="w-48 h-48 rounded-full object-cover object-center mx-auto shadow-2xl border-4 border-white dark:border-gray-800"
+            class="w-64 h-64 rounded-full object-cover mx-auto shadow-2xl"
+            style="border: 4px solid white; object-position: center 15%;"
           />
-          <div
-            class="absolute -bottom-2 -right-2 w-12 h-12 rounded-full flex items-center justify-center shadow-lg bg-white/80 border border-blue-200 text-blue-700 dark:bg-blue-200/10 dark:border-blue-400/40 dark:text-blue-100 backdrop-blur"
-          >
-            <span class="text-xl leading-none">🌱</span>
-          </div>
         </div>
 
         <h1
-          class="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 font-serif"
+          class="text-4xl lg:text-5xl font-serif font-semibold mb-3"
+          style="color: #1a2e1e;"
         >
           Dr. Mandy Manna
         </h1>
-        <p class="text-xl text-blue-600 dark:text-blue-400 font-medium mb-6">
-          Educational Leader • Farm Administrator • Innovation Expert
+        <p class="text-base font-semibold tracking-wide mb-6" style="color: #4a7c59;">
+          Ag Innovation Expert &bull; Educational Leader &bull; Farm Administrator
         </p>
 
         <div
-          class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 mb-8"
+          class="rounded-2xl p-6 mb-8"
+          style="background: linear-gradient(135deg, #e8f0eb 0%, #f0f4f1 100%); border: 1px solid #dde8de;"
         >
-          <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p class="text-lg leading-relaxed" style="color: #3a5040;">
             Transforming urban education through innovative agricultural
             experiences, managing the largest urban public school
             district-operated educational farm in the United States while
-            serving 50,000+ student visits annually across more than 60 schools.
+            serving 62K+ student visits annually across 60 schools.
           </p>
         </div>
 
-        <!-- Professional Stats -->
         <ProfessionalStats stats={statsData} client:load />
       </div>
     </div>
   </section>
 
-  <!-- Professional Experience Timeline -->
-  <section id="journey" class="py-16 bg-white dark:bg-slate-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Professional Bio -->
+  <section id="bio" class="py-16" style="background-color: #ffffff;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Biography</span>
       <h2
-        class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center font-serif"
+        class="text-3xl font-serif font-semibold mb-10"
+        style="color: #1a2e1e;"
+      >
+        Professional Biography
+      </h2>
+      <div
+        class="rounded-2xl p-8"
+        style="background: linear-gradient(135deg, #f6f9f6 0%, #fafaf8 100%); border: 1px solid #dde8de;"
+      >
+        <p class="text-lg leading-relaxed mb-6" style="color: #3a5040;">
+          Dr. Mandy Manna is a nationally recognized agricultural education
+          leader and the driving force behind one of the most innovative urban
+          farm programs in the United States. As Farm Administrator at Fox Chase
+          Farm, the largest urban public school district-operated educational
+          farm in the country, she has spent more than a decade transforming a
+          112-acre Philadelphia landmark into a living classroom that serves
+          62,000+ students annually across 60 schools.
+        </p>
+        <p class="text-lg leading-relaxed mb-6" style="color: #3a5040;">
+          A 2024 Neubauer Fellow and National Board Certified educator, Dr.
+          Manna holds a Doctor of Education in Educational Leadership and brings
+          deep expertise in curriculum design, workforce development, and
+          Controlled Environment Agriculture (CEA). She has secured over $2.2
+          million in competitive grants to fund programming, equipment, and
+          staffing and has built Pennsylvania's first district-wide CEA
+          pre-apprenticeship pipeline, now operating at multiple Philadelphia
+          high schools.
+        </p>
+        <p class="text-lg leading-relaxed" style="color: #3a5040;">
+          Her work sits at the intersection of equity, innovation, and
+          agriculture, creating career-connected pathways for urban youth while
+          championing agriculture as a vehicle for economic development, food
+          justice, and community resilience.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional Experience Timeline -->
+  <section id="journey" class="py-16" style="background-color: #f0f4f1;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Experience</span>
+      <h2
+        class="text-3xl font-serif font-semibold mb-12"
+        style="color: #1a2e1e;"
       >
         Professional Journey
       </h2>
@@ -397,43 +449,47 @@ const navigationSections = [
   </section>
 
   <!-- Education Section -->
-  <section id="education" class="py-16 bg-gray-50 dark:bg-slate-800">
+  <section id="education" class="py-16" style="background-color: #ffffff;">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Academic Background</span>
       <h2
-        class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center font-serif"
+        class="text-3xl font-serif font-semibold mb-12"
+        style="color: #1a2e1e;"
       >
         Educational Excellence
       </h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         {
-          educationData.map((edu, index) => (
+          educationData.map((edu) => (
             <div
-              class={`${edu.bgColor} rounded-xl p-6 border ${edu.borderColor} hover:shadow-lg transition-shadow duration-300`}
+              class="rounded-xl p-6 hover:shadow-md transition-shadow duration-300"
+              style="background-color: #f6f9f6; border: 1px solid #dde8de;"
             >
-              <div class="flex items-start space-x-4 mb-4">
+              <div class="flex items-start gap-4 mb-4">
                 <img
                   src={edu.logo}
                   alt={edu.institution}
-                  class="w-12 h-12 rounded-lg object-cover shadow-md"
+                  class="w-11 h-11 rounded-lg object-cover shadow-sm"
                 />
                 <div class="flex-1">
-                  <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-1">
+                  <h3 class="text-base font-semibold mb-1" style="color: #1a2e1e;">
                     {edu.degree}
                   </h3>
-                  <p class="text-blue-700 dark:text-blue-300 font-medium text-sm">
+                  <p class="font-medium text-sm" style="color: #4a7c59;">
                     {edu.field}
                   </p>
                 </div>
               </div>
-              <p class="text-gray-700 dark:text-gray-200 text-sm font-medium mb-2">
+              <p class="text-sm font-medium mb-2" style="color: #3a5040;">
                 {edu.institution}
               </p>
               <div class="flex items-center justify-between">
-                <span class="text-gray-500 dark:text-gray-400 text-xs">
+                <span class="text-xs" style="color: #6b7f70;">
                   {edu.period}
                 </span>
                 <span
-                  class={`px-2 py-1 rounded-full text-xs font-medium ${edu.status === "In Progress" ? "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/20 dark:text-yellow-400" : "bg-green-100 text-green-800 dark:bg-green-900/20 dark:text-green-400"}`}
+                  class="px-2 py-1 rounded-full text-xs font-medium"
+                  style="background-color: #e8f0eb; color: #2d5a3d;"
                 >
                   {edu.status}
                 </span>
@@ -446,24 +502,28 @@ const navigationSections = [
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="py-12 bg-white dark:bg-slate-900">
+  <section id="skills" class="py-12" style="background-color: #f0f4f1;">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Expertise</span>
       <h2
-        class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center font-serif"
+        class="text-2xl font-serif font-semibold mb-8"
+        style="color: #1a2e1e;"
       >
-        Professional Skills & Expertise
+        Professional Skills &amp; Expertise
       </h2>
       <SkillsSection skills={skillsData} client:load />
     </div>
   </section>
 
   <!-- Recognition & Awards -->
-  <section id="recognition" class="py-16 bg-gray-50 dark:bg-slate-800">
+  <section id="recognition" class="py-16" style="background-color: #ffffff;">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Honors</span>
       <h2
-        class="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center font-serif"
+        class="text-3xl font-serif font-semibold mb-12"
+        style="color: #1a2e1e;"
       >
-        Recognition & Impact
+        Recognition &amp; Impact
       </h2>
       <RecognitionSection awards={awardsData} grants={grantsData} client:load />
     </div>
@@ -472,20 +532,25 @@ const navigationSections = [
   <!-- Core Values & Philosophy -->
   <section
     id="philosophy"
-    class="py-16 bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-slate-800 dark:to-slate-700"
+    class="py-16"
+    style="background: linear-gradient(135deg, #e8f0eb 0%, #f0f4f1 100%);"
   >
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Values</span>
       <h2
-        class="text-3xl font-bold text-gray-900 dark:text-white mb-8 font-serif"
+        class="text-3xl font-serif font-semibold mb-8"
+        style="color: #1a2e1e;"
       >
         Professional Philosophy
       </h2>
 
       <div
-        class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700 mb-8"
+        class="rounded-2xl p-8 shadow-sm mb-8"
+        style="background-color: white; border: 1px solid #dde8de;"
       >
         <blockquote
-          class="text-lg italic text-gray-700 dark:text-gray-300 leading-relaxed"
+          class="text-lg italic leading-relaxed"
+          style="color: #3a5040;"
         >
           "Imagine a child who is engaged in growing their own fresh food, while
           developing soft skills, and being exposed to entrepreneurial
@@ -495,51 +560,60 @@ const navigationSections = [
           accessibility to all ages and all learning levels using agriculture
           and career pathways as the driving force."
         </blockquote>
-        <cite class="block mt-4 text-blue-600 dark:text-blue-400 font-medium"
-          >— Dr. Mandy Manna</cite
-        >
+        <cite class="block mt-4 font-semibold text-sm" style="color: #4a7c59;">
+          Dr. Mandy Manna
+        </cite>
       </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-white rounded-xl p-6 shadow-sm" style="border: 1px solid #dde8de;">
           <div
-            class="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mx-auto mb-4"
+            class="w-11 h-11 rounded-lg flex items-center justify-center mx-auto mb-4"
+            style="background-color: #2d5a3d;"
           >
-            <span class="text-white text-xl">🎯</span>
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+          <h3 class="text-base font-semibold mb-2" style="color: #1a2e1e;">
             Student-Centered Learning
           </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
+          <p class="text-sm leading-relaxed" style="color: #6b7f70;">
             Creating authentic, intrinsically motivating educational experiences
           </p>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+        <div class="bg-white rounded-xl p-6 shadow-sm" style="border: 1px solid #dde8de;">
           <div
-            class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mx-auto mb-4"
+            class="w-11 h-11 rounded-lg flex items-center justify-center mx-auto mb-4"
+            style="background-color: #3d6849;"
           >
-            <span class="text-white text-xl">⚖️</span>
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
-            Equity & Accessibility
+          <h3 class="text-base font-semibold mb-2" style="color: #1a2e1e;">
+            Equity &amp; Accessibility
           </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
+          <p class="text-sm leading-relaxed" style="color: #6b7f70;">
             Ensuring all students have access to innovative learning
             opportunities
           </p>
         </div>
 
-        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+        <div class="bg-white rounded-xl p-6 shadow-sm" style="border: 1px solid #dde8de;">
           <div
-            class="w-12 h-12 bg-purple-500 rounded-lg flex items-center justify-center mx-auto mb-4"
+            class="w-11 h-11 rounded-lg flex items-center justify-center mx-auto mb-4"
+            style="background-color: #4a7c59;"
           >
-            <span class="text-white text-xl">🚀</span>
+            <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
           </div>
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">
+          <h3 class="text-base font-semibold mb-2" style="color: #1a2e1e;">
             Innovation
           </h3>
-          <p class="text-gray-600 dark:text-gray-300 text-sm">
+          <p class="text-sm leading-relaxed" style="color: #6b7f70;">
             Leveraging technology and modern agricultural practices for
             educational impact
           </p>

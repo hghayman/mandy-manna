@@ -3,13 +3,16 @@ import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import HeroSection from "@/components/HeroSection";
 import AchievementsCard from "@/components/AchievementsCard";
-import Aurora from "@/components/Aurora";
 import { markdownify } from "@/lib/utils/textConverter";
 import CallToAction from "@/partials/CallToAction.astro";
 import type { Button, Feature } from "@/types";
 import type { CollectionEntry } from "astro:content";
 import { getEntry } from "astro:content";
-import { FaCheck } from "react-icons/fa";
+import heroImg from "@/assets/images/NEW/mandy-with-students-1.jpg";
+import ceaImg from "@/assets/images/NEW/CEA.png";
+import educationImg from "@/assets/images/programs/on-farm-learning.jpg";
+import workforceImg from "@/assets/images/programs/student-enterprises.jpg";
+import communityImg from "@/assets/images/programs/farm-market.jpg";
 
 interface Homepage {
   banner: {
@@ -33,7 +36,6 @@ const call_to_action = (await getEntry(
 
 const { banner, features } = homepage.data as Homepage;
 
-// Define achievements data
 const achievements = [
   {
     icon: "🏆",
@@ -55,12 +57,12 @@ const achievements = [
     icon: "🎓",
     title: "Student Engagement",
     description:
-      "Hub-and-spoke model serving 50,000+ student visits across 60+ schools each year.",
+      "Hub-and-spoke model serving 62K+ student visits across 60 schools each year.",
     category: "Impact",
-    value: "50K+",
+    value: "62K+",
   },
   {
-    icon: "🌱",
+    icon: "🌾",
     title: "Farm Stewardship",
     description:
       "Managing the largest urban public school district-operated educational farm in the United States.",
@@ -68,15 +70,15 @@ const achievements = [
     value: "112 Acres",
   },
   {
-    icon: "👥",
+    icon: "👩‍🏫",
     title: "Educator Development",
     description:
-      "Launching Agriculture Innovations Academy to certify 100+ teachers in agricultural literacy.",
+      "Launching Agriculture Innovations Academy to certify 180+ teachers in agricultural literacy.",
     category: "Education",
-    value: "100+ Teachers",
+    value: "180+ Teachers",
   },
   {
-    icon: "🔬",
+    icon: "🌱",
     title: "CEA Pipeline",
     description:
       "Leading Philadelphia's first district-wide Controlled Environment Agriculture pre-apprenticeship programs.",
@@ -84,6 +86,8 @@ const achievements = [
     value: "First in PA",
   },
 ];
+
+const featureLabels = ["Fox Chase Farm", "CEA Innovation", "Vision"];
 ---
 
 <Base
@@ -92,21 +96,12 @@ const achievements = [
   description="Educational leader transforming urban agriculture through innovative experiential learning. Farm Administrator at Fox Chase Farm, managing the largest public school district-run educational farm in the United States."
   image="/images/manna.webp"
 >
-  <!-- Aurora Background -->
-  <Aurora
-    colorStops={["#3A29FF", "#FF94B4", "#FF3232"]}
-    blend={0.1}
-    amplitude={0.8}
-    speed={0.3}
-    client:load
-  />
-
   <!-- Hero Section -->
   <HeroSection
     title={banner.title}
-    subtitle="Farm Administrator | Educational Leader | Agricultural Innovation Expert"
+    subtitle="Farm Administrator · Agricultural Innovator · Educational Leader"
     description={banner.content}
-    imageUrl={banner.image}
+    imageUrl={heroImg.src}
     ctaText={banner.button.enable ? banner.button.label : undefined}
     ctaUrl={banner.button.enable ? banner.button.link : undefined}
     client:load
@@ -115,75 +110,280 @@ const achievements = [
   <!-- Achievements Section -->
   <AchievementsCard achievements={achievements} client:load />
 
+  <!-- Programs Overview -->
+  <section class="py-20" style="background-color: #ffffff;">
+    <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span
+          class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full"
+          style="background-color: #e8f0eb; color: #2d5a3d;"
+        >
+          Programs
+        </span>
+        <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-4" style="color: #1a2e1e;">
+          What We Offer at Fox Chase Farm
+        </h2>
+        <p class="text-base max-w-2xl mx-auto" style="color: #5a7060;">
+          From kindergarten farm visits to career-connected apprenticeships, our programs meet
+          students, families, and communities where they are.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Education -->
+        <a
+          href="/programs#education"
+          class="group block rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl"
+          style="border: 1px solid #dde8de;"
+        >
+          <div class="relative overflow-hidden" style="height: 220px;">
+            <ImageMod
+              src={educationImg}
+              width={480}
+              height={220}
+              alt="On-Farm Learning Experiences"
+              format="webp"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0"
+              style="background: linear-gradient(to top, rgba(26,51,37,0.55) 0%, transparent 60%);"
+            ></div>
+          </div>
+          <div class="p-6" style="background-color: #fafaf8;">
+            <span
+              class="inline-block text-xs font-semibold tracking-widest uppercase mb-3 px-2.5 py-1 rounded-full"
+              style="background-color: #e8f0eb; color: #2d5a3d;"
+            >
+              Education
+            </span>
+            <h3 class="text-xl font-serif font-semibold mb-2 leading-snug" style="color: #1a2e1e;">
+              K–12 Agricultural Learning
+            </h3>
+            <p class="text-sm leading-relaxed mb-4" style="color: #5a7060;">
+              Hands-on farm experiences, traveling outreach programs, and inclusive agricultural education for every learner across Philadelphia.
+            </p>
+            <span
+              class="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+              style="color: #2d5a3d;"
+            >
+              Explore Education Programs
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Workforce Development -->
+        <a
+          href="/programs#workforce"
+          class="group block rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl"
+          style="border: 1px solid #dde8de;"
+        >
+          <div class="relative overflow-hidden" style="height: 220px;">
+            <ImageMod
+              src={workforceImg}
+              width={480}
+              height={220}
+              alt="Student-Run Enterprises"
+              format="webp"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0"
+              style="background: linear-gradient(to top, rgba(26,51,37,0.55) 0%, transparent 60%);"
+            ></div>
+          </div>
+          <div class="p-6" style="background-color: #fafaf8;">
+            <span
+              class="inline-block text-xs font-semibold tracking-widest uppercase mb-3 px-2.5 py-1 rounded-full"
+              style="background-color: #e8f0eb; color: #2d5a3d;"
+            >
+              Workforce Development
+            </span>
+            <h3 class="text-xl font-serif font-semibold mb-2 leading-snug" style="color: #1a2e1e;">
+              Career Pathways in Agriculture
+            </h3>
+            <p class="text-sm leading-relaxed mb-4" style="color: #5a7060;">
+              CEA pre-apprenticeships, educator certifications, student-run enterprises, and skilled trades pathways preparing students for real careers.
+            </p>
+            <span
+              class="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+              style="color: #2d5a3d;"
+            >
+              Explore Workforce Programs
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Community -->
+        <a
+          href="/programs#community"
+          class="group block rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl"
+          style="border: 1px solid #dde8de;"
+        >
+          <div class="relative overflow-hidden" style="height: 220px;">
+            <ImageMod
+              src={communityImg}
+              width={480}
+              height={220}
+              alt="Fox Chase Fresh and Local Market"
+              format="webp"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+            <div
+              class="absolute inset-0"
+              style="background: linear-gradient(to top, rgba(26,51,37,0.55) 0%, transparent 60%);"
+            ></div>
+          </div>
+          <div class="p-6" style="background-color: #fafaf8;">
+            <span
+              class="inline-block text-xs font-semibold tracking-widest uppercase mb-3 px-2.5 py-1 rounded-full"
+              style="background-color: #e8f0eb; color: #2d5a3d;"
+            >
+              Community
+            </span>
+            <h3 class="text-xl font-serif font-semibold mb-2 leading-snug" style="color: #1a2e1e;">
+              Open to Philadelphia Families
+            </h3>
+            <p class="text-sm leading-relaxed mb-4" style="color: #5a7060;">
+              Weekend farm experiences, signature seasonal events, ESY horticulture, and the GAIN Media Network welcoming the whole community.
+            </p>
+            <span
+              class="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors"
+              style="color: #2d5a3d;"
+            >
+              Explore Community Programs
+              <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/programs"
+          class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-semibold rounded-lg transition-colors duration-200 text-sm"
+          style="background-color: #1a3325;"
+        >
+          View All Programs
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- /Programs Overview -->
+
   <!-- Features -->
   {
-    features.map((feature, index: number) => (
-      <section
-        class={`py-16 ${index % 2 === 0 ? "bg-gray-50 dark:bg-slate-800" : "bg-white dark:bg-slate-900"}`}
-      >
-        <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class={index % 2 !== 0 ? "lg:order-2" : ""}>
-              <div class="relative">
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-cyan-400/20 rounded-2xl blur-3xl" />
-                <ImageMod
-                  src={feature.image}
-                  height={480}
-                  width={520}
-                  alt={feature.title}
-                  format="webp"
-                  class="relative rounded-2xl shadow-lg"
-                />
-              </div>
-            </div>
-            <div class={index % 2 !== 0 ? "lg:order-1" : ""}>
-              <h2
-                set:html={markdownify(feature.title)}
-                class="text-3xl font-bold text-gray-900 dark:text-white mb-6"
-              />
-              <p
-                set:html={markdownify(feature.content)}
-                class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
-              />
-              <div class="space-y-4">
-                {feature.bulletpoints.map((bullet: string) => (
-                  <div class="flex items-start space-x-3">
-                    <div class="flex-shrink-0 w-6 h-6 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mt-0.5">
-                      <FaCheck className="w-3 h-3 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <span
-                      set:html={markdownify(bullet)}
-                      class="text-gray-700 dark:text-gray-300"
+    features.map((feature, index: number) => {
+      const isEven = index % 2 === 0;
+      return (
+        <section
+          class="py-20"
+          style={isEven ? "background-color: #ffffff;" : "background-color: #f0f4f1;"}
+        >
+          <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+              {/* Image */}
+              <div class={isEven ? "" : "lg:order-2"}>
+                <div class="relative overflow-hidden rounded-2xl shadow-lg">
+                  {index === 1 ? (
+                    <ImageMod
+                      src={ceaImg}
+                      height={480}
+                      width={520}
+                      alt={feature.title}
+                      format="webp"
+                      class="w-full h-auto object-cover"
                     />
-                  </div>
-                ))}
+                  ) : (
+                    <ImageMod
+                      src={feature.image}
+                      height={480}
+                      width={520}
+                      alt={feature.title}
+                      format="webp"
+                      class="w-full h-auto object-cover"
+                    />
+                  )}
+                </div>
               </div>
-              {feature.button.enable && (
-                <a
-                  class="inline-flex items-center mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 transition-colors duration-200"
-                  href={feature.button.link}
+
+              {/* Content */}
+              <div class={isEven ? "" : "lg:order-1"}>
+                <span
+                  class="inline-block text-xs font-semibold tracking-widest uppercase mb-4"
+                  style="color: #4a7c59;"
                 >
-                  {feature.button.label}
-                  <svg
-                    class="ml-2 w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
+                  {featureLabels[index] ?? ""}
+                </span>
+                <h2
+                  set:html={markdownify(feature.title)}
+                  class="text-3xl lg:text-4xl font-serif font-semibold mb-5 leading-tight"
+                  style="color: #1a2e1e;"
+                />
+                <p
+                  set:html={markdownify(feature.content)}
+                  class="text-base leading-relaxed mb-8"
+                  style="color: #5a7060;"
+                />
+                <ul class="space-y-3 mb-8">
+                  {feature.bulletpoints.map((bullet: string) => (
+                    <li class="flex items-start gap-3">
+                      <span
+                        class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
+                        style="background-color: #e8f0eb;"
+                      >
+                        <svg class="w-3 h-3" style="color: #4a7c59;" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                        </svg>
+                      </span>
+                      <span
+                        set:html={markdownify(bullet)}
+                        class="text-sm leading-relaxed"
+                        style="color: #3a5040;"
+                      />
+                    </li>
+                  ))}
+                </ul>
+                {feature.button.enable && (
+                  <a
+                    class="inline-flex items-center gap-2 px-7 py-3.5 text-white font-semibold rounded-lg transition-colors duration-200 text-sm"
+                    style="background-color: #1a3325;"
+                    href={feature.button.link}
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
-              )}
+                    {feature.button.label}
+                    <svg
+                      class="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </a>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-    ))
+        </section>
+      );
+    })
   }
   <!-- /Features -->
 

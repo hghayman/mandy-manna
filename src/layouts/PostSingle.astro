@@ -25,8 +25,8 @@ const { title, description, author, category, image, pubDate, tags } = post.data
         <!-- Back button -->
         <div class="mb-6">
           <a
-            href="/blog"
-            class="inline-flex items-center text-text-dark hover:text-text transition-colors dark:text-darkmode-text-dark dark:hover:text-darkmode-text"
+            href="/media"
+            class="inline-flex items-center text-text-dark hover:text-text transition-colors"
           >
             <svg
               class="w-5 h-5 mr-2"
@@ -40,19 +40,21 @@ const { title, description, author, category, image, pubDate, tags } = post.data
                 stroke-width="2"
                 d="M15 19l-7-7 7-7"></path>
             </svg>
-            Back to Blog
+            Back to Media
           </a>
         </div>
 
         <h1 set:html={markdownify(title)} class="h2 mb-6" />
 
         <ul class="mb-8">
+          {author && (
           <li class="mr-4 inline-block">
             <a href={`/authors/${slugify(author)}`}>
               <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
               {humanize(author)}
             </a>
           </li>
+          )}
           {category && (
             <li class="mr-4 inline-block">
               <FaRegFolder className={"mr-2 -mt-1 inline-block"} />

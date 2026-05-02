@@ -1,139 +1,136 @@
-/* Modern Academic Portfolio Styles */
+/* Modern Minimal Portfolio — Fox Chase Farm */
 
-/* Grid pattern background */
-.bg-grid-slate-100 {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e");
-}
-
-.dark .bg-grid-slate-700\/25 {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(51 65 85 / 0.25)'%3e%3cpath d='m0 .5h32m-32 32v-32'/%3e%3c/svg%3e");
-}
-
-/* Smooth animations */
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
-  }
-}
-
-/* Glassmorphism effects */
+/* Glassmorphism */
 .glass {
   backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.75);
-  border: 1px solid rgba(209, 213, 219, 0.3);
+  background-color: rgba(250, 250, 248, 0.88);
+  border: 1px solid rgba(221, 232, 222, 0.6);
 }
 
 .dark .glass {
-  background-color: rgba(17, 24, 39, 0.75);
-  border: 1px solid rgba(75, 85, 99, 0.3);
+  background-color: rgba(26, 46, 30, 0.88);
+  border: 1px solid rgba(42, 61, 46, 0.5);
 }
 
-/* Enhanced focus states */
-.focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800;
-}
-
-/* Card hover effects */
+/* Card hover */
 .card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px -12px rgba(45, 90, 61, 0.18);
 }
 
-/* Academic typography */
-.academic-text {
-  @apply leading-relaxed text-gray-700 dark:text-gray-300;
-}
-
-.academic-heading {
-  @apply font-serif font-semibold text-gray-900 dark:text-white;
-}
-
-/* Professional spacing */
+/* Section spacing */
 .section-spacing {
   @apply py-16 lg:py-24;
 }
 
-/* Modern gradient backgrounds */
+/* Gradient backgrounds */
 .gradient-bg-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1a3325 0%, #2d5a3d 100%);
 }
 
 .gradient-bg-secondary {
-  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  background: linear-gradient(135deg, #2d5a3d 0%, #4a7c59 100%);
 }
 
-.gradient-bg-tertiary {
-  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-}
-
-/* Improved button styles */
+/* Button styles */
 .btn-modern {
-  @apply inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 shadow-lg hover:shadow-xl;
+  @apply inline-flex items-center gap-2 px-7 py-3.5 text-white font-semibold rounded-lg transition-colors duration-200 text-sm;
+  background-color: #1a3325;
+}
+
+.btn-modern:hover {
+  background-color: #2d5a3d;
 }
 
 .btn-modern-outline {
-  @apply inline-flex items-center px-6 py-3 border-2 border-blue-600 text-blue-600 font-semibold rounded-lg hover:bg-blue-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200;
+  @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-lg transition-all duration-200 text-sm;
+  border: 1px solid #1a3325;
+  color: #1a3325;
+}
+
+.btn-modern-outline:hover {
+  background-color: #1a3325;
+  color: white;
 }
 
 /* Achievement cards */
 .achievement-card {
-  @apply bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-200 dark:border-gray-700;
+  @apply bg-white rounded-xl p-6 transition-all duration-300;
+  border: 1px solid #dde8de;
 }
 
 .achievement-card:hover {
-  @apply transform -translate-y-2;
+  border-color: rgba(74, 124, 89, 0.45);
+  box-shadow: 0 12px 32px -8px rgba(45, 90, 61, 0.15);
 }
 
-/* Professional color scheme */
+/* Design tokens */
 :root {
-  --academic-blue: #2563eb;
-  --academic-navy: #1e293b;
-  --academic-gray: #374151;
-  --academic-light-gray: #f8fafc;
-  --academic-accent: #3b82f6;
+  --forest-deep: #1a3325;
+  --forest-mid: #2d5a3d;
+  --forest-bright: #4a7c59;
+  --sage-light: #e8f0eb;
+  --sage-pale: #f0f4f1;
+  --warm-white: #fafaf8;
+  --gold: #b8962e;
+  --text-primary: #1a2e1e;
+  --text-secondary: #5a7060;
+  --border-subtle: #dde8de;
 }
 
-/* Responsive design helpers */
+/* Section label / kicker */
+.section-kicker {
+  @apply inline-block text-xs font-semibold tracking-widest uppercase mb-3;
+  color: #4a7c59;
+}
+
+/* Thin underline accent */
+.heading-accent {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-accent::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 2.5rem;
+  height: 2px;
+  background-color: #4a7c59;
+  border-radius: 2px;
+}
+
 @media (max-width: 768px) {
   .section-spacing {
     @apply py-12;
   }
-  
+
   .card-hover:hover {
     transform: none;
   }
 }
 
-/* Print styles for academic documents */
 @media print {
   .no-print {
     display: none !important;
   }
-  
+
   body {
     font-size: 12pt;
     line-height: 1.4;
   }
-  
+
   h1, h2, h3 {
     page-break-after: avoid;
   }
 }
 
-/* Accessibility improvements */
 @media (prefers-reduced-motion: reduce) {
-  .animate-float,
   .card-hover,
   * {
     animation-duration: 0.01ms !important;
@@ -142,13 +139,12 @@
   }
 }
 
-/* High contrast mode support */
 @media (prefers-contrast: high) {
   .glass {
     background-color: white;
     border: 2px solid black;
   }
-  
+
   .dark .glass {
     background-color: black;
     border: 2px solid white;

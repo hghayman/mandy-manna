@@ -1,0 +1,435 @@
+---
+import Base from "@/layouts/Base.astro";
+import { Image, type ImageMetadata } from "astro:assets";
+
+import imgOnFarm from "@/assets/images/programs/on-farm-learning.jpg";
+import imgAnimalScience from "@/assets/images/programs/animal-science.jpg";
+import imgBirdhouse from "@/assets/images/programs/birdhouse-workshop.jpg";
+import imgEmpowerment from "@/assets/images/programs/ag-empowerment.jpg";
+import imgEnterprise from "@/assets/images/programs/student-enterprises.jpg";
+import imgEnterprise2 from "@/assets/images/programs/student-enterprises-2.jpg";
+import imgAcademy from "@/assets/images/programs/agriculture-innovations-academy.jpg";
+import imgAmbassadors from "@/assets/images/programs/ambassadors.jpg";
+import imgFarmShow from "@/assets/images/programs/pa-farm-show.jpg";
+import imgMarket from "@/assets/images/programs/farm-market.jpg";
+import imgMandyStudents from "@/assets/images/programs/mandy-with-students.jpg";
+import imgFieldWork from "@/assets/images/programs/field-work.jpg";
+
+type CategoryColor = "green" | "teal" | "emerald";
+
+const colorStyles: Record<CategoryColor, { bg: string; badge: string; iconBg: string }> = {
+  green: {
+    bg: "background-color: #f0f4f1;",
+    badge: "background-color: #e8f0eb; color: #2d5a3d;",
+    iconBg: "background-color: #2d5a3d;",
+  },
+  teal: {
+    bg: "background-color: #ffffff;",
+    badge: "background-color: #e0f0ee; color: #1f5c57;",
+    iconBg: "background-color: #2d6b65;",
+  },
+  emerald: {
+    bg: "background-color: #f0f4f1;",
+    badge: "background-color: #e8f0eb; color: #1f5c3a;",
+    iconBg: "background-color: #3a7a5a;",
+  },
+};
+
+const programIcons: Record<string, string> = {
+  "On-Farm Learning Experiences": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />`,
+  "Traveling Outreach Program": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />`,
+  "Ag Empowerment Programs": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />`,
+  "Jr. MANRRS Leadership": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />`,
+  "CEA Pre-Apprenticeship Program": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />`,
+  "Agriculture Innovations Academy": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />`,
+  "Student-Run Enterprises": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />`,
+  "Skilled Trades Pathways": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />`,
+  "ESY Horticulture Program": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707" />`,
+  "Weekend Family Experiences": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />`,
+  "Signature Community Events": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />`,
+  "GAIN Media Network": `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />`,
+};
+
+const defaultIcon = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />`;
+
+const categories: {
+  id: string;
+  label: string;
+  color: CategoryColor;
+  description: string;
+  programs: { title: string; description: string; image: ImageMetadata }[];
+}[] = [
+  {
+    id: "education",
+    label: "Education",
+    color: "green",
+    description: "Hands-on agricultural learning from kindergarten through 12th grade, connecting classrooms to the real world of the farm.",
+    programs: [
+      {
+        title: "On-Farm Learning Experiences",
+        description: "Hands-on agricultural programming for K-12 students across the School District of Philadelphia, connecting classroom learning to real-world farm systems.",
+        image: imgOnFarm,
+      },
+      {
+        title: "Traveling Outreach Program",
+        description: "Mobile agricultural education bringing Fox Chase Farm programming directly to schools and community sites throughout Philadelphia.",
+        image: imgAmbassadors,
+      },
+      {
+        title: "Ag Empowerment Programs",
+        description: "Inclusive programming designed for students with diverse learning needs, connecting them to agricultural experiences that build confidence and real-world skills.",
+        image: imgEmpowerment,
+      },
+      {
+        title: "Jr. MANRRS Leadership",
+        description: "Minorities in Agriculture, Natural Resources and Related Sciences student chapter providing leadership development and professional networking opportunities.",
+        image: imgAnimalScience,
+      },
+    ],
+  },
+  {
+    id: "workforce",
+    label: "Workforce Development",
+    color: "teal",
+    description: "Career-connected pathways from pre-apprenticeship to professional certification, preparing students for the agricultural economy of tomorrow.",
+    programs: [
+      {
+        title: "CEA Pre-Apprenticeship Program",
+        description: "Philadelphia's first district-wide Controlled Environment Agriculture pre-apprenticeship pipeline, active at Mastbaum HS, Overbrook HS, and Martin Luther King HS.",
+        image: imgFieldWork,
+      },
+      {
+        title: "Agriculture Innovations Academy",
+        description: "In partnership with the University of Utah, this academy certifies Philadelphia educators in agricultural literacy, targeting 180+ teachers.",
+        image: imgAcademy,
+      },
+      {
+        title: "Student-Run Enterprises",
+        description: "Real-world business experience through the Fox Chase Farm Store, district-wide markets, and Maple Leaf Café, managed by students from farm to sale.",
+        image: imgEnterprise,
+      },
+      {
+        title: "Skilled Trades Pathways",
+        description: "Pre-apprenticeships in plumbing and electrical trades integrated with agricultural programming to build comprehensive workforce readiness.",
+        image: imgEnterprise2,
+      },
+    ],
+  },
+  {
+    id: "community",
+    label: "Community",
+    color: "emerald",
+    description: "Open programming that welcomes Philadelphia families and neighbors, creating shared connections to land, food, and each other.",
+    programs: [
+      {
+        title: "ESY Horticulture Program",
+        description: "Extended School Year horticulture programming providing meaningful summer learning for students with Individualized Education Programs.",
+        image: imgBirdhouse,
+      },
+      {
+        title: "Weekend Family Experiences",
+        description: "Open farm events connecting Philadelphia families to agricultural education, seasonal programming, and community building throughout the year.",
+        image: imgMarket,
+      },
+      {
+        title: "Signature Community Events",
+        description: "Annual events including Ag Discovery Day, Rooster Run, Cow Plop Bingo, Baby Goat Naming, and Bird Walks, engaging thousands of community members.",
+        image: imgFarmShow,
+      },
+      {
+        title: "GAIN Media Network",
+        description: "Global Agriculture Innovation Network delivering agriculture innovation content to teachers and students, expanding the reach of Fox Chase Farm's programming.",
+        image: imgMandyStudents,
+      },
+    ],
+  },
+];
+---
+
+<Base
+  title="Programs - Fox Chase Farm"
+  meta_title="Programs - Dr. Mandy Manna & Fox Chase Farm"
+  description="Explore agricultural education, workforce development, and community programs at Fox Chase Farm, serving 62K+ students annually across 60 Philadelphia schools."
+>
+  <!-- Page Header -->
+  <section class="pt-20 pb-12 text-center" style="background-color: #fafaf8;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span
+        class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full"
+        style="background-color: #e8f0eb; color: #2d5a3d;"
+      >
+        Fox Chase Farm
+      </span>
+      <h1
+        class="text-4xl lg:text-5xl font-serif font-semibold mb-5 leading-tight"
+        style="color: #1a2e1e;"
+      >
+        Programs at Fox Chase Farm
+      </h1>
+      <p class="text-lg max-w-2xl mx-auto mb-8" style="color: #5a7060;">
+        Agricultural education, workforce development, and community engagement serving 62K+ students across Philadelphia every year.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href="#education"
+          class="px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+          style="background-color: #e8f0eb; color: #2d5a3d;"
+        >
+          Education
+        </a>
+        <a
+          href="#workforce"
+          class="px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+          style="background-color: #e8f0eb; color: #2d5a3d;"
+        >
+          Workforce Development
+        </a>
+        <a
+          href="#community"
+          class="px-5 py-2 rounded-full text-sm font-semibold transition-colors"
+          style="background-color: #e8f0eb; color: #2d5a3d;"
+        >
+          Community
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="py-12" style="background-color: #f0f4f1;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-8">
+        <span
+          class="inline-block text-xs font-semibold tracking-widest uppercase mb-3 px-3 py-1.5 rounded-full"
+          style="background-color: #e8f0eb; color: #2d5a3d;"
+        >
+          In Action
+        </span>
+        <h2 class="text-2xl font-serif font-semibold" style="color: #1a2e1e;">
+          See the Programs in Action
+        </h2>
+      </div>
+      <div
+        id="video-container"
+        class="relative rounded-2xl overflow-hidden cursor-pointer shadow-xl"
+        style="background-color: #0d1f13;"
+      >
+        <video
+          id="hero-video"
+          muted
+          loop
+          playsinline
+          class="w-full block"
+          style="max-height: 480px; display: block;"
+          poster={imgMandyStudents.src}
+        >
+          <source src="/videos/cte-programs-trimmed.mp4" type="video/mp4" />
+        </video>
+        <!-- Play overlay: visible when paused -->
+        <div
+          id="video-overlay"
+          class="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300"
+          style="background: rgba(13,31,19,0.45);"
+        >
+          <div
+            class="w-20 h-20 rounded-full flex items-center justify-center mb-3 shadow-lg"
+            style="background: rgba(255,255,255,0.92);"
+          >
+            <svg class="w-8 h-8" style="color: #1a3325; margin-left: 4px;" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+          <p class="text-white text-sm font-medium tracking-wide opacity-80">Hover to play</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats strip -->
+  <section style="background-color: #fafaf8; border-bottom: 1px solid #dde8de;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-wrap justify-center gap-8 lg:gap-16">
+        <div class="text-center">
+          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">62K+</div>
+          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Students Annually</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">60</div>
+          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Schools Served</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">180+</div>
+          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Teachers Engaged</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">112</div>
+          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Acres of Farm</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program Categories -->
+  {
+    categories.map((cat) => {
+      const c = colorStyles[cat.color];
+      return (
+        <section class="py-16" style={c.bg} id={cat.id}>
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            {/* Category header */}
+            <div class="flex items-center gap-4 mb-2">
+              <span
+                class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase"
+                style={c.badge}
+              >
+                {cat.label}
+              </span>
+              <div class="flex-1 h-px" style="background-color: #dde8de;"></div>
+            </div>
+            <p class="text-base mb-10" style="color: #5a7060;">{cat.description}</p>
+
+            {/* Program cards */}
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                {cat.programs.map((program) => {
+                  const iconPath = programIcons[program.title] ?? defaultIcon;
+                  return (
+                    <div
+                      class="bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col"
+                      style="border: 1px solid #dde8de;"
+                    >
+                      <div class="h-36 overflow-hidden">
+                        <Image
+                          src={program.image}
+                          alt={program.title}
+                          width={400}
+                          height={144}
+                          format="webp"
+                          class="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div class="p-5 flex flex-col flex-1">
+                        <div
+                          class="w-8 h-8 rounded-lg flex items-center justify-center mb-3 flex-shrink-0"
+                          style={c.iconBg}
+                        >
+                          <svg
+                            class="w-4 h-4 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            set:html={iconPath}
+                          />
+                        </div>
+                        <h3
+                          class="text-sm font-semibold mb-1.5 leading-snug"
+                          style="color: #1a2e1e;"
+                        >
+                          {program.title}
+                        </h3>
+                        <p
+                          class="text-xs leading-relaxed flex-1"
+                          style="color: #6b7f70;"
+                        >
+                          {program.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <!-- Infrastructure Placeholder -->
+  <section class="py-16" style="background-color: #ffffff;" id="infrastructure">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center gap-4 mb-10">
+        <span
+          class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase"
+          style="background-color: #f0f4f1; color: #5a7060;"
+        >
+          Infrastructure
+        </span>
+        <div class="flex-1 h-px" style="background-color: #dde8de;"></div>
+      </div>
+      <div class="rounded-2xl p-12 text-center" style="border: 2px dashed #dde8de;">
+        <div
+          class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
+          style="background-color: #f0f4f1;"
+        >
+          <svg
+            class="w-8 h-8"
+            style="color: #6b7f70;"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+            />
+          </svg>
+        </div>
+        <h3
+          class="text-2xl font-serif font-semibold mb-4"
+          style="color: #1a2e1e;"
+        >
+          State-of-the-Art Infrastructure
+        </h3>
+        <p class="max-w-2xl mx-auto text-lg mb-3" style="color: #5a7060;">
+          Detailed information about Fox Chase Farm's equipment, CEA labs, technology systems,
+          and innovative infrastructure is coming soon.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const video = document.getElementById("hero-video") as HTMLVideoElement | null;
+  const container = document.getElementById("video-container");
+  const overlay = document.getElementById("video-overlay");
+
+  if (video && container && overlay) {
+    const showOverlay = () => {
+      overlay.style.opacity = "1";
+      overlay.style.pointerEvents = "auto";
+    };
+    const hideOverlay = () => {
+      overlay.style.opacity = "0";
+      overlay.style.pointerEvents = "none";
+    };
+
+    // Pause and show overlay when scrolled out of view
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            video.pause();
+            showOverlay();
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(container);
+
+    // Play on hover
+    container.addEventListener("mouseenter", () => {
+      video.play().catch(() => {});
+      hideOverlay();
+    });
+
+    // Pause when mouse leaves
+    container.addEventListener("mouseleave", () => {
+      video.pause();
+      showOverlay();
+    });
+  }
+</script>

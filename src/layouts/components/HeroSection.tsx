@@ -1,5 +1,10 @@
 import React from 'react';
 
+interface Fellowship {
+  label: string;
+  year: string;
+}
+
 interface HeroSectionProps {
   title: string;
   subtitle: string;
@@ -7,6 +12,7 @@ interface HeroSectionProps {
   imageUrl: string;
   ctaText?: string;
   ctaUrl?: string;
+  fellowships?: Fellowship[];
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
@@ -15,121 +21,212 @@ const HeroSection: React.FC<HeroSectionProps> = ({
   description,
   imageUrl,
   ctaText,
-  ctaUrl
+  ctaUrl,
+  fellowships = [{ label: "Neubauer Fellow", year: "2024" }],
 }) => {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 lg:-mt-16">
-      <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-slate-700/25 dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
+    <section
+      className="relative overflow-hidden"
+      style={{ backgroundColor: '#f0f4f1' }}
+    >
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2"
+          style={{ minHeight: '78vh' }}
+        >
+          {/* Content panel */}
+          <div className="flex flex-col justify-center py-14 lg:py-20 lg:pr-14 order-2 lg:order-1">
 
-      <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:pt-20 lg:pb-4">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
-
-          {/* Content */}
-          <div className="order-2 lg:order-1">
-            <div className="inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 dark:bg-blue-900/20 dark:text-blue-300 mb-6">
-              <span className="mr-2">🌱</span>
-              Educational Innovation Leader
-            </div>
-
-            {/* Mobile: Title, subtitle and circular image */}
-            <div className="lg:hidden flex items-center gap-6 mb-6">
-              <div className="flex-shrink-0">
-                <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-lg">
-                  <img
-                    src={imageUrl}
-                    alt={title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+            {/* Award badge */}
+            {fellowships.map((f, i) => (
+              <div
+                key={i}
+                className="inline-flex items-center gap-2 mb-8 w-fit px-4 py-2 rounded-full"
+                style={{
+                  border: '1px solid rgba(184,150,46,0.35)',
+                  backgroundColor: 'rgba(184,150,46,0.08)',
+                }}
+              >
+                <svg
+                  className="w-3.5 h-3.5 flex-shrink-0"
+                  style={{ color: '#b8962e' }}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                >
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                <span
+                  className="text-xs font-semibold tracking-widest uppercase"
+                  style={{ color: '#b8962e' }}
+                >
+                  {f.year} {f.label}
+                </span>
               </div>
-              <div className="flex-1">
-                <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-                  <span className="block font-serif">{title}</span>
+            ))}
+
+            {/* Mobile: photo + title row */}
+            <div className="lg:hidden flex items-center gap-5 mb-8">
+              <div
+                className="flex-shrink-0 w-24 h-24 rounded-full overflow-hidden shadow-lg"
+                style={{ border: '3px solid white' }}
+              >
+                <img
+                  src={imageUrl}
+                  alt={title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h1
+                  className="text-3xl font-serif font-semibold leading-tight"
+                  style={{ color: '#1a2e1e' }}
+                >
+                  {title}
                 </h1>
-                <p className="mt-2 text-lg font-medium text-blue-600 dark:text-blue-400">
+                <p
+                  className="mt-1.5 text-xs font-semibold tracking-widest uppercase"
+                  style={{ color: '#4a7c59' }}
+                >
                   {subtitle}
                 </p>
               </div>
             </div>
 
-            {/* Desktop: Title only */}
-            <h1 className="hidden lg:block text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-5xl lg:text-6xl">
-              <span className="block font-serif">{title}</span>
-            </h1>
+            {/* Desktop title */}
+            <div className="hidden lg:block">
+              <h1
+                className="font-serif font-semibold leading-[1.08] mb-4"
+                style={{
+                  fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
+                  color: '#1a2e1e',
+                }}
+              >
+                {title}
+              </h1>
+              <p
+                className="text-xs font-semibold tracking-widest uppercase mb-8"
+                style={{ color: '#4a7c59' }}
+              >
+                {subtitle}
+              </p>
+            </div>
 
-            <p className="mt-4 text-xl font-medium text-blue-600 dark:text-blue-400 hidden lg:block">
-              {subtitle}
-            </p>
-
-            <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+            <p
+              className="text-lg leading-relaxed mb-10 max-w-lg"
+              style={{ color: '#5a7060' }}
+            >
               {description}
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            {/* CTAs */}
+            <div className="flex flex-wrap gap-3 mb-14">
               {ctaText && ctaUrl && (
                 <a
                   href={ctaUrl}
-                  className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 transition-colors"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 text-white font-semibold rounded-lg transition-colors duration-200 text-sm"
+                  style={{ backgroundColor: '#1a3325' }}
                 >
                   {ctaText}
-                  <svg className="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </a>
               )}
-
               <a
-                href="/consult"
-                className="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-base font-semibold text-gray-700 shadow-sm hover:bg-gray-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700 transition-colors"
+                href="/about"
+                className="inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-lg transition-all duration-200 text-sm"
+                style={{
+                  border: '1px solid #c8dcc8',
+                  color: '#2d5a3d',
+                  backgroundColor: 'white',
+                }}
               >
-                Contact
+                About Mandy
               </a>
             </div>
 
             {/* Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">50K+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Student Visits</div>
+            <div
+              className="grid grid-cols-3 gap-6 pt-8"
+              style={{ borderTop: '1px solid #dde8de' }}
+            >
+              <div>
+                <div
+                  className="text-3xl font-serif font-semibold"
+                  style={{ color: '#1a3325' }}
+                >
+                  62K+
+                </div>
+                <div
+                  className="text-xs font-medium tracking-wide uppercase mt-1"
+                  style={{ color: '#6b7f70' }}
+                >
+                  Student Visits
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">60+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Schools Served</div>
+              <div>
+                <div
+                  className="text-3xl font-serif font-semibold"
+                  style={{ color: '#1a3325' }}
+                >
+                  60
+                </div>
+                <div
+                  className="text-xs font-medium tracking-wide uppercase mt-1"
+                  style={{ color: '#6b7f70' }}
+                >
+                  Schools Served
+                </div>
               </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900 dark:text-white">$2.2M+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Competitive Grants</div>
+              <div>
+                <div
+                  className="text-3xl font-serif font-semibold"
+                  style={{ color: '#1a3325' }}
+                >
+                  $2.2M+
+                </div>
+                <div
+                  className="text-xs font-medium tracking-wide uppercase mt-1"
+                  style={{ color: '#6b7f70' }}
+                >
+                  Competitive Grants
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Image - Desktop only */}
-          <div className="order-1 lg:order-2 hidden lg:block mt-[-90px]" >
-            <div className="relative">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-400 to-cyan-400 blur-3xl opacity-20"></div>
-              <div className="relative overflow-hidden rounded-2xl shadow-2xl">
+          {/* Photo panel — desktop only */}
+          <div className="order-1 lg:order-2 hidden lg:flex items-center py-12">
+            <div className="relative w-full">
+              <div
+                className="overflow-hidden rounded-2xl shadow-xl"
+                style={{ border: '1px solid #dde8de' }}
+              >
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="w-full h-auto max-h-[450px] object-contain object-center rounded-2xl"
+                  className="w-full h-auto object-cover"
+                  style={{
+                    maxHeight: '560px',
+                    objectPosition: 'center top',
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-5xl"></div>
               </div>
-
-              {/* Floating achievement card */}
-              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 border border-gray-200 dark:border-gray-700">
-                <div className="flex items-center space-x-3">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/20 rounded-full flex items-center justify-center">
-                      <span className="text-yellow-600 dark:text-yellow-400 text-lg">🏆</span>
-                    </div>
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-gray-900 dark:text-white">2024 Neubauer Fellow</p>
-                    <p className="text-xs text-gray-600 dark:text-gray-400">Educational Leadership</p>
-                  </div>
-                </div>
-              </div>
+              {/* Offset decorative border */}
+              <div
+                className="absolute -bottom-3 -right-3 w-full h-full rounded-2xl pointer-events-none"
+                style={{ border: '1px solid #c8dcc8', zIndex: -1 }}
+              ></div>
             </div>
           </div>
         </div>

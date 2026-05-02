@@ -1,5 +1,10 @@
 .header {
-  @apply bg-body dark:bg-darkmode-body py-6;
+  @apply bg-body dark:bg-darkmode-body py-4;
+  border-bottom: 1px solid #dde8de;
+}
+
+.dark .header {
+  border-bottom-color: #2a3d2e;
 }
 
 /* navbar items */
@@ -19,7 +24,11 @@
 }
 
 .nav-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text-dark dark:hover:text-darkmode-primary block p-3 cursor-pointer font-semibold transition lg:px-2 lg:py-3;
+  @apply text-text dark:text-darkmode-text hover:text-primary dark:hover:text-darkmode-primary block px-3 py-3 cursor-pointer text-sm font-medium tracking-wide transition lg:py-2;
+}
+
+.nav-link.active {
+  @apply text-primary dark:text-darkmode-primary;
 }
 
 .nav-dropdown {
@@ -35,15 +44,28 @@
 }
 
 .nav-dropdown-list {
-  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded p-4 shadow-sm hidden lg:invisible lg:absolute lg:block lg:opacity-0;
+  @apply bg-body dark:bg-darkmode-body z-10 min-w-[180px] rounded-xl p-2 shadow-xl hidden lg:invisible lg:absolute lg:block lg:opacity-0 lg:group-hover:visible lg:group-hover:opacity-100;
+  border: 1px solid #dde8de;
+}
+
+.dark .nav-dropdown-list {
+  border-color: #2a3d2e;
 }
 
 .nav-dropdown-item {
-  @apply [&:not(:last-child)]:mb-2;
+  @apply [&:not(:last-child)]:mb-0.5;
 }
 
 .nav-dropdown-link {
-  @apply text-text-dark hover:text-primary dark:text-darkmode-text dark:hover:text-darkmode-primary block py-1 font-semibold transition;
+  @apply text-text dark:text-darkmode-text hover:text-primary dark:hover:text-darkmode-primary block py-2 px-3 text-sm font-medium rounded-lg transition;
+}
+
+.nav-dropdown-link:hover {
+  background-color: #f0f4f1;
+}
+
+.dark .nav-dropdown-link:hover {
+  background-color: #1a2e1e;
 }
 
 /* theme-switcher */

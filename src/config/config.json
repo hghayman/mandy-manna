@@ -14,15 +14,15 @@
   "settings": {
     "search": true,
     "sticky_header": true,
-    "theme_switcher": true,
-    "default_theme": "system",
+    "theme_switcher": false,
+    "default_theme": "light",
     "pagination": 2,
     "summary_length": 200,
     "blog_folder": "blog"
   },
   "params": {
     "contact_form_action": "#",
-    "copyright": "© 2025 Dr. Mandy Manna. All rights reserved."
+    "copyright": "\u00a9 2025 Dr. Mandy Manna. All rights reserved."
   },
   "navigation_button": {
     "enable": false,
