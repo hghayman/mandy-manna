@@ -17,7 +17,10 @@ import imgFieldWork from "@/assets/images/programs/field-work.jpg";
 
 type CategoryColor = "green" | "teal" | "emerald";
 
-const colorStyles: Record<CategoryColor, { bg: string; badge: string; iconBg: string }> = {
+const colorStyles: Record<
+  CategoryColor,
+  { bg: string; badge: string; iconBg: string }
+> = {
   green: {
     bg: "background-color: #f0f4f1;",
     badge: "background-color: #e8f0eb; color: #2d5a3d;",
@@ -63,26 +66,31 @@ const categories: {
     id: "education",
     label: "Education",
     color: "green",
-    description: "Hands-on agricultural learning from kindergarten through 12th grade, connecting classrooms to the real world of the farm.",
+    description:
+      "Hands-on agricultural learning from kindergarten through 12th grade, connecting classrooms to the real world of the farm.",
     programs: [
       {
         title: "On-Farm Learning Experiences",
-        description: "Hands-on agricultural programming for K-12 students across the School District of Philadelphia, connecting classroom learning to real-world farm systems.",
+        description:
+          "Hands-on agricultural programming for K-12 students across the School District of Philadelphia, connecting classroom learning to real-world farm systems.",
         image: imgOnFarm,
       },
       {
         title: "Traveling Outreach Program",
-        description: "Mobile agricultural education bringing Fox Chase Farm programming directly to schools and community sites throughout Philadelphia.",
+        description:
+          "Mobile agricultural education bringing Fox Chase Farm programming directly to schools and community sites throughout Philadelphia.",
         image: imgAmbassadors,
       },
       {
         title: "Ag Empowerment Programs",
-        description: "Inclusive programming designed for students with diverse learning needs, connecting them to agricultural experiences that build confidence and real-world skills.",
+        description:
+          "Inclusive programming designed for students with diverse learning needs, connecting them to agricultural experiences that build confidence and real-world skills.",
         image: imgEmpowerment,
       },
       {
         title: "Jr. MANRRS Leadership",
-        description: "Minorities in Agriculture, Natural Resources and Related Sciences student chapter providing leadership development and professional networking opportunities.",
+        description:
+          "Minorities in Agriculture, Natural Resources and Related Sciences student chapter providing leadership development and professional networking opportunities.",
         image: imgAnimalScience,
       },
     ],
@@ -91,26 +99,31 @@ const categories: {
     id: "workforce",
     label: "Workforce Development",
     color: "teal",
-    description: "Career-connected pathways from pre-apprenticeship to professional certification, preparing students for the agricultural economy of tomorrow.",
+    description:
+      "Career-connected pathways from pre-apprenticeship to professional certification, preparing students for the agricultural economy of tomorrow.",
     programs: [
       {
         title: "CEA Pre-Apprenticeship Program",
-        description: "Philadelphia's first district-wide Controlled Environment Agriculture pre-apprenticeship pipeline, active at Mastbaum HS, Overbrook HS, and Martin Luther King HS.",
+        description:
+          "Philadelphia's first district-wide Controlled Environment Agriculture pre-apprenticeship pipeline, active at Mastbaum HS, Overbrook HS, and Martin Luther King HS.",
         image: imgFieldWork,
       },
       {
         title: "Agriculture Innovations Academy",
-        description: "In partnership with the University of Utah, this academy certifies Philadelphia educators in agricultural literacy, targeting 180+ teachers.",
+        description:
+          "In partnership with the University of Utah, this academy certifies Philadelphia educators in agricultural literacy, targeting 180+ teachers.",
         image: imgAcademy,
       },
       {
         title: "Student-Run Enterprises",
-        description: "Real-world business experience through the Fox Chase Farm Store, district-wide markets, and Maple Leaf Café, managed by students from farm to sale.",
+        description:
+          "Real-world business experience through the Fox Chase Farm Store, district-wide markets, and Maple Leaf Café, managed by students from farm to sale.",
         image: imgEnterprise,
       },
       {
         title: "Skilled Trades Pathways",
-        description: "Pre-apprenticeships in plumbing and electrical trades integrated with agricultural programming to build comprehensive workforce readiness.",
+        description:
+          "Pre-apprenticeships in plumbing and electrical trades integrated with agricultural programming to build comprehensive workforce readiness.",
         image: imgEnterprise2,
       },
     ],
@@ -119,26 +132,31 @@ const categories: {
     id: "community",
     label: "Community",
     color: "emerald",
-    description: "Open programming that welcomes Philadelphia families and neighbors, creating shared connections to land, food, and each other.",
+    description:
+      "Open programming that welcomes Philadelphia families and neighbors, creating shared connections to land, food, and each other.",
     programs: [
       {
         title: "ESY Horticulture Program",
-        description: "Extended School Year horticulture programming providing meaningful summer learning for students with Individualized Education Programs.",
+        description:
+          "Extended School Year horticulture programming providing meaningful summer learning for students with Individualized Education Programs.",
         image: imgBirdhouse,
       },
       {
         title: "Weekend Family Experiences",
-        description: "Open farm events connecting Philadelphia families to agricultural education, seasonal programming, and community building throughout the year.",
+        description:
+          "Open farm events connecting Philadelphia families to agricultural education, seasonal programming, and community building throughout the year.",
         image: imgMarket,
       },
       {
         title: "Signature Community Events",
-        description: "Annual events including Ag Discovery Day, Rooster Run, Cow Plop Bingo, Baby Goat Naming, and Bird Walks, engaging thousands of community members.",
+        description:
+          "Annual events including Ag Discovery Day, Rooster Run, Cow Plop Bingo, Baby Goat Naming, and Bird Walks, engaging thousands of community members.",
         image: imgFarmShow,
       },
       {
         title: "GAIN Media Network",
-        description: "Global Agriculture Innovation Network delivering agriculture innovation content to teachers and students, expanding the reach of Fox Chase Farm's programming.",
+        description:
+          "Global Agriculture Innovation Network delivering agriculture innovation content to teachers and students, expanding the reach of Fox Chase Farm's programming.",
         image: imgMandyStudents,
       },
     ],
@@ -167,7 +185,8 @@ const categories: {
         Programs at Fox Chase Farm
       </h1>
       <p class="text-lg max-w-2xl mx-auto mb-8" style="color: #5a7060;">
-        Agricultural education, workforce development, and community engagement serving 62K+ students across Philadelphia every year.
+        Agricultural education, workforce development, and community engagement
+        serving 62K+ students across Philadelphia every year.
       </p>
       <div class="flex flex-wrap gap-3 justify-center">
         <a
@@ -196,7 +215,7 @@ const categories: {
   </section>
 
   <!-- Video Section -->
-  <section class="py-12" style="background-color: #f0f4f1;">
+  <section id="video-section" class="py-12" style="background-color: #f0f4f1;">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-8">
         <span
@@ -205,41 +224,158 @@ const categories: {
         >
           In Action
         </span>
-        <h2 class="text-2xl font-serif font-semibold" style="color: #1a2e1e;">
+        <h2 class="text-3xl lg:text-4xl font-serif font-semibold" style="color: #1a2e1e;">
           See the Programs in Action
         </h2>
       </div>
+
       <div
         id="video-container"
-        class="relative rounded-2xl overflow-hidden cursor-pointer shadow-xl"
+        class="relative rounded-2xl overflow-hidden shadow-xl"
         style="background-color: #0d1f13;"
       >
         <video
           id="hero-video"
-          muted
           loop
           playsinline
           class="w-full block"
-          style="max-height: 480px; display: block;"
-          poster={imgMandyStudents.src}
+          style="max-height: 480px;"
+          poster="/images/video-poster.jpg"
         >
           <source src="/videos/cte-programs-trimmed.mp4" type="video/mp4" />
         </video>
-        <!-- Play overlay: visible when paused -->
+
+        <!-- Minimal controls — always visible at bottom -->
         <div
-          id="video-overlay"
-          class="absolute inset-0 flex flex-col items-center justify-center transition-opacity duration-300"
-          style="background: rgba(13,31,19,0.45);"
+          id="video-controls"
+          class="absolute bottom-0 left-0 right-0 px-5 pb-4 pt-10"
+          style="background: linear-gradient(to top, rgba(10,24,14,0.85) 0%, transparent 100%);"
         >
+          <!-- Progress bar -->
           <div
-            class="w-20 h-20 rounded-full flex items-center justify-center mb-3 shadow-lg"
-            style="background: rgba(255,255,255,0.92);"
+            id="progress-track"
+            class="w-full rounded-full mb-4 cursor-pointer"
+            style="height: 3px; background: rgba(255,255,255,0.2);"
           >
-            <svg class="w-8 h-8" style="color: #1a3325; margin-left: 4px;" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+            <div
+              id="progress-fill"
+              class="h-full rounded-full"
+              style="width: 0%; background: #a8c5a0; transition: none;"
+            >
+            </div>
           </div>
-          <p class="text-white text-sm font-medium tracking-wide opacity-80">Hover to play</p>
+
+          <!-- Buttons row -->
+          <div class="flex items-center gap-5">
+            <!-- Seek back 10s -->
+            <button
+              id="seek-back"
+              class="flex items-center gap-1 transition-opacity"
+              style="color: rgba(255,255,255,0.75);"
+              title="Back 10 seconds"
+            >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.75"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.334 4z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z"
+                ></path>
+              </svg>
+              <span
+                class="text-xs font-medium"
+                style="color: rgba(255,255,255,0.6);">10</span
+              >
+            </button>
+
+            <!-- Mute toggle -->
+            <button
+              id="mute-btn"
+              class="transition-opacity"
+              style="color: rgba(255,255,255,0.75);"
+              title="Toggle audio"
+            >
+              <!-- Muted icon (hidden by default — audio is on) -->
+              <svg
+                id="icon-muted"
+                class="w-5 h-5 hidden"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.75"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path>
+              </svg>
+              <!-- Unmuted icon (shown by default) -->
+              <svg
+                id="icon-unmuted"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.75"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.536 8.464a5 5 0 010 7.072M12 6v12m-3.536-9.536A5 5 0 008 12a5 5 0 00.464 2.536M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Seek forward 10s -->
+            <button
+              id="seek-fwd"
+              class="flex items-center gap-1 transition-opacity"
+              style="color: rgba(255,255,255,0.75);"
+              title="Forward 10 seconds"
+            >
+              <span
+                class="text-xs font-medium"
+                style="color: rgba(255,255,255,0.6);">10</span
+              >
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.75"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- Auto-play status pill -->
+            <span
+              id="play-status"
+              class="ml-auto text-xs font-medium px-2.5 py-1 rounded-full"
+              style="background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.45);"
+            >
+              Scroll into view to play
+            </span>
+          </div>
         </div>
       </div>
     </div>
@@ -250,20 +386,60 @@ const categories: {
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
       <div class="flex flex-wrap justify-center gap-8 lg:gap-16">
         <div class="text-center">
-          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">62K+</div>
-          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Students Annually</div>
+          <div
+            class="text-2xl font-serif font-semibold"
+            style="color: #1a3325;"
+          >
+            62K+
+          </div>
+          <div
+            class="text-xs font-medium tracking-wide uppercase mt-0.5"
+            style="color: #6b7f70;"
+          >
+            Students Annually
+          </div>
         </div>
         <div class="text-center">
-          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">60</div>
-          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Schools Served</div>
+          <div
+            class="text-2xl font-serif font-semibold"
+            style="color: #1a3325;"
+          >
+            60
+          </div>
+          <div
+            class="text-xs font-medium tracking-wide uppercase mt-0.5"
+            style="color: #6b7f70;"
+          >
+            Schools Served
+          </div>
         </div>
         <div class="text-center">
-          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">180+</div>
-          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Teachers Engaged</div>
+          <div
+            class="text-2xl font-serif font-semibold"
+            style="color: #1a3325;"
+          >
+            180+
+          </div>
+          <div
+            class="text-xs font-medium tracking-wide uppercase mt-0.5"
+            style="color: #6b7f70;"
+          >
+            Teachers Engaged
+          </div>
         </div>
         <div class="text-center">
-          <div class="text-2xl font-serif font-semibold" style="color: #1a3325;">112</div>
-          <div class="text-xs font-medium tracking-wide uppercase mt-0.5" style="color: #6b7f70;">Acres of Farm</div>
+          <div
+            class="text-2xl font-serif font-semibold"
+            style="color: #1a3325;"
+          >
+            112
+          </div>
+          <div
+            class="text-xs font-medium tracking-wide uppercase mt-0.5"
+            style="color: #6b7f70;"
+          >
+            Acres of Farm
+          </div>
         </div>
       </div>
     </div>
@@ -276,67 +452,71 @@ const categories: {
       return (
         <section class="py-16" style={c.bg} id={cat.id}>
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
             {/* Category header */}
-            <div class="flex items-center gap-4 mb-2">
+            <div class="flex items-center gap-4 mb-4">
               <span
                 class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase"
                 style={c.badge}
               >
                 {cat.label}
               </span>
-              <div class="flex-1 h-px" style="background-color: #dde8de;"></div>
+              <div class="flex-1 h-px" style="background-color: #dde8de;" />
             </div>
-            <p class="text-base mb-10" style="color: #5a7060;">{cat.description}</p>
+            <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-3 leading-tight" style="color: #1a2e1e;">
+              {cat.label === "Education" ? "K–12 Agricultural Learning" : cat.label === "Workforce Development" ? "Career Pathways in Agriculture" : "Open to Philadelphia Families"}
+            </h2>
+            <p class="text-lg max-w-3xl mb-10" style="color: #5a7060;">
+              {cat.description}
+            </p>
 
             {/* Program cards */}
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-                {cat.programs.map((program) => {
-                  const iconPath = programIcons[program.title] ?? defaultIcon;
-                  return (
-                    <div
-                      class="bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col"
-                      style="border: 1px solid #dde8de;"
-                    >
-                      <div class="h-36 overflow-hidden">
-                        <Image
-                          src={program.image}
-                          alt={program.title}
-                          width={400}
-                          height={144}
-                          format="webp"
-                          class="w-full h-full object-cover"
+              {cat.programs.map((program) => {
+                const iconPath = programIcons[program.title] ?? defaultIcon;
+                return (
+                  <div
+                    class="bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md flex flex-col"
+                    style="border: 1px solid #dde8de;"
+                  >
+                    <div class="h-56 overflow-hidden">
+                      <Image
+                        src={program.image}
+                        alt={program.title}
+                        width={400}
+                        format="webp"
+                        class="w-full h-full object-cover"
+                        style="object-position: center 20%;"
+                      />
+                    </div>
+                    <div class="p-5 flex flex-col flex-1">
+                      <div
+                        class="w-8 h-8 rounded-lg flex items-center justify-center mb-3 flex-shrink-0"
+                        style={c.iconBg}
+                      >
+                        <svg
+                          class="w-4 h-4 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          set:html={iconPath}
                         />
                       </div>
-                      <div class="p-5 flex flex-col flex-1">
-                        <div
-                          class="w-8 h-8 rounded-lg flex items-center justify-center mb-3 flex-shrink-0"
-                          style={c.iconBg}
-                        >
-                          <svg
-                            class="w-4 h-4 text-white"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            set:html={iconPath}
-                          />
-                        </div>
-                        <h3
-                          class="text-sm font-semibold mb-1.5 leading-snug"
-                          style="color: #1a2e1e;"
-                        >
-                          {program.title}
-                        </h3>
-                        <p
-                          class="text-xs leading-relaxed flex-1"
-                          style="color: #6b7f70;"
-                        >
-                          {program.description}
-                        </p>
-                      </div>
+                      <h3
+                        class="text-base font-semibold mb-2 leading-snug"
+                        style="color: #1a2e1e;"
+                      >
+                        {program.title}
+                      </h3>
+                      <p
+                        class="text-sm leading-relaxed flex-1"
+                        style="color: #6b7f70;"
+                      >
+                        {program.description}
+                      </p>
                     </div>
-                  );
-                })}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -356,7 +536,10 @@ const categories: {
         </span>
         <div class="flex-1 h-px" style="background-color: #dde8de;"></div>
       </div>
-      <div class="rounded-2xl p-12 text-center" style="border: 2px dashed #dde8de;">
+      <div
+        class="rounded-2xl p-12 text-center"
+        style="border: 2px dashed #dde8de;"
+      >
         <div
           class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
           style="background-color: #f0f4f1;"
@@ -373,7 +556,7 @@ const categories: {
               stroke-linejoin="round"
               stroke-width="1.5"
               d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-            />
+            ></path>
           </svg>
         </div>
         <h3
@@ -383,8 +566,8 @@ const categories: {
           State-of-the-Art Infrastructure
         </h3>
         <p class="max-w-2xl mx-auto text-lg mb-3" style="color: #5a7060;">
-          Detailed information about Fox Chase Farm's equipment, CEA labs, technology systems,
-          and innovative infrastructure is coming soon.
+          Detailed information about Fox Chase Farm's equipment, CEA labs,
+          technology systems, and innovative infrastructure is coming soon.
         </p>
       </div>
     </div>
@@ -392,44 +575,89 @@ const categories: {
 </Base>
 
 <script>
-  const video = document.getElementById("hero-video") as HTMLVideoElement | null;
-  const container = document.getElementById("video-container");
-  const overlay = document.getElementById("video-overlay");
+  const video = document.getElementById(
+    "hero-video",
+  ) as HTMLVideoElement | null;
+  const section = document.getElementById(
+    "video-section",
+  ) as HTMLElement | null;
+  const fill = document.getElementById("progress-fill") as HTMLElement | null;
+  const track = document.getElementById("progress-track") as HTMLElement | null;
+  const muteBtn = document.getElementById("mute-btn");
+  const seekBack = document.getElementById("seek-back");
+  const seekFwd = document.getElementById("seek-fwd");
+  const status = document.getElementById("play-status");
+  const iconMuted = document.getElementById("icon-muted");
+  const iconUnmuted = document.getElementById("icon-unmuted");
 
-  if (video && container && overlay) {
-    const showOverlay = () => {
-      overlay.style.opacity = "1";
-      overlay.style.pointerEvents = "auto";
-    };
-    const hideOverlay = () => {
-      overlay.style.opacity = "0";
-      overlay.style.pointerEvents = "none";
-    };
+  if (video && section) {
+    // Browsers block autoplay with audio — start muted, unmute after first play succeeds
+    video.muted = true;
+    let hasUnmuted = false;
 
-    // Pause and show overlay when scrolled out of view
+    // --- Auto-play / pause based on section visibility ---
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting) {
+          if (entry.isIntersecting) {
+            video
+              .play()
+              .then(() => {
+                if (!hasUnmuted) {
+                  video.muted = false;
+                  hasUnmuted = true;
+                  if (iconMuted) iconMuted.classList.add("hidden");
+                  if (iconUnmuted) iconUnmuted.classList.remove("hidden");
+                }
+              })
+              .catch(() => {});
+            if (status) status.textContent = "Playing";
+          } else {
             video.pause();
-            showOverlay();
+            if (status) status.textContent = "Scroll into view to play";
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.5 },
     );
-    observer.observe(container);
+    observer.observe(section);
 
-    // Play on hover
-    container.addEventListener("mouseenter", () => {
-      video.play().catch(() => {});
-      hideOverlay();
-    });
+    // --- Progress bar ---
+    if (fill) {
+      video.addEventListener("timeupdate", () => {
+        if (video.duration) {
+          fill.style.width = `${(video.currentTime / video.duration) * 100}%`;
+        }
+      });
+    }
 
-    // Pause when mouse leaves
-    container.addEventListener("mouseleave", () => {
-      video.pause();
-      showOverlay();
+    // --- Seek by clicking the progress track ---
+    if (track) {
+      track.addEventListener("click", (e) => {
+        const rect = track.getBoundingClientRect();
+        const ratio = Math.max(
+          0,
+          Math.min(1, (e.clientX - rect.left) / rect.width),
+        );
+        video.currentTime = ratio * video.duration;
+      });
+    }
+
+    // --- Mute toggle ---
+    if (muteBtn && iconMuted && iconUnmuted) {
+      muteBtn.addEventListener("click", () => {
+        video.muted = !video.muted;
+        iconMuted.classList.toggle("hidden", !video.muted);
+        iconUnmuted.classList.toggle("hidden", video.muted);
+      });
+    }
+
+    // --- Seek buttons ---
+    seekBack?.addEventListener("click", () => {
+      video.currentTime = Math.max(0, video.currentTime - 10);
     });
-  }
+    seekFwd?.addEventListener("click", () => {
+      video.currentTime = Math.min(video.duration, video.currentTime + 10);
+    });
+  } // end if (video && section)
 </script>

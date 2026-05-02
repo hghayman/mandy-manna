@@ -2,12 +2,11 @@
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
-// Props interface for the component
 interface Props {
   src: string | ImageMetadata;
   alt: string;
   width: number;
-  height: number;
+  height?: number;
   loading?: "eager" | "lazy" | null | undefined;
   decoding?: "async" | "auto" | "sync" | null | undefined;
   format?: "auto" | "avif" | "jpeg" | "png" | "svg" | "webp";
@@ -15,7 +14,6 @@ interface Props {
   style?: any;
 }
 
-// Destructuring Astro.props to get the component's props
 let {
   src,
   alt,
@@ -28,23 +26,15 @@ let {
   style,
 } = Astro.props;
 
-// Check if src is already an image object (from content collections with image() helper)
 const isImageObject = typeof src === 'object' && src !== null && 'src' in src;
 
 let imageSrc = src;
 let isValidPath = true;
 
 if (!isImageObject && typeof src === 'string') {
-  // Handle string paths - look in public folder
   imageSrc = `/public${src}`;
-  
-  // Glob pattern to load images from the /public/images folder
   const images = import.meta.glob("/public/images/**/*.{jpeg,jpg,png,gif}");
-  
-  // Check if the source path is valid
   isValidPath = images[imageSrc as string] ? true : false;
-  
-  // Log a warning message in red if the image is not found
   !isValidPath &&
     console.error(
       `\x1b[31mImage not found - ${imageSrc}.\x1b[0m Make sure the image is in the /public/images folder.`,
@@ -58,7 +48,7 @@ if (!isImageObject && typeof src === 'string') {
       src={src as ImageMetadata}
       alt={alt}
       width={width}
-      height={height}
+      {...(height !== undefined ? { height } : {})}
       loading={loading}
       decoding={decoding}
       class={className}
@@ -70,7 +60,7 @@ if (!isImageObject && typeof src === 'string') {
       src={(import.meta.glob("/public/images/**/*.{jpeg,jpg,png,gif}"))[imageSrc]() as Promise<{ default: ImageMetadata }>}
       alt={alt}
       width={width}
-      height={height}
+      {...(height !== undefined ? { height } : {})}
       loading={loading}
       decoding={decoding}
       class={className}

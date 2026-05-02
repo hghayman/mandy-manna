@@ -73,13 +73,12 @@ const { title, description, author, category, image, pubDate, tags } = post.data
 
         {
           image && (
-            <div class="mb-10">
+            <div class="mb-10 flex justify-center">
               <ImageMod
                 src={image}
-                height={400}
-                width={1200}
+                width={900}
                 alt={title}
-                class="blog-hero-image"
+                class="blog-hero-image max-h-[480px] w-auto"
                 format="webp"
               />
             </div>

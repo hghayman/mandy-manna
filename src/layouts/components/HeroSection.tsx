@@ -73,7 +73,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
               <div>
@@ -215,7 +215,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="w-full h-auto object-cover"
+                  className="w-full h-auto object-cover object-top"
                   style={{
                     maxHeight: '560px',
                     objectPosition: 'center top',

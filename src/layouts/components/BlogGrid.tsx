@@ -35,7 +35,7 @@ const BlogGrid: React.FC<BlogGridProps> = ({ posts }) => {
                       <img 
                         src={post.image} 
                         alt={post.title}
-                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                        className="w-full h-48 object-cover object-top group-hover:scale-105 transition-transform duration-300"
                       />
                     </div>
                   )}

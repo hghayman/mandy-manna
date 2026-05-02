@@ -22,13 +22,16 @@ const getData = (folder, groupDepth) => {
       const file = fs.readFileSync(filepath, "utf-8");
       const { data, content } = matter(file);
       const pathParts = filepath.split(path.sep);
-      const slug =
+      const rawSlug =
         data.slug ||
         pathParts
           .slice(CONTENT_DEPTH)
           .join("/")
           .replace(/\.[^/.]+$/, "");
-      const group = pathParts[groupDepth];
+      // Remap blog/* paths to media/* so search links point to the correct route
+      const slug = rawSlug.startsWith("blog/") ? rawSlug.replace("blog/", "media/") : rawSlug;
+      const rawGroup = pathParts[groupDepth];
+      const group = rawGroup === "blog" ? "media" : rawGroup;
 
       return {
         group: group,
