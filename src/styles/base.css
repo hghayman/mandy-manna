@@ -1,8 +1,8 @@
 html {
-  /* Root must stay at 16px on phones: every text utility is rem-based, so a
-     smaller root shrinks the whole site and trips iOS input auto-zoom.
-     Headings scale down on small screens via their own *-sm variants. */
-  @apply text-base;
+  /* Every text utility is rem-based, so the root size scales the whole site.
+     Use a slightly larger 17px root on phones for comfortable reading, and
+     16px from md up. Never go below 16px on mobile (it trips iOS auto-zoom). */
+  @apply text-[17px] md:text-base;
 }
 
 body {

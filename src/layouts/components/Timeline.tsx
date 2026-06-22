@@ -8,80 +8,106 @@ interface TimelineItem {
   period: string;
   status: string;
   description: string[];
-  icon: string;
+  icon?: string;
 }
 
 interface TimelineProps {
   items: TimelineItem[];
 }
 
+const statusStyles: Record<string, { bg: string; color: string; label: string }> = {
+  current: { bg: '#e8f0eb', color: '#2d5a3d', label: 'Current' },
+  ongoing: { bg: '#e0f0ee', color: '#1f5c57', label: 'Ongoing' },
+  completed: { bg: '#f0f4f1', color: '#5a7060', label: 'Completed' },
+};
+
 const Timeline: React.FC<TimelineProps> = ({ items }) => {
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'current':
-        return 'bg-green-100 dark:bg-green-900/20 text-green-800 dark:text-green-400';
-      case 'ongoing':
-        return 'bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-400';
-      case 'completed':
-        return 'bg-gray-100 dark:bg-gray-900/20 text-gray-800 dark:text-gray-400';
-      default:
-        return 'bg-gray-100 dark:bg-gray-900/20 text-gray-800 dark:text-gray-400';
-    }
-  };
-
-  const getStatusLabel = (status: string) => {
-    switch (status) {
-      case 'current':
-        return 'Current';
-      case 'ongoing':
-        return 'Ongoing';
-      case 'completed':
-        return 'Completed';
-      default:
-        return 'Completed';
-    }
-  };
-
   return (
     <div className="relative max-w-4xl mx-auto">
-      {/* Timeline Line */}
-      <div className="absolute left-4 md:left-8 h-full w-0.5 bg-gradient-to-b from-blue-600 to-cyan-400"></div>
+      {/* Vertical line — sits behind the nodes */}
+      <div
+        className="absolute top-3 bottom-3 left-[15px] md:left-[19px] w-px"
+        style={{ backgroundColor: '#cdddd0' }}
+      />
 
-      {/* Timeline Items */}
-      <div className="space-y-8">
-        {items.map((item, index) => (
-          <div key={item.id} className="relative flex items-start">
-            {/* Timeline Dot */}
-            <div className="absolute left-0 md:left-4 w-8 h-8 rounded-full flex items-center justify-center z-10 shadow-lg bg-white/85 border border-blue-300 text-blue-700 dark:bg-blue-500/15 dark:border-blue-400/40 dark:text-blue-100 backdrop-blur">
-              <span className="text-lg leading-none">{item.icon}</span>
-            </div>
+      <div className="space-y-6">
+        {items.map((item) => {
+          const s = statusStyles[item.status] ?? statusStyles.completed;
+          return (
+            <div key={item.id} className="relative pl-12 md:pl-16">
+              {/* Node */}
+              <div className="absolute left-0 md:left-1 top-1.5 z-10">
+                <span
+                  className="flex w-8 h-8 items-center justify-center rounded-full"
+                  style={{ backgroundColor: '#ffffff', border: '2px solid #c8dcc8' }}
+                >
+                  <span
+                    className="w-3 h-3 rounded-full"
+                    style={{ backgroundColor: item.status === 'completed' ? '#a8c0ad' : '#2d5a3d' }}
+                  />
+                </span>
+              </div>
 
-            {/* Content - Always on the right */}
-            <div className="ml-12 md:ml-16 flex-1">
-              <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <div className="flex items-center justify-between mb-4">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(item.status)}`}>
-                    {getStatusLabel(item.status)}
+              {/* Card */}
+              <div
+                className="rounded-xl p-6 transition-all duration-300 hover:shadow-md"
+                style={{ backgroundColor: '#ffffff', border: '1px solid #dde8de' }}
+              >
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-2 mb-3">
+                  <span
+                    className="px-2.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wide"
+                    style={{ backgroundColor: s.bg, color: s.color }}
+                  >
+                    {s.label}
                   </span>
-                  <span className="text-gray-500 dark:text-gray-400 text-sm font-medium">{item.period}</span>
+                  <span className="text-xs font-medium" style={{ color: '#8a9e8e' }}>
+                    {item.period}
+                  </span>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{item.title}</h3>
-                <p className="text-blue-600 dark:text-blue-400 font-medium mb-3">{item.subtitle}</p>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4">{item.organization}</p>
+                <h3
+                  className="text-lg font-serif font-semibold mb-1 leading-snug"
+                  style={{ color: '#1a2e1e' }}
+                >
+                  {item.title}
+                </h3>
+                <p className="text-sm font-semibold mb-1" style={{ color: '#4a7c59' }}>
+                  {item.subtitle}
+                </p>
+                <p className="text-sm mb-4" style={{ color: '#6b7f70' }}>
+                  {item.organization}
+                </p>
 
-                <ul className="text-gray-600 dark:text-gray-300 text-sm space-y-2">
+                <ul className="space-y-2">
                   {item.description.map((desc, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <span className="text-blue-500 mr-2 mt-1 flex-shrink-0">•</span>
-                      <span className="leading-relaxed">{desc}</span>
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span
+                        className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-1"
+                        style={{ backgroundColor: '#e8f0eb' }}
+                      >
+                        <svg
+                          className="w-2.5 h-2.5"
+                          style={{ color: '#4a7c59' }}
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                      </span>
+                      <span className="text-sm leading-relaxed" style={{ color: '#3a5040' }}>
+                        {desc}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

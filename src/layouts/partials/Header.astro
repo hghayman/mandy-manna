@@ -31,7 +31,7 @@ const { pathname } = Astro.url;
     <input id="nav-toggle" type="checkbox" class="hidden" />
     <label
       for="nav-toggle"
-      class="order-3 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1"
+      class="order-3 ml-5 cursor-pointer flex items-center lg:hidden text-text-dark dark:text-white lg:order-1 lg:ml-0"
     >
       <svg id="show-button" class="h-6 fill-current block" viewBox="0 0 20 20">
         <title>Menu Open</title>
@@ -121,7 +121,7 @@ const { pathname } = Astro.url;
       {
         settings.search && (
           <button
-            class="text-text hover:text-primary text-lg transition"
+            class="text-text hover:text-primary text-2xl transition p-1 -m-1"
             aria-label="search"
             data-search-trigger
           >
