@@ -7,6 +7,8 @@ interface Award {
   description: string;
   icon: string;
   featured?: boolean;
+  link?: string;
+  images?: string[];
 }
 
 interface GrantDetail {
@@ -20,6 +22,7 @@ interface Grant {
   description: string;
   icon: string;
   details?: GrantDetail[];
+  note?: string;
 }
 
 interface RecognitionSectionProps {
@@ -55,6 +58,40 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({ awards, grants 
             <h3 className="text-2xl font-serif font-semibold mb-2" style={{ color: '#1a2e1e' }}>{award.title}</h3>
             <p className="font-medium mb-3 text-sm" style={{ color: '#8a6918' }}>{award.organization} · {award.year}</p>
             <p className="leading-relaxed max-w-2xl mx-auto" style={{ color: '#5a5040' }}>{award.description}</p>
+
+            {award.images && award.images.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-6">
+                {award.images.map((src, i) => (
+                  <div
+                    key={i}
+                    className="overflow-hidden rounded-lg shadow-sm"
+                    style={{ border: '1px solid rgba(201,162,39,0.25)', aspectRatio: '3 / 4' }}
+                  >
+                    <img
+                      src={src}
+                      alt={`${award.title} — event photo ${i + 1}`}
+                      loading="lazy"
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {award.link && (
+              <a
+                href={award.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-6 text-sm font-semibold"
+                style={{ color: '#8a6918' }}
+              >
+                Read the feature
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            )}
           </div>
         </div>
       ))}
@@ -126,9 +163,11 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({ awards, grants 
                       </div>
                     </div>
                   ))}
-                  <div className="px-6 py-3" style={{ backgroundColor: 'rgba(232,240,235,0.5)' }}>
-                    <p className="text-xs italic" style={{ color: '#4a7c59' }}>Additional grant details to be added by Dr. Manna.</p>
-                  </div>
+                  {primaryGrant.note && (
+                    <div className="px-6 py-3" style={{ backgroundColor: 'rgba(232,240,235,0.5)' }}>
+                      <p className="text-xs italic" style={{ color: '#4a7c59' }}>{primaryGrant.note}</p>
+                    </div>
+                  )}
                 </div>
               </div>
             )}

@@ -19,7 +19,7 @@ Dr. Manna partners with districts, agencies, and organizations to:
 
 Each engagement is tailored to advance student success, workforce readiness, sustainability, and community impact. Dr. Manna brings:
 
-- Proven leadership growing Fox Chase Farm into a hub-and-spoke model serving 50,000+ student visits annually.
+- Proven leadership growing Fox Chase Farm into a hub-and-spoke model serving 62,000+ student visits annually.
 - Experience managing $2.2M+ in multi-year grants across USDA, PA Farm to School, DEP, PAsmart, and Schools-to-Work initiatives.
 - Expertise launching district-wide CEA pre-apprenticeships, student-run enterprises, and inclusive programming for learners of all abilities.
 - Systems for staffing, evaluation, and professional development that align agricultural innovation with district priorities.

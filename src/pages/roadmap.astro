@@ -1,0 +1,375 @@
+---
+import Base from "@/layouts/Base.astro";
+
+// Source: Master Plan for Fox Chase Farm Ag Innovation Proposal.docx
+//         Fox Chase Farm plan summary.docx
+
+const priorities: {
+  label: string;
+  title: string;
+  description: string;
+  link: string;
+  icon: string;
+}[] = [
+  {
+    label: "Agricultural Innovation",
+    title: "Emerging Ag Technology",
+    description:
+      "Develop and showcase Controlled Environment Agriculture, hydroponics and indoor farming, automation, and AI- and data-driven agriculture education.",
+    link: "/programs#infrastructure",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />`,
+  },
+  {
+    label: "K-12 Education Pathways",
+    title: "A Seamless Learning Journey",
+    description:
+      "Create a continuous agricultural pathway from elementary through high school spanning sustainability, food systems, environmental science, CTE, and college and workforce pathways.",
+    link: "/programs#education",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 14l9-5-9-5-9 5 9 5z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 14l6.16-3.422A12.083 12.083 0 0118 16.5c0 1.657-2.686 3-6 3s-6-1.343-6-3c0-1.18.07-2.327.84-3.922L12 14z" />`,
+  },
+  {
+    label: "Workforce Development",
+    title: "Real-World Experience",
+    description:
+      "Provide internships, pre-apprenticeships, industry certifications, dual enrollment, and entrepreneurship experiences that connect students to careers.",
+    link: "/programs#workforce",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M21 13.255A23.9 23.9 0 0112 15c-3.18 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 7h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+  },
+  {
+    label: "Community Impact",
+    title: "A Regional Destination",
+    description:
+      "Serve Philadelphia families through public events, agricultural demonstrations, environmental education, partnerships, and food access initiatives.",
+    link: "/programs#community",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />`,
+  },
+];
+
+const phases: {
+  number: string;
+  title: string;
+  duration: string;
+  summary: string;
+  activities: string[];
+}[] = [
+  {
+    number: "01",
+    title: "Planning, Fundraising & Pilot Implementation",
+    duration: "6–12 months",
+    summary:
+      "Establish the framework and goals on-farm and in-schools, develop curriculum with partners, pilot programs with a focused group of students, and launch a capital fundraising strategy.",
+    activities: [
+      "Enhance on-farm engagement with new stations and reimagined tours and lessons",
+      "Integrate advanced animal and plant technologies and broadcast farm content to schools",
+      "Co-develop an interdisciplinary K-12 curriculum with educators and industry experts",
+      "Pilot CEA and Indoor Farming in the Kensington area and partner schools",
+      "Launch the AGAS (Ag as a Service) model and fundraising campaigns, including the Ag Innovation Summit",
+    ],
+  },
+  {
+    number: "02",
+    title: "Full Implementation & Expansion",
+    duration: "12–24 months",
+    summary:
+      "Fully implement Ag Innovation programming across the district, build research and evaluation mechanisms, plan Manatawna Farm, and strengthen community and industry partnerships.",
+    activities: [
+      "Launch district-wide, pathway-connected K-12 programming",
+      "Build data collection, action research, and long-term reporting",
+      "Create the operational and educational plan for Manatawna Farm",
+      "Deepen partnerships with community, corporate, and industry stakeholders",
+      "Strengthen fundraising to sustain expanded staffing and programs",
+    ],
+  },
+  {
+    number: "03",
+    title: "Sustainability, Scaling & Manatawna Farm",
+    duration: "Ongoing",
+    summary:
+      "Ensure long-term sustainability, replicate the model in other schools and districts, continuously improve, and develop a dedicated transportation division for the farms.",
+    activities: [
+      "Develop long-term financial sustainability through grants, partnerships, and community support",
+      "Create a replicable model to scale across schools and districts",
+      "Continuously update curriculum with the latest agricultural innovation",
+      "Sustain professional development for educators",
+      "Develop a transportation division to expand access to on-farm experiences",
+    ],
+  },
+];
+
+const shortTerm = [
+  "Upgrade farm capabilities with the latest technologies to increase student engagement",
+  "Improve cross-curricular connections through K-12 curriculum development",
+  "Foster immediate skill application through CEA and Indoor Farming pilot programs",
+  "Develop strategic planning and systematic data collection",
+  "Establish fundraising capabilities and employer, industry, and foundation partnerships",
+];
+
+const longTerm = [
+  "Sustain and expand Ag Innovation across the School District of Philadelphia",
+  "Develop the first comprehensive K-12 agricultural curriculum for all learning levels",
+  "Empower students with pre-apprenticeship and entrepreneurship skills",
+  "Generate a skilled workforce to meet local and national demand",
+  "Reimagine Manatawna Farm and establish a dedicated transportation fleet",
+  "Sustain long-term corporate and foundation support for the hub-and-spoke strategy",
+];
+---
+
+<Base
+  title="Strategic Roadmap - Fox Chase Farm"
+  meta_title="Multiyear Strategic Roadmap - Dr. Mandy Manna & Fox Chase Farm"
+  description="The 2024–2027 strategic roadmap for Fox Chase Farm's Ag Innovation Initiative — a phased plan to build a citywide model for agricultural education, sustainability, and workforce development."
+>
+  <!-- Page Header -->
+  <section class="pt-20 pb-12 text-center" style="background-color: #fafaf8;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span
+        class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full"
+        style="background-color: #e8f0eb; color: #2d5a3d;"
+      >
+        2024–2027 Strategic Plan
+      </span>
+      <h1
+        class="text-4xl lg:text-5xl font-serif font-semibold mb-5 leading-tight"
+        style="color: #1a2e1e;"
+      >
+        Multiyear Strategic Roadmap
+      </h1>
+      <p class="text-lg max-w-2xl mx-auto" style="color: #5a7060;">
+        A groundbreaking roadmap for the future of agricultural education —
+        propelling the School District of Philadelphia toward a greener, more
+        sustainable future.
+      </p>
+    </div>
+  </section>
+
+  <!-- Vision -->
+  <section class="py-16" style="background-color: #f0f4f1;">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Vision</span>
+      <h2 class="text-3xl font-serif font-semibold mb-6" style="color: #1a2e1e;">
+        The Future of Agricultural Education
+      </h2>
+      <p class="text-lg leading-relaxed mb-4" style="color: #3a5040;">
+        Fox Chase Farm is building a citywide model for agricultural innovation,
+        sustainability education, and workforce development. By connecting
+        classrooms, communities, and industry partners, we are preparing students
+        to lead the future of food, agriculture, technology, and environmental
+        stewardship.
+      </p>
+      <p class="text-base leading-relaxed" style="color: #5a7060;">
+        As the School District of Philadelphia's Agricultural Innovation Hub, the
+        farm serves as both a working educational farm and a launch point for
+        programs reaching schools across the city — aligning with the objectives
+        of Accelerate Philly, the district's strategic plan.
+      </p>
+    </div>
+  </section>
+
+  <!-- Strategic Priorities -->
+  <section class="py-16" style="background-color: #ffffff;">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Strategic Priorities</span>
+      <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-3" style="color: #1a2e1e;">
+        Four Pillars Driving the Work
+      </h2>
+      <p class="text-lg max-w-3xl mb-10" style="color: #5a7060;">
+        Each priority connects directly to programs already growing at Fox Chase
+        Farm — explore them on the
+        <a href="/programs" class="font-semibold underline" style="color: #2d5a3d;">Programs page</a>.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {
+          priorities.map((p) => (
+            <a
+              href={p.link}
+              class="group block rounded-xl p-7 transition-all duration-300 hover:shadow-md"
+              style="border: 1px solid #dde8de; background-color: #fafaf8;"
+            >
+              <div class="flex items-start gap-4">
+                <div
+                  class="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style="background-color: #2d5a3d;"
+                >
+                  <svg class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" set:html={p.icon} />
+                </div>
+                <div>
+                  <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-1.5" style="color: #4a7c59;">
+                    {p.label}
+                  </span>
+                  <h3 class="text-lg font-serif font-semibold mb-2 leading-snug" style="color: #1a2e1e;">
+                    {p.title}
+                  </h3>
+                  <p class="text-sm leading-relaxed mb-3" style="color: #6b7f70;">
+                    {p.description}
+                  </p>
+                  <span class="inline-flex items-center gap-1.5 text-sm font-semibold" style="color: #2d5a3d;">
+                    Explore programs
+                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Implementation Timeline -->
+  <section class="py-16" style="background-color: #f0f4f1;">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Implementation</span>
+      <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-3" style="color: #1a2e1e;">
+        A Phased Path to Lasting Impact
+      </h2>
+      <p class="text-lg max-w-3xl mb-12" style="color: #5a7060;">
+        A multi-phase strategy that begins with foundational planning and pilots,
+        expands to full district-wide launch, and matures into long-term
+        sustainability — each phase building on the last.
+      </p>
+
+      <div class="space-y-6">
+        {
+          phases.map((phase) => (
+            <div
+              class="rounded-2xl p-7 lg:p-9 bg-white"
+              style="border: 1px solid #dde8de;"
+            >
+              <div class="flex flex-col lg:flex-row lg:items-start gap-6">
+                <div class="flex items-center gap-4 lg:w-64 lg:flex-shrink-0">
+                  <span
+                    class="text-3xl font-serif font-semibold flex-shrink-0"
+                    style="color: #c8dcc8;"
+                  >
+                    {phase.number}
+                  </span>
+                  <div>
+                    <span
+                      class="inline-block text-xs font-semibold tracking-wide uppercase mb-1.5 px-2.5 py-1 rounded-full"
+                      style="background-color: #e8f0eb; color: #2d5a3d;"
+                    >
+                      {phase.duration}
+                    </span>
+                    <h3 class="text-lg font-serif font-semibold leading-snug" style="color: #1a2e1e;">
+                      {phase.title}
+                    </h3>
+                  </div>
+                </div>
+                <div class="flex-1">
+                  <p class="text-base leading-relaxed mb-5" style="color: #5a7060;">
+                    {phase.summary}
+                  </p>
+                  <ul class="space-y-2.5">
+                    {phase.activities.map((activity) => (
+                      <li class="flex items-start gap-3">
+                        <span
+                          class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5"
+                          style="background-color: #e8f0eb;"
+                        >
+                          <svg class="w-3 h-3" style="color: #4a7c59;" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                          </svg>
+                        </span>
+                        <span class="text-sm leading-relaxed" style="color: #3a5040;">
+                          {activity}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Outcomes -->
+  <section class="py-16" style="background-color: #ffffff;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style="color: #4a7c59;">Goals & Outcomes</span>
+      <h2 class="text-3xl lg:text-4xl font-serif font-semibold mb-10" style="color: #1a2e1e;">
+        What Success Looks Like
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="rounded-2xl p-8" style="background-color: #fafaf8; border: 1px solid #dde8de;">
+          <h3 class="text-xl font-serif font-semibold mb-5" style="color: #1a2e1e;">
+            Short-Term Outcomes
+          </h3>
+          <ul class="space-y-3">
+            {
+              shortTerm.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5" style="background-color: #e8f0eb;">
+                    <svg class="w-3 h-3" style="color: #4a7c59;" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <span class="text-sm leading-relaxed" style="color: #3a5040;">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="rounded-2xl p-8" style="background: linear-gradient(135deg, #e8f0eb 0%, #f0f4f1 100%); border: 1px solid #dde8de;">
+          <h3 class="text-xl font-serif font-semibold mb-5" style="color: #1a2e1e;">
+            Long-Term Vision
+          </h3>
+          <ul class="space-y-3">
+            {
+              longTerm.map((item) => (
+                <li class="flex items-start gap-3">
+                  <span class="flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5" style="background-color: #d4e8d8;">
+                    <svg class="w-3 h-3" style="color: #2d5a3d;" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </span>
+                  <span class="text-sm leading-relaxed" style="color: #3a5040;">{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16" style="background: linear-gradient(135deg, #1a3325 0%, #2d5a3d 100%);">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-serif font-semibold mb-4 text-white">
+        From Vision to Execution
+      </h2>
+      <p class="text-lg leading-relaxed mb-8" style="color: #cfe0d4;">
+        See how the strategic roadmap comes to life through the programs growing
+        at Fox Chase Farm today — and partner with us to expand the model across
+        Philadelphia.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href="/programs"
+          class="inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-lg transition-colors duration-200 text-sm"
+          style="background-color: #ffffff; color: #1a3325;"
+        >
+          Explore the Programs
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="/consult"
+          class="inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-lg transition-all duration-200 text-sm"
+          style="border: 1px solid rgba(255,255,255,0.4); color: #ffffff;"
+        >
+          Partner With Us
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
