@@ -10,7 +10,6 @@ import sharp from "sharp";
 import config from "./src/config/config.json";
 import netlify from '@astrojs/netlify';
 import keystatic from '@keystatic/astro'
-import node from '@astrojs/node'
 
 // https://astro.build/config
 export default defineConfig({
