@@ -67,14 +67,23 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Mobile: photo + title row */}
             <div className="lg:hidden flex items-center gap-5 mb-8">
               <div
-                className="flex-shrink-0 w-36 h-36 rounded-full overflow-hidden shadow-lg"
-                style={{ border: '3px solid white' }}
+                className="flex-shrink-0 rounded-full overflow-hidden shadow-lg"
+                style={{ width: '140px', height: '140px', border: '3px solid white' }}
               >
                 <img
                   src={imageUrl}
                   alt={title}
-                  className="w-full h-full object-cover object-top"
-                  style={{ transform: 'scale(1.2)', transformOrigin: 'center top' }}
+                  width={140}
+                  height={140}
+                  className="block"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center top',
+                    transform: 'scale(1.2)',
+                    transformOrigin: 'center top',
+                  }}
                 />
               </div>
               <div>

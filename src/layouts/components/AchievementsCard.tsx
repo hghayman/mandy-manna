@@ -83,11 +83,11 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible sm:grid sm:grid-cols-2 lg:grid-cols-3">
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl p-6 transition-all duration-300"
+              className="group bg-white rounded-xl p-6 transition-all duration-300 shrink-0 basis-[82%] snap-start sm:shrink sm:basis-auto"
               style={{ border: '1px solid #dde8de' }}
             >
               <div className="flex items-center justify-between mb-5">
