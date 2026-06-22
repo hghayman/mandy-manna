@@ -7,13 +7,13 @@
   "type": "module",
   "packageManager": "yarn@1.22.22",
   "scripts": {
-    "dev": "yarn generate-json && astro dev",
-    "build": "yarn generate-json && astro build",
+    "dev": "node scripts/jsonGenerator.js && astro dev",
+    "build": "node scripts/jsonGenerator.js && astro build",
     "preview": "astro preview",
     "check": "astro check",
     "format": "prettier -w ./src",
     "generate-json": "node scripts/jsonGenerator.js",
-    "remove-darkmode": "node scripts/removeDarkmode.js && yarn format"
+    "remove-darkmode": "node scripts/removeDarkmode.js && npm run format"
   },
   "dependencies": {
     "@astrojs/check": "0.9.4",
