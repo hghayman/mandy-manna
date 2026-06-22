@@ -19,7 +19,14 @@ export default defineConfig({
   output: 'server',
   adapter: netlify(),
   image: { service: sharp() },
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    server: {
+      // Allow the dev server to be reached through tunnels/proxies.
+      // A leading dot whitelists every subdomain (dev1, dev2, ...).
+      allowedHosts: [".anuj-paudel.com.np"],
+    },
+  },
   integrations: [
     react(),
     sitemap(),
