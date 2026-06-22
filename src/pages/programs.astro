@@ -162,6 +162,64 @@ const categories: {
     ],
   },
 ];
+
+// State-of-the-Art Learning & Innovation — source: State of the art section.docx
+const innovations: { title: string; description: string; icon: string }[] = [
+  {
+    title: "Controlled Environment Agriculture (CEA)",
+    description:
+      "Indoor growing technologies, hydroponic and vertical systems, environmental automation, and AgTech workforce pathways.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 3v18m0-18c-2 2-3 4-3 6a3 3 0 006 0c0-2-1-4-3-6zm0 9c-1.5 1.2-2.5 2.6-2.5 4a2.5 2.5 0 005 0c0-1.4-1-2.8-2.5-4z" />`,
+  },
+  {
+    title: "Agricultural Technology & Smart Farming",
+    description:
+      "Precision agriculture, sensors and monitoring, data analysis, AI-enabled learning, and farm automation demonstrations.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+  },
+  {
+    title: "Dairy Innovation Center",
+    description:
+      "A first-of-its-kind experience: interactive dairy exhibits, food science labs, processing, and supply-chain career pathways.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M8 2h8m-7 0v4l-2 4v10a2 2 0 002 2h6a2 2 0 002-2V10l-2-4V2M7 12h10" />`,
+  },
+  {
+    title: "Livestock Innovation Program",
+    description:
+      "Hands-on animal agriculture covering health and welfare, rotational grazing, tracking technologies, and veterinary careers.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 10c0-1.5 1-3 2.5-3S9 8.5 9 10m6 0c0-1.5 1-3 2.5-3S20 8.5 20 10M7 13c0 3 2.2 5 5 5s5-2 5-5c0-1.7-1-3-2.5-3h-5C8 10 7 11.3 7 13z" />`,
+  },
+  {
+    title: "Poultry & Egg Production",
+    description:
+      "Small-scale poultry management, egg production systems, animal husbandry, and farm-to-table learning experiences.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M14 4a3 3 0 00-3 3c-2.5 0-5 2-5 6a5 5 0 005 5h2a4 4 0 004-4V9a5 5 0 00-3-5zM10 7h.01" />`,
+  },
+  {
+    title: "STEM Agriculture Labs",
+    description:
+      "Microscopes and lab equipment, water and soil analysis, plant science, drones and remote sensing, and ag-engineering.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 3h6M10 3v6.5L5.5 17a2 2 0 001.8 3h9.4a2 2 0 001.8-3L14 9.5V3M8 14h8" />`,
+  },
+  {
+    title: "Sustainability & Circular Systems",
+    description:
+      "Composting, regenerative agriculture, pollinator habitats, renewable energy, water conservation, and soil carbon stewardship.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M12 3a9 9 0 100 18 9 9 0 000-18zm0 4c2.5 1 4 2.8 4 5a4 4 0 01-8 0c0-2.2 1.5-4 4-5z" />`,
+  },
+  {
+    title: "Farm-to-Table Food Systems",
+    description:
+      "The full journey of food — crop production, food safety, culinary agriculture, farm markets, and food-access initiatives.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 11h18M5 11V7a7 7 0 0114 0v4M7 11v8a2 2 0 002 2h6a2 2 0 002-2v-8" />`,
+  },
+  {
+    title: "Workforce Development & Career Pathways",
+    description:
+      "Every initiative connects students to futures in AgTech, environmental science, engineering, skilled trades, and entrepreneurship.",
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M21 13.255A23.9 23.9 0 0112 15c-3.18 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 7h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />`,
+  },
+];
 ---
 
 <Base
@@ -524,50 +582,79 @@ const categories: {
     })
   }
 
-  <!-- Infrastructure Placeholder -->
+  <!-- State-of-the-Art Learning & Innovation -->
   <section class="py-16" style="background-color: #ffffff;" id="infrastructure">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center gap-4 mb-10">
+      <div class="flex items-center gap-4 mb-4">
         <span
           class="px-4 py-1.5 rounded-full text-xs font-semibold tracking-wide uppercase"
-          style="background-color: #f0f4f1; color: #5a7060;"
+          style="background-color: #e8f0eb; color: #2d5a3d;"
         >
-          Infrastructure
+          State of the Art
         </span>
         <div class="flex-1 h-px" style="background-color: #dde8de;"></div>
       </div>
-      <div
-        class="rounded-2xl p-12 text-center"
-        style="border: 2px dashed #dde8de;"
+      <h2
+        class="text-3xl lg:text-4xl font-serif font-semibold mb-3 leading-tight"
+        style="color: #1a2e1e;"
       >
-        <div
-          class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6"
-          style="background-color: #f0f4f1;"
-        >
-          <svg
-            class="w-8 h-8"
-            style="color: #6b7f70;"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="1.5"
-              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-            ></path>
-          </svg>
-        </div>
+        State-of-the-Art Learning &amp; Innovation
+      </h2>
+      <p class="text-lg max-w-3xl mb-10" style="color: #5a7060;">
+        Fox Chase Farm blends traditional farming with emerging technologies,
+        workforce development, and sustainability — connecting students to
+        agriculture, science, engineering, food systems, and entrepreneurship.
+      </p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        {
+          innovations.map((item) => (
+            <div
+              class="bg-white rounded-xl p-6 transition-all duration-300 hover:shadow-md flex flex-col"
+              style="border: 1px solid #dde8de;"
+            >
+              <div
+                class="w-10 h-10 rounded-lg flex items-center justify-center mb-4 flex-shrink-0"
+                style="background-color: #2d5a3d;"
+              >
+                <svg
+                  class="w-5 h-5 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  set:html={item.icon}
+                />
+              </div>
+              <h3
+                class="text-base font-semibold mb-2 leading-snug"
+                style="color: #1a2e1e;"
+              >
+                {item.title}
+              </h3>
+              <p class="text-sm leading-relaxed flex-1" style="color: #6b7f70;">
+                {item.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Living Laboratory callout -->
+      <div
+        class="mt-10 rounded-2xl p-8 lg:p-10 text-center"
+        style="background: linear-gradient(135deg, #e8f0eb 0%, #f0f4f1 100%); border: 1px solid #dde8de;"
+      >
         <h3
-          class="text-2xl font-serif font-semibold mb-4"
+          class="text-2xl font-serif font-semibold mb-3"
           style="color: #1a2e1e;"
         >
-          State-of-the-Art Infrastructure
+          A Living Laboratory for Philadelphia
         </h3>
-        <p class="max-w-2xl mx-auto text-lg mb-3" style="color: #5a7060;">
-          Detailed information about Fox Chase Farm's equipment, CEA labs,
-          technology systems, and innovative infrastructure is coming soon.
+        <p class="max-w-3xl mx-auto text-lg" style="color: #5a7060;">
+          A real-world innovation campus where students, educators, industry
+          leaders, and community partners explore the future of agriculture,
+          sustainability, food systems, and workforce development — a model for
+          agricultural education in the 21st century.
         </p>
       </div>
     </div>
