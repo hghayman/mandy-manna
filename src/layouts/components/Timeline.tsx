@@ -60,7 +60,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                   >
                     {s.label}
                   </span>
-                  <span className="text-xs font-medium" style={{ color: '#8a9e8e' }}>
+                  <span className="text-xs font-medium" style={{ color: '#5a7060' }}>
                     {item.period}
                   </span>
                 </div>
@@ -74,7 +74,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                 <p className="text-sm font-semibold mb-1" style={{ color: '#4a7c59' }}>
                   {item.subtitle}
                 </p>
-                <p className="text-sm mb-4" style={{ color: '#6b7f70' }}>
+                <p className="text-sm mb-4" style={{ color: '#4f6357' }}>
                   {item.organization}
                 </p>
 
@@ -98,7 +98,7 @@ const Timeline: React.FC<TimelineProps> = ({ items }) => {
                           />
                         </svg>
                       </span>
-                      <span className="text-sm leading-relaxed" style={{ color: '#3a5040' }}>
+                      <span className="text-base leading-relaxed" style={{ color: '#3a5040' }}>
                         {desc}
                       </span>
                     </li>

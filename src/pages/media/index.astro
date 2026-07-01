@@ -47,17 +47,19 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
       {mediaEntries.length > 0 ? (
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {mediaEntries.map((post) => (
-            <article
-              class="bg-white rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md"
+            <a
+              href={`/media/${post.id}`}
+              class="group bg-white rounded-xl overflow-hidden flex flex-col transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4a7c59] focus-visible:ring-offset-2"
               style="border: 1px solid #dde8de;"
             >
               {post.data.image && (
-                <div class="flex justify-center items-center px-4 pt-5 pb-2" style="background-color: #f4f7f4;">
+                <div class="flex justify-center items-center px-4 h-44 overflow-hidden" style="background-color: #f4f7f4;">
                   <img
                     src={typeof post.data.image === 'string' ? post.data.image : post.data.image?.src}
-                    alt={post.data.title}
-                    class="max-h-48 w-auto block rounded-lg"
+                    alt={post.data.heroAlt ?? post.data.title}
+                    class="max-h-40 w-auto block rounded-lg"
                     style="object-fit: contain;"
+                    loading="lazy"
                   />
                 </div>
               )}
@@ -67,34 +69,33 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
                     class="px-3 py-1 text-xs font-semibold rounded-full"
                     style="background-color: #e8f0eb; color: #2d5a3d;"
                   >
-                    {post.data.categories?.[0] ?? post.data.category ?? "Feature"}
+                    {post.data.category ?? "Feature"}
                   </span>
-                  {post.data.date && (
-                    <span class="text-xs" style="color: #8a9e8e;">
-                      {new Date(post.data.date).toLocaleDateString("en-US", { year: "numeric", month: "long" })}
+                  {post.data.pubDate && (
+                    <span class="text-xs" style="color: #5a7060;">
+                      {new Date(post.data.pubDate).toLocaleDateString("en-US", { year: "numeric", month: "long" })}
                     </span>
                   )}
                 </div>
-                <h2 class="text-base font-semibold mb-2 leading-snug" style="color: #1a2e1e;">
+                <h2 class="text-lg font-semibold mb-2 leading-snug" style="color: #1a2e1e;">
                   {post.data.title}
                 </h2>
                 {post.data.description && (
-                  <p class="text-sm leading-relaxed flex-1 mb-4" style="color: #6b7f70;">
+                  <p class="text-base leading-relaxed flex-1 mb-4" style="color: #4f6357;">
                     {post.data.description}
                   </p>
                 )}
-                <a
-                  href={`/media/${post.id}`}
-                  class="inline-flex items-center gap-1.5 text-sm font-semibold transition-colors mt-auto"
+                <span
+                  class="inline-flex items-center gap-1.5 text-sm font-semibold transition-all mt-auto group-hover:gap-2.5"
                   style="color: #2d5a3d;"
                 >
                   Read more
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
-                </a>
+                </span>
               </div>
-            </article>
+            </a>
           ))}
         </div>
       ) : (
@@ -108,7 +109,7 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
                 <div class="flex items-center gap-2 mb-3">
                   <span
                     class="px-3 py-1 text-xs font-semibold rounded-full"
-                    style="background-color: #f0f4f1; color: #6b7f70;"
+                    style="background-color: #f0f4f1; color: #4f6357;"
                   >
                     {entry.source}
                   </span>
@@ -116,7 +117,7 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
                 <h2 class="text-base font-semibold mb-2 leading-snug" style="color: #3a5040;">
                   {entry.title}
                 </h2>
-                <p class="text-sm leading-relaxed flex-1" style="color: #8a9e8e;">
+                <p class="text-base leading-relaxed flex-1" style="color: #5a7060;">
                   {entry.description}
                 </p>
               </div>

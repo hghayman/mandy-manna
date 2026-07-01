@@ -69,7 +69,7 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
                     {post.data.categories?.[0] ?? post.data.category ?? "Feature"}
                   </span>
                   {post.data.date && (
-                    <span class="text-xs" style="color: #8a9e8e;">
+                    <span class="text-xs" style="color: #5a7060;">
                       {new Date(post.data.date).toLocaleDateString("en-US", { year: "numeric", month: "long" })}
                     </span>
                   )}
@@ -78,7 +78,7 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
                   {post.data.title}
                 </h2>
                 {post.data.description && (
-                  <p class="text-sm leading-relaxed flex-1 mb-4" style="color: #6b7f70;">
+                  <p class="text-base leading-relaxed flex-1 mb-4" style="color: #4f6357;">
                     {post.data.description}
                   </p>
                 )}
@@ -107,7 +107,7 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
                 <div class="flex items-center gap-2 mb-3">
                   <span
                     class="px-3 py-1 text-xs font-semibold rounded-full"
-                    style="background-color: #f0f4f1; color: #6b7f70;"
+                    style="background-color: #f0f4f1; color: #4f6357;"
                   >
                     {entry.source}
                   </span>
@@ -115,7 +115,7 @@ const mediaEntries = sortedPosts.length > 0 ? sortedPosts : [];
                 <h2 class="text-base font-semibold mb-2 leading-snug" style="color: #3a5040;">
                   {entry.title}
                 </h2>
-                <p class="text-sm leading-relaxed flex-1" style="color: #8a9e8e;">
+                <p class="text-base leading-relaxed flex-1" style="color: #5a7060;">
                   {entry.description}
                 </p>
               </div>

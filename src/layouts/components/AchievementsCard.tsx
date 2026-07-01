@@ -81,7 +81,7 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
           <p className="mt-3 max-w-xl mx-auto text-sm sm:text-base" style={{ color: '#5a7060' }}>
             Transforming urban education through agricultural innovation, workforce development, and community engagement
           </p>
-          <p className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide sm:hidden" style={{ color: '#9aab9e' }}>
+          <p className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide sm:hidden" style={{ color: '#5a7060' }}>
             Swipe to explore
             <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -126,7 +126,7 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
                 {achievement.title}
               </h3>
 
-              <p className="text-xs leading-relaxed" style={{ color: '#6b7f70' }}>
+              <p className="text-sm leading-relaxed" style={{ color: '#4f6357' }}>
                 {achievement.description}
               </p>
             </div>

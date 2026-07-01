@@ -69,7 +69,7 @@ const services = [
             <h2 class="text-2xl font-serif font-semibold text-white mb-3">
               Strategic Agricultural Innovation
             </h2>
-            <p class="text-sm leading-relaxed mb-8" style="color: #c4d8c0;">
+            <p class="text-base leading-relaxed mb-8" style="color: #c4d8c0;">
               Dr. Manna partners with districts, agencies, and organizations to build sustainable, student-centered agriculture ecosystems.
             </p>
             <div class="space-y-3">
@@ -79,7 +79,7 @@ const services = [
                   style="background-color: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);"
                 >
                   <h3 class="text-sm font-semibold text-white mb-1">{service.title}</h3>
-                  <p class="text-xs leading-relaxed" style="color: #a8c5a0;">{service.description}</p>
+                  <p class="text-sm leading-relaxed" style="color: #a8c5a0;">{service.description}</p>
                 </div>
               ))}
             </div>
@@ -109,7 +109,8 @@ const services = [
                 <input
                   id="name"
                   name="name"
-                  class="w-full px-4 py-3 rounded-lg text-sm transition-colors duration-200 outline-none"
+                  autocomplete="name"
+                  class="w-full px-4 py-3 rounded-lg text-base transition-colors duration-200 outline-none focus:border-[#4a7c59] focus:ring-2 focus:ring-[#4a7c59]/40"
                   style="border: 1px solid #dde8de; background-color: #fafaf8; color: #1a2e1e;"
                   placeholder="Your Name"
                   type="text"
@@ -123,7 +124,8 @@ const services = [
                 <input
                   id="email"
                   name="email"
-                  class="w-full px-4 py-3 rounded-lg text-sm transition-colors duration-200 outline-none"
+                  autocomplete="email"
+                  class="w-full px-4 py-3 rounded-lg text-base transition-colors duration-200 outline-none focus:border-[#4a7c59] focus:ring-2 focus:ring-[#4a7c59]/40"
                   style="border: 1px solid #dde8de; background-color: #fafaf8; color: #1a2e1e;"
                   placeholder="your.email@example.com"
                   type="email"
@@ -137,7 +139,7 @@ const services = [
                 <input
                   id="subject"
                   name="subject"
-                  class="w-full px-4 py-3 rounded-lg text-sm transition-colors duration-200 outline-none"
+                  class="w-full px-4 py-3 rounded-lg text-base transition-colors duration-200 outline-none focus:border-[#4a7c59] focus:ring-2 focus:ring-[#4a7c59]/40"
                   style="border: 1px solid #dde8de; background-color: #fafaf8; color: #1a2e1e;"
                   placeholder="How can Dr. Manna help?"
                   type="text"
@@ -150,7 +152,7 @@ const services = [
                 <textarea
                   id="message"
                   name="message"
-                  class="w-full px-4 py-3 rounded-lg text-sm transition-colors duration-200 outline-none resize-none"
+                  class="w-full px-4 py-3 rounded-lg text-base transition-colors duration-200 outline-none focus:border-[#4a7c59] focus:ring-2 focus:ring-[#4a7c59]/40 resize-none"
                   style="border: 1px solid #dde8de; background-color: #fafaf8; color: #1a2e1e;"
                   placeholder="Tell us about your district, your goals, and how we can partner together..."
                   rows="7"
@@ -192,7 +194,7 @@ const services = [
               href="https://www.linkedin.com/in/drmandy"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-colors duration-200"
               style="border: 1px solid #dde8de; color: #2d5a3d; background-color: #f6f9f6;"
             >
               LinkedIn
@@ -201,7 +203,7 @@ const services = [
               href="https://www.facebook.com/TheFoxChaseFarm"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-colors duration-200"
               style="border: 1px solid #dde8de; color: #2d5a3d; background-color: #f6f9f6;"
             >
               Facebook
@@ -210,20 +212,20 @@ const services = [
               href="https://www.instagram.com/farmgirlgo"
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-colors duration-200"
               style="border: 1px solid #dde8de; color: #2d5a3d; background-color: #f6f9f6;"
             >
               Instagram
             </a>
             <a
               href="mailto:contact@drmandy.com"
-              class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
+              class="inline-flex items-center gap-1.5 px-4 py-2.5 min-h-11 rounded-lg text-sm font-medium transition-colors duration-200"
               style="border: 1px solid #dde8de; color: #2d5a3d; background-color: #f6f9f6;"
             >
               Email
             </a>
           </div>
-          <p class="text-xs mt-4" style="color: #8a9e8e;">
+          <p class="text-xs mt-4" style="color: #5a7060;">
             Responses within 48 hours during the school year.
           </p>
         </div>

@@ -85,7 +85,7 @@ const SkillsSection: React.FC<SkillsSectionProps> = ({ skills }) => {
       </div>
 
       {/* Count */}
-      <p className="mt-5 text-xs" style={{ color: '#8a9e8e' }}>
+      <p className="mt-5 text-xs" style={{ color: '#5a7060' }}>
         {displayed.length} skill{displayed.length !== 1 ? 's' : ''}
         {activeCategory ? ` in ${activeCategory}` : ' across all categories'}
       </p>

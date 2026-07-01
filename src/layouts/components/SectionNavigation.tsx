@@ -48,34 +48,33 @@ const SectionNavigation: React.FC<SectionNavigationProps> = ({ sections }) => {
   };
 
   return (
-    <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-50 hidden lg:block">
-      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 p-4">
-        <div className="space-y-3">
-          {sections.map((section, index) => (
-            <button
-              key={section.id}
-              onClick={() => scrollToSection(section.id)}
-              className={`flex items-center w-full p-3 rounded-xl text-left transition-all duration-200 group ${
-                activeSection === section.id
-                  ? 'bg-blue-100 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 shadow-sm'
-                  : 'hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-400'
-              }`}
-              title={section.label}
-            >
-              <span className="text-lg mr-3">{section.icon}</span>
-              <span className="text-sm font-medium whitespace-nowrap">{section.label}</span>
-            </button>
-          ))}
-        </div>
-        
-        {/* Progress indicator */}
-        <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-          <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
-            <span className="mr-2">📍</span>
-            <span>Quick Navigation</span>
-          </div>
-        </div>
-      </div>
+    <div className="fixed right-8 top-1/2 transform -translate-y-1/2 z-40 hidden xl:block">
+      <nav aria-label="On this page" className="bg-white rounded-2xl shadow-xl border border-[#dde8de] p-3">
+        <ul className="space-y-1">
+          {sections.map((section) => {
+            const active = activeSection === section.id;
+            return (
+              <li key={section.id}>
+                <button
+                  onClick={() => scrollToSection(section.id)}
+                  aria-current={active ? 'true' : undefined}
+                  className={`flex items-center gap-3 w-full pl-3 pr-5 py-2.5 rounded-xl text-left transition-all duration-200 ${
+                    active
+                      ? 'bg-[#e8f0eb] text-[#1a3325] font-semibold'
+                      : 'text-[#4f6357] hover:bg-[#f0f4f1] hover:text-[#1a3325]'
+                  }`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`h-2 w-2 rounded-full flex-shrink-0 transition-colors ${active ? 'bg-[#2d5a3d]' : 'bg-[#c8dcc8]'}`}
+                  />
+                  <span className="text-sm whitespace-nowrap">{section.label}</span>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
     </div>
   );
 };

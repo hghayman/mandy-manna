@@ -70,7 +70,7 @@ const ProfessionalStats: React.FC<ProfessionalStatsProps> = ({ stats }) => {
           <div className="text-3xl font-serif font-semibold mb-1" style={{ color: '#1a3325' }}>
             {stat.value}
           </div>
-          <div className="text-sm font-medium" style={{ color: '#6b7f70' }}>
+          <div className="text-sm font-medium" style={{ color: '#4f6357' }}>
             {stat.label}
           </div>
         </div>

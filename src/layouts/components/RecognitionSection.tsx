@@ -127,7 +127,7 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({ awards, grants 
                   <div>
                     <div className="text-2xl font-serif font-semibold" style={{ color: '#1a2e1e' }}>{primaryGrant.amount}</div>
                     <div className="font-semibold text-sm" style={{ color: '#2d5a3d' }}>{primaryGrant.title}</div>
-                    <div className="text-sm mt-1" style={{ color: '#6b7f70' }}>{primaryGrant.description}</div>
+                    <div className="text-sm mt-1" style={{ color: '#4f6357' }}>{primaryGrant.description}</div>
                   </div>
                 </div>
                 <div
@@ -159,7 +159,7 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({ awards, grants 
                       </div>
                       <div>
                         <span className="font-semibold text-sm" style={{ color: '#1a2e1e' }}>{detail.name}</span>
-                        <p className="text-sm mt-0.5" style={{ color: '#6b7f70' }}>{detail.description}</p>
+                        <p className="text-sm mt-0.5" style={{ color: '#4f6357' }}>{detail.description}</p>
                       </div>
                     </div>
                   ))}
@@ -196,7 +196,7 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({ awards, grants 
               </div>
               <h4 className="text-lg font-serif font-semibold mb-1" style={{ color: '#1a2e1e' }}>{grant.amount}</h4>
               <p className="font-semibold text-sm mb-2" style={{ color: '#2d5a3d' }}>{grant.title}</p>
-              <p className="text-sm leading-relaxed" style={{ color: '#6b7f70' }}>{grant.description}</p>
+              <p className="text-base leading-relaxed" style={{ color: '#4f6357' }}>{grant.description}</p>
             </div>
           ))}
         </div>
@@ -227,7 +227,7 @@ const RecognitionSection: React.FC<RecognitionSectionProps> = ({ awards, grants 
                   <div>
                     <h4 className="text-base font-semibold mb-1" style={{ color: '#1a2e1e' }}>{award.title}</h4>
                     <p className="font-medium text-sm mb-2" style={{ color: '#2d5a3d' }}>{award.organization} · {award.year}</p>
-                    <p className="text-sm leading-relaxed" style={{ color: '#6b7f70' }}>{award.description}</p>
+                    <p className="text-base leading-relaxed" style={{ color: '#4f6357' }}>{award.description}</p>
                   </div>
                 </div>
               </div>

@@ -179,7 +179,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
                 <div
                   className="text-xs font-medium tracking-wide uppercase mt-1"
-                  style={{ color: '#6b7f70' }}
+                  style={{ color: '#4f6357' }}
                 >
                   Student Visits
                 </div>
@@ -193,7 +193,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
                 <div
                   className="text-xs font-medium tracking-wide uppercase mt-1"
-                  style={{ color: '#6b7f70' }}
+                  style={{ color: '#4f6357' }}
                 >
                   Schools Served
                 </div>
@@ -207,7 +207,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
                 <div
                   className="text-xs font-medium tracking-wide uppercase mt-1"
-                  style={{ color: '#6b7f70' }}
+                  style={{ color: '#4f6357' }}
                 >
                   Competitive Grants
                 </div>

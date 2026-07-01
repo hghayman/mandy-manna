@@ -296,6 +296,7 @@ const innovations: { title: string; description: string; icon: string }[] = [
           id="hero-video"
           loop
           playsinline
+          preload="none"
           class="w-full block"
           style="max-height: 480px;"
           poster="/images/video-poster.jpg"
@@ -452,7 +453,7 @@ const innovations: { title: string; description: string; icon: string }[] = [
           </div>
           <div
             class="text-xs font-medium tracking-wide uppercase mt-0.5"
-            style="color: #6b7f70;"
+            style="color: #4f6357;"
           >
             Students Annually
           </div>
@@ -466,7 +467,7 @@ const innovations: { title: string; description: string; icon: string }[] = [
           </div>
           <div
             class="text-xs font-medium tracking-wide uppercase mt-0.5"
-            style="color: #6b7f70;"
+            style="color: #4f6357;"
           >
             Schools Served
           </div>
@@ -480,7 +481,7 @@ const innovations: { title: string; description: string; icon: string }[] = [
           </div>
           <div
             class="text-xs font-medium tracking-wide uppercase mt-0.5"
-            style="color: #6b7f70;"
+            style="color: #4f6357;"
           >
             Teachers Engaged
           </div>
@@ -494,7 +495,7 @@ const innovations: { title: string; description: string; icon: string }[] = [
           </div>
           <div
             class="text-xs font-medium tracking-wide uppercase mt-0.5"
-            style="color: #6b7f70;"
+            style="color: #4f6357;"
           >
             Acres of Farm
           </div>
@@ -566,8 +567,8 @@ const innovations: { title: string; description: string; icon: string }[] = [
                         {program.title}
                       </h3>
                       <p
-                        class="text-sm leading-relaxed flex-1"
-                        style="color: #6b7f70;"
+                        class="text-base leading-relaxed flex-1"
+                        style="color: #4f6357;"
                       >
                         {program.description}
                       </p>
@@ -631,7 +632,7 @@ const innovations: { title: string; description: string; icon: string }[] = [
               >
                 {item.title}
               </h3>
-              <p class="text-sm leading-relaxed flex-1" style="color: #6b7f70;">
+              <p class="text-base leading-relaxed flex-1" style="color: #4f6357;">
                 {item.description}
               </p>
             </div>
@@ -678,9 +679,10 @@ const innovations: { title: string; description: string; icon: string }[] = [
   const iconUnmuted = document.getElementById("icon-unmuted");
 
   if (video && section) {
-    // Browsers block autoplay with audio — start muted, unmute after first play succeeds
+    // Autoplay stays muted (browser policy + no surprise audio). Users unmute via the audio button.
     video.muted = true;
-    let hasUnmuted = false;
+    if (iconMuted) iconMuted.classList.remove("hidden");
+    if (iconUnmuted) iconUnmuted.classList.add("hidden");
 
     // --- Auto-play / pause based on section visibility ---
     const observer = new IntersectionObserver(
@@ -689,14 +691,7 @@ const innovations: { title: string; description: string; icon: string }[] = [
           if (entry.isIntersecting) {
             video
               .play()
-              .then(() => {
-                if (!hasUnmuted) {
-                  video.muted = false;
-                  hasUnmuted = true;
-                  if (iconMuted) iconMuted.classList.add("hidden");
-                  if (iconUnmuted) iconUnmuted.classList.remove("hidden");
-                }
-              })
+              .then(() => {})
               .catch(() => {});
             if (status) status.textContent = "Playing";
           } else {
