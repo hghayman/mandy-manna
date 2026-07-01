@@ -9,16 +9,25 @@ import remarkToc from "remark-toc";
 import sharp from "sharp";
 import config from "./src/config/config.json";
 import netlify from '@astrojs/netlify';
+import cloudflare from '@astrojs/cloudflare';
 import keystatic from '@keystatic/astro'
 import node from '@astrojs/node'
 
 // https://astro.build/config
+// Adapter is selected per deploy target so Netlify (default) and Cloudflare Pages
+// can share one config. Cloudflare Pages sets CF_PAGES=1 during its build; locally
+// force it with DEPLOY_TARGET=cloudflare.
+const deployTarget = process.env.CF_PAGES ? "cloudflare" : (process.env.DEPLOY_TARGET ?? "netlify");
+
 export default defineConfig({
   site: config.site.base_url ? config.site.base_url : "http://examplesite.com",
   base: config.site.base_path ? config.site.base_path : "/",
   trailingSlash: config.site.trailing_slash ? "always" : "never",
   output: 'server',
-  adapter: netlify(),
+  adapter:
+    deployTarget === "cloudflare"
+      ? cloudflare({ imageService: "compile" })
+      : netlify(),
   image: { service: sharp() },
   vite: { plugins: [tailwindcss()] },
   integrations: [

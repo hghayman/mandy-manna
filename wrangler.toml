@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration for the Astro SSR build.
+# Used when deploying to Cloudflare Pages (adapter selected via CF_PAGES in astro.config.mjs).
+name = "mandy-manna"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-07-01"
+compatibility_flags = ["nodejs_compat"]
