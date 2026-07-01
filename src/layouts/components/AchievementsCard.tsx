@@ -13,7 +13,7 @@ interface AchievementsCardProps {
 }
 
 const IconForType: React.FC<{ type: string }> = ({ type }) => {
-  const cls = "w-5 h-5";
+  const cls = "w-4 h-4";
   const color = "#4a7c59";
 
   switch (type) {
@@ -68,37 +68,45 @@ const IconForType: React.FC<{ type: string }> = ({ type }) => {
 
 const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => {
   return (
-    <section className="py-20" style={{ backgroundColor: '#fafaf8' }}>
+    <section className="py-16 sm:py-20" style={{ backgroundColor: '#fafaf8' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center mb-14">
+        <div className="text-center mb-8 sm:mb-14">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase mb-3" style={{ color: '#4a7c59' }}>
             Impact
           </span>
-          <h2 className="text-4xl font-serif font-semibold" style={{ color: '#1a2e1e' }}>
+          <h2 className="text-3xl sm:text-4xl font-serif font-semibold" style={{ color: '#1a2e1e' }}>
             Key Achievements
           </h2>
-          <p className="mt-3 max-w-xl mx-auto" style={{ color: '#5a7060' }}>
+          <p className="mt-3 max-w-xl mx-auto text-sm sm:text-base" style={{ color: '#5a7060' }}>
             Transforming urban education through agricultural innovation, workforce development, and community engagement
+          </p>
+          <p className="mt-3 flex items-center justify-center gap-1.5 text-xs font-semibold uppercase tracking-wide sm:hidden" style={{ color: '#9aab9e' }}>
+            Swipe to explore
+            <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {/* Mobile: horizontal snap-scroll (contained — never overflows the page).
+            sm and up: regular grid. */}
+        <div className="flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 sm:grid sm:grid-cols-2 sm:gap-5 sm:overflow-visible sm:pb-0 lg:grid-cols-3">
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className="group bg-white rounded-xl p-6 transition-all duration-300"
+              className="group bg-white rounded-xl p-4 sm:p-5 transition-all duration-300 shrink-0 w-[70vw] max-w-[260px] snap-start sm:w-auto sm:max-w-none"
               style={{ border: '1px solid #dde8de' }}
             >
-              <div className="flex items-center justify-between mb-5">
+              <div className="flex items-center justify-between mb-3">
                 <div
-                  className="w-10 h-10 rounded-lg flex items-center justify-center"
+                  className="w-8 h-8 rounded-lg flex items-center justify-center"
                   style={{ backgroundColor: '#e8f0eb' }}
                 >
                   <IconForType type={achievement.icon} />
                 </div>
                 <span
-                  className="text-xs font-semibold tracking-wide uppercase px-3 py-1 rounded-full"
+                  className="text-[10px] font-semibold tracking-wide uppercase px-2 py-0.5 rounded-full"
                   style={{ color: '#4a7c59', backgroundColor: '#e8f0eb' }}
                 >
                   {achievement.category}
@@ -106,31 +114,26 @@ const AchievementsCard: React.FC<AchievementsCardProps> = ({ achievements }) => 
               </div>
 
               {achievement.value && (
-                <div className="text-3xl font-serif font-semibold mb-1" style={{ color: '#1a3325' }}>
+                <div className="text-2xl font-serif font-semibold mb-0.5" style={{ color: '#1a3325' }}>
                   {achievement.value}
                 </div>
               )}
 
               <h3
-                className="text-base font-semibold mb-2 leading-snug transition-colors duration-200"
+                className="text-sm font-semibold mb-1 leading-snug"
                 style={{ color: '#1a2e1e' }}
               >
                 {achievement.title}
               </h3>
 
-              <p className="text-sm leading-relaxed" style={{ color: '#6b7f70' }}>
+              <p className="text-xs leading-relaxed" style={{ color: '#6b7f70' }}>
                 {achievement.description}
               </p>
-
-              <div
-                className="mt-5 h-px w-0 group-hover:w-full transition-all duration-500 rounded-full"
-                style={{ backgroundColor: '#4a7c59' }}
-              ></div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="text-center mt-10 sm:mt-12">
           <a
             href="/about"
             className="inline-flex items-center gap-2 px-7 py-3.5 text-white font-semibold rounded-lg transition-colors duration-200 text-sm"

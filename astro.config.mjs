@@ -11,7 +11,6 @@ import config from "./src/config/config.json";
 import netlify from '@astrojs/netlify';
 import cloudflare from '@astrojs/cloudflare';
 import keystatic from '@keystatic/astro'
-import node from '@astrojs/node'
 
 // https://astro.build/config
 // Adapter is selected per deploy target so Netlify (default) and Cloudflare Pages
@@ -29,7 +28,14 @@ export default defineConfig({
       ? cloudflare({ imageService: "compile" })
       : netlify(),
   image: { service: sharp() },
-  vite: { plugins: [tailwindcss()] },
+  vite: {
+    plugins: [tailwindcss()],
+    server: {
+      // Allow the dev server to be reached through tunnels/proxies.
+      // A leading dot whitelists every subdomain (dev1, dev2, ...).
+      allowedHosts: [".anuj-paudel.com.np"],
+    },
+  },
   integrations: [
     react(),
     sitemap(),

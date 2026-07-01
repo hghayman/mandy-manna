@@ -11,29 +11,32 @@ const { footer }: { footer: { name: string; url: string }[] } = menu;
 
 <footer class="bg-light dark:bg-darkmode-light">
   <div class="container">
-    <div class="row items-center py-10">
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
+    <div
+      class="flex flex-col items-center gap-8 py-10 lg:flex-row lg:justify-between lg:gap-6"
+    >
+      <div class="text-center lg:text-left">
         <Logo />
       </div>
-      <div class="mb-8 text-center lg:col-6 lg:mb-0">
-        <ul>
-          {
-            footer.map((menu) => (
-              <li class="m-3 inline-block">
-                <a href={menu.url}>{menu.name}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
-        <Social source={social.main} className="social-icons" />
-      </div>
+      <ul class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+        {
+          footer.map((menu) => (
+            <li>
+              <a
+                href={menu.url}
+                class="text-sm font-medium transition-colors hover:text-primary"
+              >
+                {menu.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <Social source={social.main} className="social-icons" />
     </div>
   </div>
-  <div class="border-t border-border py-7 dark:border-darkmode-border">
+  <div class="border-t border-border py-6 dark:border-darkmode-border">
     <div
-      class="container text-center text-text-light dark:text-darkmode-text-light"
+      class="container text-center text-sm text-text-light dark:text-darkmode-text-light"
     >
       <p set:html={markdownify(config.params.copyright)} />
     </div>
