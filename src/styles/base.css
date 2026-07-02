@@ -1,8 +1,8 @@
 html {
   /* Every text utility is rem-based, so the root size scales the whole site.
-     Use a slightly larger 17px root on phones for comfortable reading, and
-     16px from md up. Never go below 16px on mobile (it trips iOS auto-zoom). */
-  @apply text-[17px] md:text-base;
+     18px root gives comfortable, readable body + headings across the site;
+     nudged a touch larger on wide screens. Never go below 16px (iOS auto-zoom). */
+  @apply text-[18px] xl:text-[19px];
 }
 
 body {
