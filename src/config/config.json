@@ -1,7 +1,7 @@
 {
   "site": {
     "title": "Dr. Mandy Manna",
-    "base_url": "https://drmandy-manna.netlify.app",
+    "base_url": "https://drmandymanna.com",
     "base_path": "/",
     "trailing_slash": false,
     "favicon": "/images/favicon.png",
@@ -41,6 +41,6 @@
   "metadata": {
     "meta_author": "Dr. Mandy Manna",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Dr. Mandy Manna - Educational Leader, Farm Administrator, and Agricultural Innovation Expert. Transforming urban education through experiential learning at Fox Chase Farm, Philadelphia."
+    "meta_description": "Dr. Mandy Manna is Farm Administrator at Fox Chase Farm and a 2024 Neubauer Fellow transforming urban agriculture and K-12 STEM education in Philadelphia."
   }
 }

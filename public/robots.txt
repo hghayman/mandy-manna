@@ -1,5 +1,5 @@
 # robots.txt for Dr. Mandy Manna Portfolio
-# https://drmandy-manna.netlify.app
+# https://drmandymanna.com
 
 # Allow all compliant crawlers
 User-agent: *
@@ -8,7 +8,6 @@ Allow: /
 # Disallow admin and API endpoints
 Disallow: /api/*
 Disallow: /keystatic/
-Disallow: /.netlify/
 
 # Allow specific bots for better indexing
 User-agent: Googlebot
@@ -52,11 +51,4 @@ User-agent: YouBot
 Allow: /
 
 # Sitemap location
-Sitemap: https://drmandy-manna.netlify.app/sitemap-index.xml
-Sitemap: https://drmandy-manna.netlify.app/sitemap-0.xml
-
-# Crawl-delay for politeness (optional)
-# Crawl-delay: 1
-
-# Host directive (preferred domain)
-Host: https://drmandy-manna.netlify.app
+Sitemap: https://drmandymanna.com/sitemap-index.xml

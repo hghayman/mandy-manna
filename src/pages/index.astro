@@ -4,6 +4,7 @@ import Base from "@/layouts/Base.astro";
 import HeroSection from "@/components/HeroSection";
 import AchievementsCard from "@/components/AchievementsCard";
 import { markdownify } from "@/lib/utils/textConverter";
+import config from "@/config/config.json";
 import CallToAction from "@/partials/CallToAction.astro";
 import type { Button, Feature } from "@/types";
 import type { CollectionEntry } from "astro:content";
@@ -88,13 +89,44 @@ const achievements = [
 ];
 
 const featureLabels = ["Fox Chase Farm", "CEA Innovation", "Vision"];
+
+// Person structured data (JSON-LD) — helps Google build her entity/knowledge
+// graph and own the SERP for "Dr. Mandy Manna". Verify awards before shipping.
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Dr. Mandy Manna",
+  url: `${config.site.base_url}/`,
+  image: `${config.site.base_url}/images/manna.webp`,
+  jobTitle: "Farm Administrator",
+  worksFor: {
+    "@type": "EducationalOrganization",
+    name: "The School District of Philadelphia — Fox Chase Farm",
+    url: "https://www.philasd.org/foxchasefarm/",
+  },
+  alumniOf: "Delaware Valley University",
+  knowsAbout: [
+    "Urban Agriculture",
+    "Controlled Environment Agriculture",
+    "K-12 Agricultural Education",
+    "Experiential Learning",
+    "STEM Education",
+  ],
+  award: "2024 Neubauer Fellowship (Cohort 8)",
+  sameAs: [
+    "https://www.linkedin.com/in/drmandy/",
+    "https://pasl.org/fellows/dr-mandy-manna/",
+    "https://thephiladelphiacitizen.org/integrity-icon-2026-mandy-manna/",
+  ],
+};
 ---
 
 <Base
   title="Dr. Mandy Manna - Educational Leader & Agricultural Innovation Expert"
-  meta_title="Dr. Mandy Manna - Portfolio"
-  description="Educational leader transforming urban agriculture through innovative experiential learning. Farm Administrator at Fox Chase Farm, managing the largest public school district-run educational farm in the United States."
+  meta_title="Dr. Mandy Manna | Fox Chase Farm Administrator & Ag Educator"
+  description="Dr. Mandy Manna is Farm Administrator at Fox Chase Farm and a 2024 Neubauer Fellow transforming urban agriculture and K-12 STEM learning across Philadelphia."
   image="/images/manna.webp"
+  schema={personSchema}
 >
   <!-- Hero Section -->
   <HeroSection

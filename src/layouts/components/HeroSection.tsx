@@ -102,9 +102,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
             </div>
 
-            {/* Desktop title */}
+            {/* Desktop title — ARIA heading (not a second <h1>): the mobile
+                block above holds the single literal <h1> for crawlers, while
+                this keeps a level-1 heading for desktop screen-reader users. */}
             <div className="hidden lg:block">
-              <h1
+              <div
+                role="heading"
+                aria-level={1}
                 className="font-serif font-semibold leading-[1.08] mb-4"
                 style={{
                   fontSize: 'clamp(2.5rem, 4vw, 3.5rem)',
@@ -112,7 +116,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 }}
               >
                 {title}
-              </h1>
+              </div>
               <p
                 className="text-xs font-semibold tracking-widest uppercase mb-8"
                 style={{ color: '#4a7c59' }}

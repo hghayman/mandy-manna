@@ -38,11 +38,18 @@ export interface Props {
   image?: string;
   noindex?: boolean;
   canonical?: string;
+  schema?: Record<string, any>;
 }
 
 // destructure frontmatter
-const { title, meta_title, description, image, noindex, canonical } =
+const { title, meta_title, description, image, noindex, canonical, schema } =
   Astro.props;
+
+// Self-referencing canonical: default to the current page's absolute URL
+// (built from the `site` config) unless a page passes an explicit canonical.
+const canonicalURL = canonical
+  ? canonical
+  : new URL(Astro.url.pathname, Astro.site).href;
 ---
 
 <!doctype html>
@@ -103,12 +110,13 @@ const { title, meta_title, description, image, noindex, canonical } =
     />
 
     <!-- title -->
-    <title>
-      {plainify(meta_title ? meta_title : title ? title : config.site.title)}
-    </title>
+    <title>{plainify(meta_title ? meta_title : title ? title : config.site.title)}</title>
 
     <!-- canonical url -->
-    {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- structured data (JSON-LD) -->
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
     <!-- noindex robots -->
     {noindex && <meta name="robots" content="noindex,nofollow" />}
@@ -142,6 +150,7 @@ const { title, meta_title, description, image, noindex, canonical } =
       )}
     />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={config.site.title} />
     <meta
       property="og:url"
       content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
