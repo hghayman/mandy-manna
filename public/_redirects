@@ -1,2 +1,5 @@
 /blog /media 301
 /blog/* /media/:splat 301
+
+# Convenience alias: @astrojs/sitemap emits sitemap-index.xml, not sitemap.xml
+/sitemap.xml /sitemap-index.xml 301
