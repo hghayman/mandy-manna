@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-label="Dr. Mandy Manna">
+  <rect width="1024" height="1024" rx="224" ry="224" fill="#2d5a3d" />
+  <path
+    d="M300 728 V296 L512 656 L724 296 V728"
+    fill="none"
+    stroke="#fafaf8"
+    stroke-width="118"
+    stroke-linecap="butt"
+    stroke-linejoin="round"
+  />
+</svg>
