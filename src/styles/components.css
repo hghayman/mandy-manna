@@ -155,7 +155,9 @@
   @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
   @apply prose-p:text-base prose-p:text-text dark:prose-p:text-darkmode-text;
   @apply prose-a:text-text prose-a:[&.btn]:no-underline  dark:prose-a:text-darkmode-text;
-  @apply prose-img:max-w-full prose-img:rounded prose-img:max-h-96;
+  /* body images keep their real aspect ratio: w-auto + h-auto lets the
+     max-height scale the width too, instead of squashing tall photos */
+  @apply prose-img:mx-auto prose-img:block prose-img:h-auto prose-img:w-auto prose-img:max-w-full prose-img:max-h-[32rem] prose-img:rounded;
   @apply prose-strong:text-text-dark dark:prose-strong:text-darkmode-text;
   @apply prose-hr:border-border dark:prose-hr:border-darkmode-border;
   @apply prose-pre:rounded-lg prose-pre:bg-light dark:prose-pre:bg-darkmode-light;
